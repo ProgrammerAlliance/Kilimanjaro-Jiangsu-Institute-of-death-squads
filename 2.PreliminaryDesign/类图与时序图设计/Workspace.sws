@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model ID="{DA79A927-607F-44C9-B860-4B5E7E95DBBA}" Name="OrderSystemClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="OrderSystemClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{DA79A927-607F-44C9-B860-4B5E7E95DBBA}" Name="OrderSystemClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="OrderSystemClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{D651394C-5F8E-423C-87DF-D914589B4A30}" Name="OrderSystemSequenceDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="OrderSystemSequenceDiagram.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
