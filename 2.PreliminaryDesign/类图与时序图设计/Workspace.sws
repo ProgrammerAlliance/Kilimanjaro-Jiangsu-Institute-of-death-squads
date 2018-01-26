@@ -4,10 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{DA79A927-607F-44C9-B860-4B5E7E95DBBA}" Loaded="No" Name="OrderSystemClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="OrderSystemClassDiagram.oom"/>
-		<Model Expanded="Yes" ID="{D651394C-5F8E-423C-87DF-D914589B4A30}" Loaded="No" Name="OrderSystemSequenceDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="OrderSystemSequenceDiagram.oom"/>
-		<Model Expanded="Yes" ID="{9EF5803A-4606-4A39-A0FB-63BAF355298D}" Loaded="No" Name="订餐系统类图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统类图.oom"/>
-		<Model Expanded="Yes" ID="{12F071B5-C952-4993-9D74-139B3F19F81C}" Name="订单系统顺序图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订单系统顺序图.oom"/>
+		<Model Expanded="Yes" ID="{9EF5803A-4606-4A39-A0FB-63BAF355298D}" Name="订餐系统类图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统类图.oom"/>
+		<Model Expanded="Yes" ID="{12F071B5-C952-4993-9D74-139B3F19F81C}" Name="订单系统顺序图" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统顺序图.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
