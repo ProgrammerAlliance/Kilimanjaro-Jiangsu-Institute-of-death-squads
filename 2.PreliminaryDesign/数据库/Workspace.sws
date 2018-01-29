@@ -5,8 +5,7 @@
 <Workspace>
 	<Local Expanded="Yes" Name="OrderingSystem">
 		<Model Expanded="Yes" ID="{0A7DDB72-D181-4542-B925-60BF4BE0A15A}" Loaded="No" Name="OrderingSystem" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="OrderingSystem.cdm"/>
-		<Model Expanded="Yes" ID="{BEB2EA15-E1BE-4BE0-A1CB-CCF43E91D908}" Loaded="No" Name="Physical Data" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="OrderingSystem.pdm"/>
-		<Model Expanded="Yes" ID="{12F071B5-C952-4993-9D74-139B3F19F81C}" Name="订单系统顺序图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../类图与时序图设计/订餐系统顺序图.oom"/>
+		<Model ID="{BEB2EA15-E1BE-4BE0-A1CB-CCF43E91D908}" Name="Physical Data" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="OrderingSystem.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
