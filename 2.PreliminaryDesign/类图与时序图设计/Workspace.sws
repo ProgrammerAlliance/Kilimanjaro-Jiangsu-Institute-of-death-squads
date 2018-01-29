@@ -4,7 +4,7 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model ID="{9EF5803A-4606-4A39-A0FB-63BAF355298D}" Name="订餐系统类图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统类图.oom"/>
+		<Model Expanded="Yes" ID="{9EF5803A-4606-4A39-A0FB-63BAF355298D}" Name="订餐系统类图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统类图.oom"/>
 		<Model Expanded="Yes" ID="{12F071B5-C952-4993-9D74-139B3F19F81C}" Name="订单系统顺序图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="订餐系统顺序图.oom"/>
 		<Model Expanded="Yes" ID="{BB16BC0B-3599-4943-A927-F8748DC3D0E5}" Name="订餐系统时序图" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="新订餐系统时序图.oom"/>
 	</Local>
