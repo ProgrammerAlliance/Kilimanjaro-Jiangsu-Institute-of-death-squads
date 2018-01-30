@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("NL.Order.DAL")]
+[assembly: AssemblyTitle("NL.Order.SqlServerDAL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("NL.Order.DAL")]
+[assembly: AssemblyProduct("NL.Order.SqlServerDAL")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("bf77dc87-0cb6-4bf3-9759-04e4eb402288")]
+[assembly: Guid("95bc6e52-b39e-41a1-a5c1-cf66499c0fae")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

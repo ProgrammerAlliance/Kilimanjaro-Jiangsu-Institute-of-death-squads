@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NL.Order.DAL
+namespace NL.Order.SqlServerDAL
 {
     public class Class1
     {
