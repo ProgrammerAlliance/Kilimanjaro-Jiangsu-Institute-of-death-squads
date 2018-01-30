@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NL.Order.IBLL
+namespace NL.Order.OracleDAL
 {
-    public class Class1
+    class MenuOracleDAL
     {
     }
 }

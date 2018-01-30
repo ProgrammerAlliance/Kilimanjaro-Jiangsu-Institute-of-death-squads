@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NL.Order.SqlServerDAL
+namespace NL.Order.Model
 {
-    public class Class1
+    class UserInfo
     {
     }
 }

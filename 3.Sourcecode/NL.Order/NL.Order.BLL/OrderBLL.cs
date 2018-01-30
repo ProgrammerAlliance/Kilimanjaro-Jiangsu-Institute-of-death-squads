@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NL.Order.OracleDAL
+namespace NL.Order.BLL
 {
-    public class Class1
+    class OrderBLL
     {
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace NL.Order.IDAL
+namespace NL.Order.SqlServerDAL
 {
-    public class Class1
+    class UserSqlServerDAL
     {
     }
 }
