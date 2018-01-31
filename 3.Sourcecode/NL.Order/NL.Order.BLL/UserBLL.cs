@@ -27,7 +27,7 @@ namespace NL.Order.BLL
             throw new NotImplementedException();
         }
 
-        public JsonResult MotifyPassword(string userId, string psassword)
+        public JsonResult ModifyPassword(string userId, string psassword)
         {
             throw new NotImplementedException();
         }

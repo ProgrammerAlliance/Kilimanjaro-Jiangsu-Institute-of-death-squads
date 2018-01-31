@@ -1,0 +1,4 @@
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Model\bin\Debug\NL.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Model\bin\Debug\NL.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Model\obj\Debug\NL.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Model\obj\Debug\NL.Order.Model.pdb
