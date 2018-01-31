@@ -1,0 +1,7 @@
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\bin\Release\NLC.Order.IDAL.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\bin\Release\NLC.Order.IDAL.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\bin\Release\NLC.Order.Model.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\bin\Release\NLC.Order.Model.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\obj\Release\NLC.Order.IDAL.csprojResolveAssemblyReference.cache
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\obj\Release\NLC.Order.IDAL.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IDAL\obj\Release\NLC.Order.IDAL.pdb

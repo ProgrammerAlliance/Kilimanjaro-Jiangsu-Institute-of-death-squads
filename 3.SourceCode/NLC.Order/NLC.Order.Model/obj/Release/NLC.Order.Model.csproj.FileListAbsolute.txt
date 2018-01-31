@@ -1,0 +1,5 @@
+K:\visual2015\project\NLC.Order\NLC.Order.Model\bin\Release\NLC.Order.Model.dll
+K:\visual2015\project\NLC.Order\NLC.Order.Model\bin\Release\NLC.Order.Model.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.csprojResolveAssemblyReference.cache
+K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.dll
+K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.pdb
