@@ -2,3 +2,17 @@ H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.DALFactory.pdb
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\obj\Release\NL.Order.DALFactory.dll
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\obj\Release\NL.Order.DALFactory.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.DALFactory.dll.config
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.DALFactory.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.DALFactory.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.IDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.OracleDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.SqlServerDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.Model.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.IDAL.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.OracleDAL.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.SqlServerDAL.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\bin\Release\NL.Order.Model.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\obj\Release\NL.Order.DALFactory.csprojResolveAssemblyReference.cache
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\obj\Release\NL.Order.DALFactory.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.DALFactory\obj\Release\NL.Order.DALFactory.pdb

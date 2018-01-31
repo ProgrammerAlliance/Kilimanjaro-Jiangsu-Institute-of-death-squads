@@ -14,7 +14,7 @@ namespace NL.Order.SqlServerDAL
         /// <returns></returns>
         public bool DeleteUser(string userId)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <summary>

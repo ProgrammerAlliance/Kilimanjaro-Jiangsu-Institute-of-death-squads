@@ -2,11 +2,16 @@
 using System;
 using NL.Order.Common;
 using NL.Order.Model;
+using NL.Order.IDAL;
+using NL.Order.DALFactory;
 
 namespace NL.Order.BLL
 {
     public class UserBLL : IUserBLL
     {
+        private IUserDAL userDAL = UserDALFactory.CreateUserDAL();
+        private JsonResult jr = new JsonResult();
+
         /// <summary>
         /// 增加用户
         /// </summary>
@@ -24,7 +29,9 @@ namespace NL.Order.BLL
         /// <returns></returns>
         public JsonResult DelUser(string userId)
         {
-            throw new NotImplementedException();
+            jr.Status = 200;
+            jr.Result = userDAL.DeleteUser("1");
+            return jr;
         }
 
         /// <summary>

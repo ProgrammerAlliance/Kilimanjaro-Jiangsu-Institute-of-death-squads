@@ -3,7 +3,12 @@ H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.csprojResolveAssemblyReference.cache
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.dll
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.pdb
-H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.IDAL.dll
-H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.Model.dll
-H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.IDAL.pdb
-H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.Model.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.SqlServerDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.SqlServerDAL.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.IDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.Model.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.IDAL.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\bin\Release\NL.Order.Model.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.csprojResolveAssemblyReference.cache
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.SqlServerDAL\obj\Release\NL.Order.SqlServerDAL.pdb
