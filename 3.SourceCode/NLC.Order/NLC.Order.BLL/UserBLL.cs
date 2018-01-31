@@ -9,7 +9,7 @@ namespace NLC.Order.BLL
 {
     public class UserBLL : IUserBLL
     {
-       // private IUserDAL userDAL = Factory.CreateUserDAL();
+        private IUserDAL userDAL = Factory.CreateUserDAL();
         private JsonResult jr = new JsonResult();
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace NLC.Order.BLL
         public JsonResult DelUser(string userId)
         {
             jr.Status = 200;
-           // jr.Result = userDAL.DeleteUser("1");
+            jr.Result = userDAL.DeleteUser("1");
             return jr;
         }
 
