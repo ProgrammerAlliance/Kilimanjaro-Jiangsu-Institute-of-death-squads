@@ -6,7 +6,16 @@ using System.Text;
 
 namespace NL.Order.Common
 {
-    class JsonResult
+    public class JsonResult
     {
+        /// <summary>
+        /// 状态码
+        /// </summary>
+        public int Status { get; set; }
+
+        /// <summary>
+        /// 结果
+        /// </summary>
+        public object Result { get; set; }
     }
 }
