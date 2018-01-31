@@ -66,10 +66,9 @@ namespace NL.Order.WebApi.Controllers
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <param name="newPassword">新密码</param>
-        /// <param name="repeatPassword">重复密码</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult MotifyPassword(string userId, string newPassword, string repeatPassword)
+        public JsonResult MotifyPassword(string userId, string newPassword)
         {
             return null;
         }

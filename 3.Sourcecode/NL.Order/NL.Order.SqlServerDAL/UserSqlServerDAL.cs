@@ -6,7 +6,8 @@ using System.Text;
 
 namespace NL.Order.SqlServerDAL
 {
-    class UserSqlServerDAL
+    public class UserSqlServerDAL
     {
+
     }
 }
