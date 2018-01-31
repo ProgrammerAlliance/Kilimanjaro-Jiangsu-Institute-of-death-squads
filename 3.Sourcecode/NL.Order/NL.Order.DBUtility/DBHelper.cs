@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NL.Order.DBUtility
 {
-    class DBHelper
+    public class DBHelper
     {
     }
 }

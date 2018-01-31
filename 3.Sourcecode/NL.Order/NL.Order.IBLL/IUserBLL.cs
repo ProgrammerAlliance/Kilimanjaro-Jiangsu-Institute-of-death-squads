@@ -39,6 +39,6 @@ namespace NL.Order.IBLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        JsonResult MotifyPassword(string userId, string psassword);
+        JsonResult ModifyPassword(string userId, string psassword);
     }
 }
