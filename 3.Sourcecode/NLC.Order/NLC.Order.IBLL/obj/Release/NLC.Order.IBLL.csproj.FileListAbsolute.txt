@@ -1,0 +1,9 @@
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NLC.Order.IBLL.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NLC.Order.IBLL.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NL.Order.Common.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NLC.Order.Model.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NL.Order.Common.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Release\NLC.Order.Model.pdb
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Release\NLC.Order.IBLL.csprojResolveAssemblyReference.cache
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Release\NLC.Order.IBLL.dll
+K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Release\NLC.Order.IBLL.pdb
