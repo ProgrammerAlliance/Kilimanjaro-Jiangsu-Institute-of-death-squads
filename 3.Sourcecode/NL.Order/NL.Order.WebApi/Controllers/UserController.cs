@@ -21,6 +21,7 @@ namespace NL.Order.WebApi.Controllers
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public IList<UserInfo> GetAllUser()
         {
             return users;
@@ -32,6 +33,7 @@ namespace NL.Order.WebApi.Controllers
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
+        [HttpGet]
         public string Login(string name, string pwd)
         {
             return "121111";
@@ -42,6 +44,7 @@ namespace NL.Order.WebApi.Controllers
         /// </summary>
         /// <param name="user">用户信息</param>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult AddUser(UserInfo user)
         {
             return null;
@@ -52,6 +55,7 @@ namespace NL.Order.WebApi.Controllers
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult DelUser(string userId)
         {
             return null;
@@ -64,6 +68,7 @@ namespace NL.Order.WebApi.Controllers
         /// <param name="newPassword">新密码</param>
         /// <param name="repeatPassword">重复密码</param>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult MotifyPassword(string userId, string newPassword, string repeatPassword)
         {
             return null;
