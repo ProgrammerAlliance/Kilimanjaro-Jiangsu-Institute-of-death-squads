@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="sqlConn-Web.config Connection String" description="sqlConn 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="server=.;uid=sa;pwd=123456;database=order" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="H:\\Nlworkspace\\源码\\Kilimanjaro-Jiangsu-Institute-of-death-squads\\3\.Sourcecode\\NLC\.Order\\NLC\.Order\.WebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlConn']/@connectionString" />
-  </parameter>
-</parameters>
