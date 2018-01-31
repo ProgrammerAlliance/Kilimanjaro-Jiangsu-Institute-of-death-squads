@@ -1,4 +1,6 @@
-﻿using NL.Order.Common;
+﻿using NL.Order.BLL;
+using NL.Order.Common;
+using NL.Order.IBLL;
 using NL.Order.Model;
 using System;
 using System.Collections.Generic;
@@ -11,20 +13,19 @@ namespace NL.Order.WebApi.Controllers
 {
     public class UserController : ApiController
     {
-        IList<UserInfo> users = new List<UserInfo>
-        {
-            new UserInfo(){UserId="NL001",UserName="zs",UserPwd="123",UserType="用户",Dept="技术部"},
-            new UserInfo(){UserId="NL002",UserName="ls",UserPwd="456",UserType="用户",Dept="人事部"},
-        };
+        /// <summary>
+        /// UserBLL对象
+        /// </summary>
+        private IUserBLL userBLL = new UserBLL();
 
         /// <summary>
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IList<UserInfo> GetAllUser()
+        public JsonResult GetAllUser()
         {
-            return users;
+            return userBLL.GetAllUser();
         }
 
         /// <summary>
@@ -34,9 +35,9 @@ namespace NL.Order.WebApi.Controllers
         /// <param name="pwd">密码</param>
         /// <returns></returns>
         [HttpGet]
-        public string Login(string name, string pwd)
+        public JsonResult Login(string name, string pwd)
         {
-            return "121111";
+            return userBLL.Login(name, pwd);
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace NL.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult AddUser(UserInfo user)
         {
-            return null;
+            return AddUser(user);
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace NL.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult DelUser(string userId)
         {
-            return null;
+            return userBLL.DelUser(userId);
         }
 
         /// <summary>
@@ -68,9 +69,9 @@ namespace NL.Order.WebApi.Controllers
         /// <param name="newPassword">新密码</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult MotifyPassword(string userId, string newPassword)
+        public JsonResult ModifyPassword(string userId, string newPassword)
         {
-            return null;
+            return userBLL.ModifyPassword(userId,newPassword);
         }
     }
 }
