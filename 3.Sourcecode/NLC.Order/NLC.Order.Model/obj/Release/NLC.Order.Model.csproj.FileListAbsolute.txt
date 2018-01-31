@@ -3,3 +3,8 @@ K:\visual2015\project\NLC.Order\NLC.Order.Model\bin\Release\NLC.Order.Model.pdb
 K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.csprojResolveAssemblyReference.cache
 K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.dll
 K:\visual2015\project\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.Model\bin\Release\NLC.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.Model\bin\Release\NLC.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.csprojResolveAssemblyReference.cache
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.Model\obj\Release\NLC.Order.Model.pdb

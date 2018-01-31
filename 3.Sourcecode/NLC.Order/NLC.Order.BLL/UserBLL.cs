@@ -4,12 +4,14 @@ using NLC.Order.IBLL;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace NLC.Order.BLL
 {
     public class UserBLL : IUserBLL
     {
-       // private IUserDAL userDAL = Factory.CreateUserDAL();
+        private IUserDAL userDAL = Factory.CreateUserDAL();
         private JsonResult jr = new JsonResult();
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace NLC.Order.BLL
         public JsonResult DelUser(string userId)
         {
             jr.Status = 200;
-           // jr.Result = userDAL.DeleteUser("1");
+            jr.Result = userDAL.DeleteUser("1");
             return jr;
         }
 
@@ -40,7 +42,6 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult GetAllUser()
         {
-
             return null;
         }
 
@@ -64,6 +65,36 @@ namespace NLC.Order.BLL
         public JsonResult ModifyPassword(string userId, string psassword)
         {
             throw new NotImplementedException();
+        }
+
+
+        public JsonResult Test()
+        {
+            
+            string connStr = ConfigurationManager.ConnectionStrings["sqlConn"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.CommandText = @"SELECT  [ID]
+                                         ,[Name]
+                                       FROM [Test]
+                                       WHERE ID=4";
+                    Test test = null;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if(reader.Read())
+                        {
+                            test = new Test();
+                            test.Id = int.Parse(reader["ID"].ToString());
+                            test.Name = reader["Name"].ToString();
+                        }
+                        jr.Result = test;
+                    }
+                }
+                return jr;
+            }
         }
     }
 }

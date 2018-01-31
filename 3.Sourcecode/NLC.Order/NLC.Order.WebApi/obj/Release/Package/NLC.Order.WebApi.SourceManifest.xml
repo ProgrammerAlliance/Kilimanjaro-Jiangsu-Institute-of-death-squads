@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="K:\visual2015\project\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
-  <setAcl path="K:\visual2015\project\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="K:\visual2015\project\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.WebApi\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

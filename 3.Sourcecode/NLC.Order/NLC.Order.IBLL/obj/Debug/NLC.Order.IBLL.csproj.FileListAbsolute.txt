@@ -7,3 +7,12 @@ K:\visual2015\project\NLC.Order\NLC.Order.IBLL\bin\Debug\NLC.Order.Model.pdb
 K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.csprojResolveAssemblyReference.cache
 K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.dll
 K:\visual2015\project\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NLC.Order.IBLL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NLC.Order.IBLL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NL.Order.Common.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NLC.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NL.Order.Common.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\bin\Debug\NLC.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.csprojResolveAssemblyReference.cache
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.IBLL\obj\Debug\NLC.Order.IBLL.pdb

@@ -2,3 +2,7 @@ K:\visual2015\project\NLC.Order\NLC.Order.DBUtility\bin\Debug\NLC.Order.DBUtilit
 K:\visual2015\project\NLC.Order\NLC.Order.DBUtility\bin\Debug\NLC.Order.DBUtility.pdb
 K:\visual2015\project\NLC.Order\NLC.Order.DBUtility\obj\Debug\NLC.Order.DBUtility.dll
 K:\visual2015\project\NLC.Order\NLC.Order.DBUtility\obj\Debug\NLC.Order.DBUtility.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.DBUtility\bin\Debug\NLC.Order.DBUtility.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.DBUtility\bin\Debug\NLC.Order.DBUtility.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.DBUtility\obj\Debug\NLC.Order.DBUtility.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.DBUtility\obj\Debug\NLC.Order.DBUtility.pdb

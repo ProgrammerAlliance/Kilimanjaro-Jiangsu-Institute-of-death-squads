@@ -40,5 +40,6 @@ namespace NLC.Order.IBLL
         /// <param name="psassword">密码</param>
         /// <returns></returns>
         JsonResult ModifyPassword(string userId, string psassword);
+        JsonResult Test();
     }
 }

@@ -7,3 +7,12 @@ K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.Model.pd
 K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.csprojResolveAssemblyReference.cache
 K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.dll
 K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.OracleDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.OracleDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.IDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.IDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.csprojResolveAssemblyReference.cache
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.pdb

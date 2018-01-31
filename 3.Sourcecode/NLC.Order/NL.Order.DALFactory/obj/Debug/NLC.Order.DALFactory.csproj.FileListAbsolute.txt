@@ -11,3 +11,16 @@ K:\visual2015\project\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.Model.pd
 K:\visual2015\project\NLC.Order\NL.Order.DALFactory\obj\Debug\NLC.Order.DALFactory.csprojResolveAssemblyReference.cache
 K:\visual2015\project\NLC.Order\NL.Order.DALFactory\obj\Debug\NL.Order.DALFactory.dll
 K:\visual2015\project\NLC.Order\NL.Order.DALFactory\obj\Debug\NL.Order.DALFactory.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NL.Order.DALFactory.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NL.Order.DALFactory.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.IDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.OracleDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.SqlServerDAL.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.IDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.OracleDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.SqlServerDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\bin\Debug\NLC.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\obj\Debug\NLC.Order.DALFactory.csprojResolveAssemblyReference.cache
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\obj\Debug\NL.Order.DALFactory.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NLC.Order\NL.Order.DALFactory\obj\Debug\NL.Order.DALFactory.pdb

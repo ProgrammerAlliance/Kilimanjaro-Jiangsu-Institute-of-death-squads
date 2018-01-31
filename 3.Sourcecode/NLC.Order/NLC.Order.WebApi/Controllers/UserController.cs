@@ -75,9 +75,9 @@ namespace NLC.Order.WebApi.Controllers
         }
 
         [HttpGet]
-        public string Test(string name)
+        public JsonResult Test(string name)
         {
-            return "1101101001";
+            return userBLL.Test();
         }
     }
 }

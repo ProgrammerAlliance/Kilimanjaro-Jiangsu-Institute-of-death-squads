@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrderInfo.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="MenuInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
