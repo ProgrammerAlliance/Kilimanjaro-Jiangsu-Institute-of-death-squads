@@ -33,7 +33,8 @@ namespace NL.Order.BLL
         /// <returns></returns>
         public JsonResult GetAllUser()
         {
-            throw new NotImplementedException();
+
+            return null;
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace NL.Order.BLL
         /// <param name="userId"></param>
         /// <param name="psassword"></param>
         /// <returns></returns>
-        public JsonResult MotifyPassword(string userId, string psassword)
+        public JsonResult ModifyPassword(string userId, string psassword)
         {
             throw new NotImplementedException();
         }
