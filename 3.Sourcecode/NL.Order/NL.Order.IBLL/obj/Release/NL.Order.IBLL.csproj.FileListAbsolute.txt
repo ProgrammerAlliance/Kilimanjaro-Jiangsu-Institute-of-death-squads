@@ -2,3 +2,8 @@ H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\bin\Release\NL.Order.IBLL.pdb
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\obj\Release\NL.Order.IBLL.dll
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\obj\Release\NL.Order.IBLL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\bin\Release\NL.Order.Common.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\bin\Release\NL.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\bin\Release\NL.Order.Common.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\bin\Release\NL.Order.Model.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IBLL\obj\Release\NL.Order.IBLL.csprojResolveAssemblyReference.cache

@@ -3,3 +3,5 @@ H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IDAL\obj\Release\NL.Order.IDAL.csprojResolveAssemblyReference.cache
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IDAL\obj\Release\NL.Order.IDAL.dll
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IDAL\obj\Release\NL.Order.IDAL.pdb
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IDAL\bin\Release\NL.Order.Model.dll
+H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.IDAL\bin\Release\NL.Order.Model.pdb

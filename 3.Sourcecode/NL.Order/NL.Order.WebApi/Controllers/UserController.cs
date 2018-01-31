@@ -73,5 +73,11 @@ namespace NL.Order.WebApi.Controllers
         {
             return userBLL.ModifyPassword(userId,newPassword);
         }
+
+        [HttpGet]
+        public string Test(int i)
+        {
+            return "1101101001";
+        }
     }
 }
