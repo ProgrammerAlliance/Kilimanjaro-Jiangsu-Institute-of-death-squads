@@ -9,7 +9,7 @@ namespace NL.Order.BLL
 {
     public class UserBLL : IUserBLL
     {
-        private IUserDAL userDAL = UserDALFactory.CreateUserDAL();
+        private IUserDAL userDAL = Factory.CreateUserDAL();
         private JsonResult jr = new JsonResult();
 
         /// <summary>
