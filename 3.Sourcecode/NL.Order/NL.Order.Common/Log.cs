@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NL.Order.Common
 {
-    class Log
+    public class Log
     {
         private string logFile;
         private StreamWriter writer;
