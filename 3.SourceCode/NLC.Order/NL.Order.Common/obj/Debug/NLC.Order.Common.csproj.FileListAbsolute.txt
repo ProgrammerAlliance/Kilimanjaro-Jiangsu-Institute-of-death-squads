@@ -1,4 +1,0 @@
-K:\visual2015\project\NLC.Order\NL.Order.Common\bin\Debug\NL.Order.Common.dll
-K:\visual2015\project\NLC.Order\NL.Order.Common\bin\Debug\NL.Order.Common.pdb
-K:\visual2015\project\NLC.Order\NL.Order.Common\obj\Debug\NL.Order.Common.dll
-K:\visual2015\project\NLC.Order\NL.Order.Common\obj\Debug\NL.Order.Common.pdb

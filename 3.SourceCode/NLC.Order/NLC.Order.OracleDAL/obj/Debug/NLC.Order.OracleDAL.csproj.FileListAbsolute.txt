@@ -1,9 +1,0 @@
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.OracleDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.OracleDAL.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.IDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.Model.dll
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.IDAL.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\bin\Debug\NLC.Order.Model.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.csprojResolveAssemblyReference.cache
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.OracleDAL\obj\Debug\NLC.Order.OracleDAL.pdb
