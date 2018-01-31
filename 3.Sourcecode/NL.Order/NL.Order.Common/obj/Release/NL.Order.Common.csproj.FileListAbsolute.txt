@@ -3,3 +3,8 @@ H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.csprojResolveAssemblyReference.cache
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.dll
 H:\Nlworkspace\源码\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\bin\Release\NL.Order.Common.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\bin\Release\NL.Order.Common.pdb
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.csprojResolveAssemblyReference.cache
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.dll
+G:\点餐系统\Kilimanjaro-Jiangsu-Institute-of-death-squads\3.Sourcecode\NL.Order\NL.Order.Common\obj\Release\NL.Order.Common.pdb

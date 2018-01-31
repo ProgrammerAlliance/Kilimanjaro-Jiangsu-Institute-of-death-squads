@@ -50,9 +50,17 @@
       <Project>{0B482B88-4464-4625-A4E4-48679A4BAF8B}</Project>
       <Name>NL.Order.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NL.Order.DALFactory\NL.Order.DALFactory.csproj">
+      <Project>{B1C48AA8-BD2D-4EA1-95D7-78B3487A3AB1}</Project>
+      <Name>NL.Order.DALFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NL.Order.IBLL\NL.Order.IBLL.csproj">
       <Project>{17FB0662-CBA5-43F9-AAB7-6BA4228F66D3}</Project>
       <Name>NL.Order.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NL.Order.IDAL\NL.Order.IDAL.csproj">
+      <Project>{C9775CDF-BF38-4678-BC9F-47D6CBD77A36}</Project>
+      <Name>NL.Order.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\NL.Order.Model\NL.Order.Model.csproj">
       <Project>{46732434-92B5-4171-B7D9-EF6B01CF7832}</Project>

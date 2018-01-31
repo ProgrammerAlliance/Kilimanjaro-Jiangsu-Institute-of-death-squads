@@ -2,13 +2,10 @@
 using NL.Order.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NL.Order.OracleDAL
 {
-    class UserOracleDAL : IUserDAL
+    public class UserOracleDAL : IUserDAL
     {
         /// <summary>
         /// 删除用户
@@ -17,7 +14,7 @@ namespace NL.Order.OracleDAL
         /// <returns></returns>
         public bool DeleteUser(string userId)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         /// <summary>
