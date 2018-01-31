@@ -44,5 +44,11 @@
     <Compile Include="DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NL.Order.Common\NL.Order.Common.csproj">
+      <Project>{0b482b88-4464-4625-a4e4-48679a4baf8b}</Project>
+      <Name>NL.Order.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
