@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NL.Order.Common;
+using NL.Order.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +11,62 @@ namespace NL.Order.WebApi.Controllers
 {
     public class UserController : ApiController
     {
-        // GET: api/User
-        public IEnumerable<string> Get()
+        IList<UserInfo> users = new List<UserInfo>
         {
-            return new string[] { "value1", "value2" };
+            new UserInfo(){UserId="NL001",UserName="zs",UserPwd="123",UserType="用户",Dept="技术部"},
+            new UserInfo(){UserId="NL002",UserName="ls",UserPwd="456",UserType="用户",Dept="人事部"},
+        };
+
+        /// <summary>
+        /// 获取所有用户
+        /// </summary>
+        /// <returns></returns>
+        public IList<UserInfo> GetAllUser()
+        {
+            return users;
         }
 
-        // GET: api/User/5
-        public string Get(int id)
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="name">用户名</param>
+        /// <param name="pwd">密码</param>
+        /// <returns></returns>
+        public string Login(string name, string pwd)
         {
-            return "value";
+            return "121111";
         }
 
-        // POST: api/User
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// 增加用户
+        /// </summary>
+        /// <param name="user">用户信息</param>
+        /// <returns></returns>
+        public JsonResult AddUser(UserInfo user)
         {
+            return null;
         }
 
-        // PUT: api/User/5
-        public void Put(int id, [FromBody]string value)
+        /// <summary>
+        /// 删除用户
+        /// </summary>
+        /// <param name="userId">员工编号</param>
+        /// <returns></returns>
+        public JsonResult DelUser(string userId)
         {
+            return null;
         }
 
-        // DELETE: api/User/5
-        public void Delete(int id)
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userId">员工编号</param>
+        /// <param name="newPassword">新密码</param>
+        /// <param name="repeatPassword">重复密码</param>
+        /// <returns></returns>
+        public JsonResult MotifyPassword(string userId, string newPassword, string repeatPassword)
         {
+            return null;
         }
     }
 }
