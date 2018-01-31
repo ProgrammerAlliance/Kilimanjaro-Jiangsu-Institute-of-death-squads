@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NL.Order.Common;
+using NL.Order.Model;
 
 namespace NL.Order.IBLL
 {
-    interface IUserBLL
+    public interface IUserBLL
     {
+        JsonResult GetAllUser();
+        JsonResult Login(string name, string pwd);
+        JsonResult AddUser(UserInfo user);
+        JsonResult DelUser(string userId);
+        JsonResult MotifyPassword(string userId, string psassword);
     }
 }
