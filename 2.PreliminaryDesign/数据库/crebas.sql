@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2018/1/29 15:37:38                           */
+/* Created on:     2018/1/31 9:56:27                            */
 /*==============================================================*/
 
 
@@ -110,12 +110,8 @@ create table OrderDinnerTable (
    Orderno              int                  not null,
    Empno                int                  not null,
    Mnumber              int                  not null,
-   Name                 varchar(50)          not null,
-   Deptno               int                  not null,
-   DishName             varchar(50)          not null,
    Time                 datetime             not null,
    Clean                int                  not null,
-   Price                int                  not null,
    constraint PK_ORDERDINNERTABLE primary key (Orderno)
 )
 go
@@ -146,7 +142,7 @@ alter table OrderDinnerTable
 go
 
 alter table OrderDinnerTable
-   add constraint FK_ORDERDIN_REFERENCE_EMP foreign key (Orderno)
+   add constraint FK_ORDERDIN_REFERENCE_EMP foreign key (Empno)
       references Emp (Empno)
 go
 
