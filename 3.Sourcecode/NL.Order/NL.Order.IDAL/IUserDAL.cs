@@ -1,12 +1,14 @@
-﻿using System;
+﻿using NL.Order.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NL.Order.IDAL
 {
-    interface IUserDAL
+    public interface IUserDAL
     {
+        IList<UserInfo> SelectAllUser();
+        UserInfo SelectByNameAndPwd(string name, string pwd);
+        bool InsertUser(UserInfo user);
+        bool DeleteUser(string userId);
+        bool UpdateUser(string userId, string psassword);
     }
 }
