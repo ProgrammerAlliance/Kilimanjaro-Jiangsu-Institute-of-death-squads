@@ -1,11 +1,7 @@
-﻿using NL.Order.Common;
-using NL.Order.Model;
-using System;
+﻿using NL.Order.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace NL.Order.WebApi.Controllers
 {

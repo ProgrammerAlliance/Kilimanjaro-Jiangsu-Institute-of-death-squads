@@ -4,93 +4,57 @@ using System.Data.SqlClient;
 
 namespace NL.Order.DBUtility
 {
-    public  class DBHelper
+    public class DBHelper
     {
-        static string connStr = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Integrated Security=True";
-        static SqlConnection conn = new SqlConnection(connStr);
+        static string connString = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
 
-        public static SqlDataReader GetDataReader(string sql)//返回值是一个数组，可通过dr[0],dr[1]使用各字段的值
+        public SqlConnection conn;
+        // 执行对数据表中数据的增加、删除、修改操作  
+        public int NonQuery(string sql)
         {
-            SqlConnection myConn = conn;
-            SqlDataReader dr = null;
-
+            conn = new SqlConnection(connString);
+            int a = -1;
             try
             {
-                if (myConn.State == ConnectionState.Closed)
-                {
-                    myConn.Open();
-                }
-                SqlCommand cmd = new SqlCommand(sql, myConn);
-
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            }
-            catch
-            {
-
-                if (myConn.State == ConnectionState.Open)
-                {
-                    myConn.Close();
-                }
-
-            }
-            return dr;
-        }
-
-        public static bool ExecuteNonQuery(string sql)  //对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。对于所有其他类型的语句，返回值为 -1。如果发生回滚，返回值也为 -1
-        {
-            int n = 0;
-
-            try
-            {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
+                conn.Open();  //打开数据库  
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                n = cmd.ExecuteNonQuery();
-
+                a = cmd.ExecuteNonQuery();
             }
-            catch
+            catch (Exception msg)
             {
-
-                return false;
+                throw new Exception(msg.ToString());
             }
             finally
             {
                 if (conn.State == ConnectionState.Open)
                 {
-                    conn.Close();
+                    conn.Close();    //关闭数据库  
                 }
             }
-            return n > 0;
+            return a;
+
         }
-
-        public static Object ExecuteScalar(string sql)//使用ExecuteScalar()，增删改查如果成功，会返回一个对象，否则会返回一个null；
+        // 执行对数据表中数据的查询操作  
+        public DataSet Query(string sql)
         {
-            Object ob = null;
-
+            conn = new SqlConnection(connString);
+            DataSet ds = new DataSet();
             try
             {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                ob = cmd.ExecuteScalar();
+                conn.Open();      //打开数据库  
+                SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
+                adp.Fill(ds);
             }
-            catch
+            catch (Exception msg)
             {
-                return null;
+                throw new Exception(msg.ToString());
             }
             finally
             {
                 if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                    conn.Close();      //关闭数据库  
             }
-            return ob;
+            return ds;
         }
     }
 }
-
