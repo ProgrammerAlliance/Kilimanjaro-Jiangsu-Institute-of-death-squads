@@ -1,1 +1,12 @@
 /3.SourceCode/NLC.Order/.vs
+/3.SourceCode/NLC.Order/NL.Order.Common/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.DBUtility/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.Model/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.IDAL/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.OracleDAL/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NL.Order.DALFactory/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.WebApi.Tests/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.BLL/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.SqlServerDAL/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.IBLL/obj/Debug/*.cache
+/3.SourceCode/NLC.Order/NLC.Order.WebApi/obj/Debug/*.cache
