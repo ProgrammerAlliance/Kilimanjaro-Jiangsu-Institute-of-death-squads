@@ -80,7 +80,7 @@ namespace NLC.Order.SqlServerDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public UserInfo SelectByIdAndPwd(int UserId, string pwd,int type)
+        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type)
         {
             UserInfo user = null;
             string sql = @"SELECT [UserId],[UserName]
@@ -92,8 +92,7 @@ namespace NLC.Order.SqlServerDAL
                             WHERE UserId=1001 and UserPwd=123";
             SqlParameter[] parameters = null;
             var data = DBHelper.Query(sql, parameters);
-
-            return DBHelper.GetListbyDataSet<UserInfo>(data)[0];
+            return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
 
         /// <summary>
