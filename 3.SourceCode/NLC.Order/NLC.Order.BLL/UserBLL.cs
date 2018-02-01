@@ -82,7 +82,7 @@ namespace NLC.Order.BLL
             try
             {
                 var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
-                if (Result == null)//没有用户
+                if (Result == null||Result.Count==0)//没有用户
                 {
                     jr.Status = 404;
                     jr.Result = "用户名或密码错误";
