@@ -8,7 +8,7 @@ namespace NLC.Order.DALFactory
     public class Factory
     {
         //获取配置文件中DateBaseType对应的值
-        private static string dateBaseType = ConfigurationManager.AppSettings["DateBaseType"].ToString();
+        private static string dataBaseType = ConfigurationManager.AppSettings["DataBaseType"].ToString();
         
         /// <summary>
         /// 根据配置文件中的值创建UserDAL
@@ -17,7 +17,7 @@ namespace NLC.Order.DALFactory
         public static IUserDAL CreateUserDAL()
         {
             IUserDAL userDAL = null;
-            switch (dateBaseType)
+            switch (dataBaseType)
             {
                 case "SqlServer":
                     userDAL = new UserSqlServerDAL(); break;
@@ -34,7 +34,7 @@ namespace NLC.Order.DALFactory
         public static IUserDAL CreateOrderDAL()
         {
             IUserDAL userDAL = null;
-            switch (dateBaseType)
+            switch (dataBaseType)
             {
                 case "SqlServer":
                     userDAL = new UserSqlServerDAL(); break;
@@ -51,7 +51,7 @@ namespace NLC.Order.DALFactory
         public static IUserDAL CreateMenuDAL()
         {
             IUserDAL userDAL = null;
-            switch (dateBaseType)
+            switch (dataBaseType)
             {
                 case "SqlServer":
                     userDAL = new UserSqlServerDAL(); break;
