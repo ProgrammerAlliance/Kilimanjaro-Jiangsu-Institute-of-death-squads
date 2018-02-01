@@ -1,9 +1,0 @@
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.SqlServerDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.SqlServerDAL.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.IDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.Model.dll
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.IDAL.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\bin\Debug\NLC.Order.Model.pdb
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\obj\Debug\NLC.Order.SqlServerDAL.csprojResolveAssemblyReference.cache
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\obj\Debug\NLC.Order.SqlServerDAL.dll
-K:\visual2015\project\NLC.Order\NLC.Order.SqlServerDAL\obj\Debug\NLC.Order.SqlServerDAL.pdb
