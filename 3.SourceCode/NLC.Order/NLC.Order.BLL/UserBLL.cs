@@ -83,15 +83,24 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult Login(int UserId, string pwd, int type)
         {
-            
-            var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
-            if (Result == null)//没有用户
+            try
             {
-                jr.Result = "登录失败";
+                var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
+                if (Result == null||Result.Count==0)//没有用户
+                {
+                    jr.Status = 404;
+                    jr.Result = "用户名或密码错误";
+                }
+                else
+                {
+                    jr.Status = 200;
+                    jr.Result = Result[0];
+                }
             }
-            else
+            catch(Exception e)
             {
-                jr.Result = Result[0];
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
             }
             return jr;
         }
