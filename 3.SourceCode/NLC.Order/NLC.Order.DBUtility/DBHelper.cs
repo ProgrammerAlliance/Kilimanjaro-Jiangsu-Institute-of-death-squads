@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NL.Order.Common;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -20,9 +21,9 @@ namespace NL.Order.DBUtility
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 result = cmd.ExecuteNonQuery();
             }
-            catch (Exception msg)
+            catch 
             {
-                throw new Exception(msg.ToString());
+                LogHelper.WriteLogFile("操作数据失败！");
             }
             finally
             {
@@ -45,9 +46,9 @@ namespace NL.Order.DBUtility
                 SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
                 adp.Fill(ds);
             }
-            catch (Exception msg)
+            catch
             {
-                throw new Exception(msg.ToString());
+                LogHelper.WriteLogFile("操作数据失败！");
             }
             finally
             {
