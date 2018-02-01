@@ -9,8 +9,9 @@ namespace NLC.Order.DBUtility
     {
         static string connString = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
 
-
-        // 执行对数据表中数据的增加、删除、修改操作  
+        /// <summary>
+        /// 执行对数据表中数据的增加、删除、修改操作 
+        /// </summary>
         public static int NonQuery(string sql, SqlParameter[] parameters)
         {
             SqlConnection conn = new SqlConnection(connString);
@@ -42,6 +43,7 @@ namespace NLC.Order.DBUtility
             return result;
 
         }
+        
         /// <summary>
         /// 执行对数据表中数据的查询操作 
         /// </summary>

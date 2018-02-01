@@ -1,4 +1,5 @@
-﻿using NLC.Order.Common;
+﻿using NL.Order.Common;
+using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;
@@ -27,7 +28,8 @@ namespace NLC.Order.BLL
             catch (Exception e)
             {
                 jr.Status = 500;
-                jr.Result = e.Message;
+                jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -48,6 +50,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -67,6 +70,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -118,6 +122,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }

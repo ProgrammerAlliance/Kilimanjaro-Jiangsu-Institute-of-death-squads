@@ -40,7 +40,9 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool InsertUser(UserInfo user)
         {
-            string sql = "insert into Emp(UserId,UserName,UserType,UserPwd,Dephno,Gender) values(@UserId,@UserName,@UserType,@UserPwd,@Dephno,@Gender)";
+            string sql = @"insert into Emp
+                           (UserId,UserName,UserType,UserPwd,Dephno,Gender)
+                           values(@UserId,@UserName,@UserType,@UserPwd,@Dephno,@Gender)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("UserId",user.UserId),
