@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace NLC.Order.WebApi.Controllers
 {
@@ -46,10 +47,18 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="user">用户信息</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult AddUser(UserInfo user)
+        public JsonResult AddUser(string user)
         {
-            return userBLL.AddUser(user);
-        }
+            UserInfo u = JsonConvert.DeserializeObject<UserInfo>(user);
+            
+            JsonResult js = new JsonResult();
+            js.Result = u.UserName;
+            return js;
+
+
+        
+        // return userBLL.AddUser(user);
+    }
 
         /// <summary>
         /// 删除用户
