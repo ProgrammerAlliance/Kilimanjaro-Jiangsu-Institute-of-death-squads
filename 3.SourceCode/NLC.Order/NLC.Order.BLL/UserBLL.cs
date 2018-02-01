@@ -87,7 +87,7 @@ namespace NLC.Order.BLL
             }
             else
             {
-                jr.Result = Result;
+                jr.Result = Result[0];
             }
             
 

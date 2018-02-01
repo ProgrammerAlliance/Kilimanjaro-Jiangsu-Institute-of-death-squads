@@ -42,7 +42,7 @@ namespace NLC.Order.OracleDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public UserInfo SelectByIdAndPwd(int UserId, string pwd,int type)
+        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type)
         {
             throw new NotImplementedException();
         }

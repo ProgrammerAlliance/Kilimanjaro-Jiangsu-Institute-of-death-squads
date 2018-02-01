@@ -17,7 +17,7 @@ namespace NLC.Order.IDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        UserInfo SelectByIdAndPwd(int UserId, string pwd,int type);
+        IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type);
 
         /// <summary>
         /// 插入用户
