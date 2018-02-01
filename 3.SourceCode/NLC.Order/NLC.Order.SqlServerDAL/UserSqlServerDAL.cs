@@ -1,9 +1,7 @@
-﻿using NLC.Order.DBUtility;
-using NLC.Order.IDAL;
+﻿using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -16,20 +14,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool DeleteUser(string userId)
         {
-            string sql = "delete from Emp where Empno=@empno";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("Empno",userId)
-            };
-            int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
 
         /// <summary>
@@ -39,25 +24,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool InsertUser(UserInfo user)
         {
-            string sql = "insert into Emp(Empno,Name,Type,Password,Dephno,Gender) values(@Empno,@Name,@Type,@Password,@Dephno,@Gender)";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("Empno",user.UserId),
-                new SqlParameter("Name",user.UserName),
-                new SqlParameter("Type",user.UserType),
-                new SqlParameter("Password",user.UserPwd),
-                new SqlParameter("Deptno",user.Deptno),
-                new SqlParameter("Gender",user.Gender)
-            };
-            int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -75,7 +42,7 @@ namespace NLC.Order.SqlServerDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public UserInfo SelectByIdAndPwd(int UserId, string pwd,int type)
+        public UserInfo SelectByNameAndPwd(string name, string pwd)
         {
             throw new NotImplementedException();
         }
@@ -88,21 +55,8 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool UpdateUser(string userId, string psassword)
         {
-            string sql = "update Emp set Password=@Password where Empno=@empno";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("Password",psassword),
-                new SqlParameter("Empno",userId)
-            };
-            int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return true;
         }
     }
 }
