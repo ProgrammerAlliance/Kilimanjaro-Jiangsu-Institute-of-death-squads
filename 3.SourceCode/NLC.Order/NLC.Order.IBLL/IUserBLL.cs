@@ -17,7 +17,7 @@ namespace NLC.Order.IBLL
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        JsonResult Login(string name, string pwd);
+        JsonResult Login(string name, string pwd,int type);
 
         /// <summary>
         /// 增加用户

@@ -49,7 +49,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("Deptno",user.Deptno),
                 new SqlParameter("Gender",user.Gender)
             };
-            int result=DBHelper.NonQuery(sql, parameters);
+            int result = DBHelper.NonQuery(sql, parameters);
             if (result > 0)
             {
                 return true;

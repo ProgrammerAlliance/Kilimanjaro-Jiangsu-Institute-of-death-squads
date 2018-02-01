@@ -77,7 +77,7 @@ namespace NLC.Order.BLL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public JsonResult Login(string name, string pwd)
+        public JsonResult Login(string name, string pwd,int type)
         {
             try
             {

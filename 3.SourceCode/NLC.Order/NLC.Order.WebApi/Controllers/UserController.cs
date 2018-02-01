@@ -35,9 +35,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="pwd">密码</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult Login(string name, string pwd)
+        public JsonResult Login(string name, string pwd,int type)
         {
-            return userBLL.Login(name, pwd);
+            return userBLL.Login(name, pwd,type);
         }
 
         /// <summary>
@@ -72,12 +72,6 @@ namespace NLC.Order.WebApi.Controllers
         public JsonResult ModifyPassword(string userId, string newPassword)
         {
             return userBLL.ModifyPassword(userId, newPassword);
-        }
-
-        [HttpGet]
-        public string Test(string name)
-        {
-            return "1101101001";
         }
     }
 }
