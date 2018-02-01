@@ -28,7 +28,7 @@ namespace NLC.Order.BLL
             catch (Exception e)
             {
                 jr.Status = 500;
-                jr.Result = e.Message;
+                jr.Result = "系统繁忙";
                 LogHelper.WriteLogFile(e.Message);
             }
             return jr;

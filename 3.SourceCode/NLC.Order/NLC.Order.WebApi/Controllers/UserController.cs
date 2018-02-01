@@ -50,15 +50,8 @@ namespace NLC.Order.WebApi.Controllers
         public JsonResult AddUser(string user)
         {
             UserInfo u = JsonConvert.DeserializeObject<UserInfo>(user);
-            
-            JsonResult js = new JsonResult();
-            js.Result = u.UserName;
-            return js;
-
-
-        
-        // return userBLL.AddUser(user);
-    }
+            return userBLL.AddUser(u);
+        }
 
         /// <summary>
         /// 删除用户
