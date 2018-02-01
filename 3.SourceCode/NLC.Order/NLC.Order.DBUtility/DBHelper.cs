@@ -42,7 +42,12 @@ namespace NLC.Order.DBUtility
             return result;
 
         }
-        // 执行对数据表中数据的查询操作  
+        /// <summary>
+        /// 执行对数据表中数据的查询操作 
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static DataSet Query(string sql, SqlParameter[] parameters)
         {
             SqlConnection conn = new SqlConnection(connString);
@@ -80,27 +85,27 @@ namespace NLC.Order.DBUtility
         /// <returns>List集合</returns>
         public static List<T> GetListbyDataSet<T>(DataSet ds) where T : new()
         {
-            List<T> li = new List<T>(); //声明要返回的集合
-            var s = typeof(T);          // 获取传入类型
-            var str = s.GetProperties(); // 获取传入类型的属性集合
+            List<T> list = new List<T>(); //声明要返回的集合
+            var type = typeof(T);          // 获取传入类型
+            var str = type.GetProperties(); // 获取传入类型的属性集合
             if (ds.Tables[0] == null || ds.Tables[0].Rows.Count < 0) //判断ds的null和是否包含数据
             {
-                return li;
+                return list;
             }
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //循环集合准备获取数据
             {
-                T t1 = new T();       // 声明类
+                T t = new T();       // 声明类
                 foreach (var item in str)  // 循环类的属性
                 {
                     string itemstr = item.Name; //类属性名称
                     var itemtype = item.PropertyType; // 类属性的类型（int string datetime）
                     object value = GetvalbyDataSet(itemstr, itemtype, ds.Tables[0].Rows[i]); //获取值
-                    item.SetValue(t1, value, null);
+                    item.SetValue(t, value, null);
 
                 }
-                li.Add(t1);
+                list.Add(t);
             }
-            return li;
+            return list;
         }
 
         /// <summary>
@@ -120,7 +125,7 @@ namespace NLC.Order.DBUtility
                 }
                 if (typeof(DateTime) == coltype)
                 {
-                    return dr[colname] == null ? DateTime.Parse("2016/9/22") : DateTime.Parse(dr[colname].ToString());
+                    return dr[colname] == null ? DateTime.Parse("2018/2/1") : DateTime.Parse(dr[colname].ToString());
                 }
                 if (typeof(decimal) == coltype)
                 {
