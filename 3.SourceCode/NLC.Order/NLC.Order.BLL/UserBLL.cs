@@ -80,14 +80,14 @@ namespace NLC.Order.BLL
         public JsonResult Login(int UserId, string pwd, int type)
         {
             
-            var ResultSet = userDAL.SelectByIdAndPwd(UserId, pwd, type);
-            if (ResultSet == null)//没有用户
+            var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
+            if (Result == null)//没有用户
             {
                 jr.Result = "登录失败";
             }
             else
             {
-                jr.Result = "登录成功";
+                jr.Result = Result;
             }
             
 
