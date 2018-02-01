@@ -1,4 +1,5 @@
-﻿using NLC.Order.Common;
+﻿using NL.Order.Common;
+using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;
@@ -28,6 +29,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -48,6 +50,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -67,6 +70,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -89,18 +93,6 @@ namespace NLC.Order.BLL
             {
                 jr.Result = Result[0];
             }
-            
-
-            //try
-            //{
-            //    jr.Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
-            //    jr.Status = 200;
-            //}
-            //catch (Exception e)
-            //{
-            //    jr.Status = 500;
-            //    jr.Result = e.Message;
-            //}
             return jr;
         }
 
@@ -121,6 +113,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
