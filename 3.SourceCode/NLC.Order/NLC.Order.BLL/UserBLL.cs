@@ -24,7 +24,7 @@ namespace NLC.Order.BLL
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
@@ -77,18 +77,30 @@ namespace NLC.Order.BLL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public JsonResult Login(int UserId, string pwd,int type)
+        public JsonResult Login(int UserId, string pwd, int type)
         {
-            try
+            
+            var ResultSet = userDAL.SelectByIdAndPwd(UserId, pwd, type);
+            if (ResultSet == null)//没有用户
             {
-              //  jr.Result = userDAL.SelectByNameAndPwd(name, pwd,type);
-                jr.Status = 200;
+                jr.Result = "登录失败";
             }
-            catch (Exception e)
+            else
             {
-                jr.Status = 500;
-                jr.Result = e.Message;
+                jr.Result = "";
             }
+            
+
+            //try
+            //{
+            //    jr.Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
+            //    jr.Status = 200;
+            //}
+            //catch (Exception e)
+            //{
+            //    jr.Status = 500;
+            //    jr.Result = e.Message;
+            //}
             return jr;
         }
 

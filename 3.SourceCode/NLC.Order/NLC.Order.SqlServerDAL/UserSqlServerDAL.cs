@@ -77,7 +77,25 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public UserInfo SelectByIdAndPwd(int UserId, string pwd,int type)
         {
-            throw new NotImplementedException();
+            UserInfo user = null;
+            string sql = @"SELECT [UserId],[UserName]
+                           FROM 
+                          (SELECT [UserId],[UserName],[UserPwd]
+                           FROM[Order].[dbo].[Emp]
+                           WHERE UserType=1
+                            )t
+                            WHERE UserId=1001 and UserPwd=123";
+            SqlParameter[] parameters = null;
+
+            //SqlParameter[] parameters =
+            //{
+            //    new SqlParameter("Type",type),
+            //    new SqlParameter("Empno",UserId),
+            //    new SqlParameter("Password",pwd)
+            //};
+            var data = DBHelper.Query(sql, parameters);
+
+            return user;
         }
 
         /// <summary>
