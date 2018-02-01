@@ -12,7 +12,7 @@ namespace NL.Order.Common
         /// <param name="input"></param>
         public static void WriteLogFile(string input)
         {
-            string fname = Directory.GetCurrentDirectory() + "\\LogFile.txt";
+            string fname = "C:\\LogFile.txt";
             FileInfo finfo = new FileInfo(fname);
             if (!finfo.Exists)
             {
@@ -20,11 +20,6 @@ namespace NL.Order.Common
                 fs = File.Create(fname);
                 fs.Close();
                 finfo = new FileInfo(fname);
-            }
-
-            if (finfo.Length > 1024 * 1024 * 10)
-            {
-                File.Move(Directory.GetCurrentDirectory() + "\\LogFile.txt", Directory.GetCurrentDirectory() + DateTime.Now.TimeOfDay + "\\LogFile.txt");
             }
            
             using (FileStream fs = finfo.OpenWrite())
