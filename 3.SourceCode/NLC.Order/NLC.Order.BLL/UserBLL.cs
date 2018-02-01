@@ -83,10 +83,12 @@ namespace NLC.Order.BLL
             var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
             if (Result == null)//没有用户
             {
-                jr.Result = "登录失败";
+                jr.Status = 404;
+                jr.Result = "用户名或密码错误";
             }
             else
             {
+                jr.Status = 200;
                 jr.Result = Result;
             }
             

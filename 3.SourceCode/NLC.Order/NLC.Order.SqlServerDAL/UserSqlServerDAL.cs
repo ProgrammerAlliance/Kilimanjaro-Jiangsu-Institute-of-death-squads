@@ -87,17 +87,16 @@ namespace NLC.Order.SqlServerDAL
                            FROM 
                           (SELECT [UserId],[UserName],[UserPwd]
                            FROM[Order].[dbo].[Emp]
-                           WHERE UserType=1
-                            )t
-                            WHERE UserId=1001 and UserPwd=123";
-            SqlParameter[] parameters = null;
+                           WHERE UserType=@UserType
+                           )t
+                           WHERE UserId=@UserId and UserPwd=@UserPwd";
 
-            //SqlParameter[] parameters =
-            //{
-            //    new SqlParameter("Type",type),
-            //    new SqlParameter("Empno",UserId),
-            //    new SqlParameter("Password",pwd)
-            //};
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("UserType",type),
+                new SqlParameter("UserId",UserId),
+                new SqlParameter("UserPwd",pwd)
+            };
             var data = DBHelper.Query(sql, parameters);
 
             return DBHelper.GetListbyDataSet<UserInfo>(data)[0];
