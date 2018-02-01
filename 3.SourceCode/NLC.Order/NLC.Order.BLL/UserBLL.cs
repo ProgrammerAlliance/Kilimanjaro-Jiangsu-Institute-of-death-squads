@@ -19,7 +19,17 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult AddUser(UserInfo user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                jr.Result = userDAL.InsertUser(user);
+                jr.Status = 200;
+            }
+            catch(Exception e)
+            {
+                jr.Status = 500;
+                jr.Result = e.Message;
+            }
+            return jr;
         }
 
         /// <summary>
@@ -29,8 +39,16 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult DelUser(string userId)
         {
-            jr.Status = 200;
-            jr.Result = userDAL.DeleteUser("1");
+            try
+            {
+                jr.Result = userDAL.DeleteUser(userId);
+                jr.Status = 200;
+            }
+            catch (Exception e)
+            {
+                jr.Status = 500;
+                jr.Result = e.Message;
+            }
             return jr;
         }
 
@@ -40,8 +58,17 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult GetAllUser()
         {
-
-            return null;
+            try
+            {
+                jr.Result = userDAL.SelectAllUser();
+                jr.Status = 200;
+            }
+            catch (Exception e)
+            {
+                jr.Status = 500;
+                jr.Result = e.Message;
+            }
+            return jr;
         }
 
         /// <summary>
@@ -52,7 +79,17 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult Login(string name, string pwd)
         {
-            throw new NotImplementedException();
+            try
+            {
+                jr.Result = userDAL.SelectByNameAndPwd(name, pwd);
+                jr.Status = 200;
+            }
+            catch (Exception e)
+            {
+                jr.Status = 500;
+                jr.Result = e.Message;
+            }
+            return jr;
         }
 
         /// <summary>
@@ -61,9 +98,19 @@ namespace NLC.Order.BLL
         /// <param name="userId"></param>
         /// <param name="psassword"></param>
         /// <returns></returns>
-        public JsonResult ModifyPassword(string userId, string psassword)
+        public JsonResult ModifyPassword(string userId, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                jr.Result = userDAL.UpdateUser(userId, password);
+                jr.Status = 200;
+            }
+            catch (Exception e)
+            {
+                jr.Status = 500;
+                jr.Result = e.Message;
+            }
+            return jr;
         }
     }
 }

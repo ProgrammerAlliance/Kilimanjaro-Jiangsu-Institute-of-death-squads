@@ -32,5 +32,10 @@ namespace NLC.Order.Model
         /// 用户类型
         /// </summary>
         public string UserType { get; set; }
+
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public string Gender { get; set; }
     }
 }
