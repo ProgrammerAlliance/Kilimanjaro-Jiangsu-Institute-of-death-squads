@@ -70,7 +70,7 @@ namespace NLC.Order.SqlServerDAL
             string sql = "select e.UserId,e.UserName,e.Gender,d.Deptname,t.Typename " +
                 " from Emp e,Deptment d,UserType t " +
                 " where e.UserType=t.Type and e.Deptno=d.Deptno";
-            DataSet ds=DBHelper.Query(sql, null);
+            DataSet ds = DBHelper.Query(sql, null);
             return DBHelper.GetListbyDataSet<UserInfo>(ds);
         }
 
@@ -80,7 +80,7 @@ namespace NLC.Order.SqlServerDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type)
+        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type)
         {
             string sql = @"SELECT [UserId],[UserName]
                            FROM 
