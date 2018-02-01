@@ -42,7 +42,7 @@ namespace NLC.Order.DBUtility
 
         }
         // 执行对数据表中数据的查询操作  
-        public static DataSet Query(string sql)
+        public static DataSet Query(string sql, SqlParameter[] parameters)
         {
             SqlConnection conn = new SqlConnection(connString);
             DataSet ds = new DataSet();
@@ -50,6 +50,13 @@ namespace NLC.Order.DBUtility
             {
                 conn.Open();      //打开数据库  
                 SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
+                if (parameters != null && parameters.Length > 0)
+                {
+                    foreach (SqlParameter parameter in parameters)
+                    {
+                        adp.SelectCommand.Parameters.Add(parameter);
+                    }
+                }
                 adp.Fill(ds);
             }
             catch (Exception msg)
