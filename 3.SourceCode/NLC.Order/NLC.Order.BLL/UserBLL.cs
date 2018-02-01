@@ -81,7 +81,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = userDAL.SelectByNameAndPwd(name, pwd);
+                //jr.Result = userDAL.SelectByNameAndPwd(name, pwd,type);
                 jr.Status = 200;
             }
             catch (Exception e)
