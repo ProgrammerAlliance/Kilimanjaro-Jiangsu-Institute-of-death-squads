@@ -36,6 +36,11 @@ namespace NLC.Order.SqlServerDAL
             throw new NotImplementedException();
         }
 
+        public UserInfo SelectByIdAndPwd(int UserId, string pwd, int type)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 根据用户名和密码查找用户
         /// </summary>
