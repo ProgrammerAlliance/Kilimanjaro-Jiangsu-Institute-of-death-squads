@@ -13,12 +13,12 @@ namespace NL.Order.DBUtility
         public int NonQuery(string sql)
         {
             conn = new SqlConnection(connString);
-            int a = -1;
+            int result = -1;
             try
             {
                 conn.Open();  //打开数据库  
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                a = cmd.ExecuteNonQuery();
+                result = cmd.ExecuteNonQuery();
             }
             catch (Exception msg)
             {
@@ -31,7 +31,7 @@ namespace NL.Order.DBUtility
                     conn.Close();    //关闭数据库  
                 }
             }
-            return a;
+            return result;
 
         }
         // 执行对数据表中数据的查询操作  
