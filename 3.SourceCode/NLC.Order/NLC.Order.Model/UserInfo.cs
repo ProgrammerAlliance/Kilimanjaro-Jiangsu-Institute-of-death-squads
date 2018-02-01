@@ -11,7 +11,7 @@ namespace NLC.Order.Model
         /// <summary>
         /// 员工编号
         /// </summary>
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// 用户名
@@ -24,14 +24,14 @@ namespace NLC.Order.Model
         public string UserPwd { get; set; }
 
         /// <summary>
-        /// 部门
+        /// 部门号
         /// </summary>
-        public string Dept { get; set; }
+        public int Deptno { get; set; }
 
         /// <summary>
         /// 用户类型
         /// </summary>
-        public string UserType { get; set; }
+        public int UserType { get; set; }
 
         /// <summary>
         /// 性别

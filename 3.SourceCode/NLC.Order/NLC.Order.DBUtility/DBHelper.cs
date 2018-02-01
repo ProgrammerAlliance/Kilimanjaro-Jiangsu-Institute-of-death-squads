@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace NL.Order.DBUtility
+namespace NLC.Order.DBUtility
 {
     public class DBHelper
     {
@@ -11,7 +11,7 @@ namespace NL.Order.DBUtility
 
        
         // 执行对数据表中数据的增加、删除、修改操作  
-        public static int NonQuery(string sql)
+        public static int NonQuery(string sql,SqlParameter[] parameters)
         {
             SqlConnection conn = new SqlConnection(connString);
             int result = -1;
@@ -19,6 +19,13 @@ namespace NL.Order.DBUtility
             {
                 conn.Open();  //打开数据库  
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                if (parameters != null && parameters.Length > 0)
+                {
+                    foreach(SqlParameter parameter in parameters)
+                    {
+                        cmd.Parameters.Add(parameter);
+                    }
+                }
                 result = cmd.ExecuteNonQuery();
             }
             catch 
@@ -36,7 +43,7 @@ namespace NL.Order.DBUtility
 
         }
         // 执行对数据表中数据的查询操作  
-        public static DataSet Query(string sql)
+        public static DataSet Query(string sql, SqlParameter[] parameters)
         {
             SqlConnection conn = new SqlConnection(connString);
             DataSet ds = new DataSet();
@@ -44,6 +51,13 @@ namespace NL.Order.DBUtility
             {
                 conn.Open();      //打开数据库  
                 SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
+                if (parameters != null && parameters.Length > 0)
+                {
+                    foreach (SqlParameter parameter in parameters)
+                    {
+                        adp.SelectCommand.Parameters.Add(parameter);
+                    }
+                }
                 adp.Fill(ds);
             }
             catch

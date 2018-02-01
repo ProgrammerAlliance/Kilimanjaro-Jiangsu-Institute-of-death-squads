@@ -77,11 +77,11 @@ namespace NLC.Order.BLL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public JsonResult Login(string name, string pwd)
+        public JsonResult Login(int UserId, string pwd,int type)
         {
             try
             {
-                jr.Result = userDAL.SelectByNameAndPwd(name, pwd);
+              //  jr.Result = userDAL.SelectByNameAndPwd(name, pwd,type);
                 jr.Status = 200;
             }
             catch (Exception e)
