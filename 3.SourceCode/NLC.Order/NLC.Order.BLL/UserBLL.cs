@@ -87,7 +87,7 @@ namespace NLC.Order.BLL
             }
             else
             {
-                jr.Result = "";
+                jr.Result = "登录成功";
             }
             
 

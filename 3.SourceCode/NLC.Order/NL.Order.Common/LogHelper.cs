@@ -1,5 +1,4 @@
-﻿using log4net;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -89,3 +88,4 @@ namespace NL.Order.Common
 
         }
     }
+}

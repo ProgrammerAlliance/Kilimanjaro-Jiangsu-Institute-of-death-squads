@@ -100,7 +100,7 @@ namespace NLC.Order.SqlServerDAL
             //};
             var data = DBHelper.Query(sql, parameters);
 
-            return user;
+            return DBHelper.GetListbyDataSet<UserInfo>(data)[0];
         }
 
         /// <summary>
