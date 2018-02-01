@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,10 +8,11 @@ namespace NL.Order.DBUtility
     {
         static string connString = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
 
+        public SqlConnection conn;
         // 执行对数据表中数据的增加、删除、修改操作  
-        public static int NonQuery(string sql)
+        public int NonQuery(string sql)
         {
-            SqlConnection conn = new SqlConnection(connString);
+            conn = new SqlConnection(connString);
             int result = -1;
             try
             {
@@ -34,9 +35,9 @@ namespace NL.Order.DBUtility
 
         }
         // 执行对数据表中数据的查询操作  
-        public static DataSet Query(string sql)
+        public DataSet Query(string sql)
         {
-            SqlConnection conn = new SqlConnection(connString);
+            conn = new SqlConnection(connString);
             DataSet ds = new DataSet();
             try
             {
