@@ -11,7 +11,7 @@ namespace NLC.Order.Model
         /// <summary>
         /// 员工编号
         /// </summary>
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// 用户名

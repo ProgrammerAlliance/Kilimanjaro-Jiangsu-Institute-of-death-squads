@@ -35,9 +35,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="pwd">密码</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult Login(string name, string pwd,int type)
+        public JsonResult Login(int UserId, string pwd, int type)
         {
-            return userBLL.Login(name, pwd,type);
+            return userBLL.Login(UserId, pwd, type);
         }
 
         /// <summary>
