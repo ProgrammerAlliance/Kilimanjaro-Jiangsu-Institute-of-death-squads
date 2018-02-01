@@ -42,7 +42,7 @@ namespace NLC.Order.SqlServerDAL
         {
             string sql = @"insert into Emp
                            (UserId,UserName,UserType,UserPwd,Dephno,Gender)
-                           values(@UserId,@UserName,@UserType,@UserPwd,@Dephno,@Gender)";
+                           values(@UserId,@UserName,@UserType,@UserPwd,@Deptno,@Gender)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("UserId",user.UserId),
