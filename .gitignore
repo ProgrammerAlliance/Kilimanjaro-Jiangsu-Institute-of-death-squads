@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /3.SourceCode/NLC.Order/NLC.Order.WebApi/Properties/PublishProfiles
+/3.SourceCode/NLC.Order/NL.Order.Common
