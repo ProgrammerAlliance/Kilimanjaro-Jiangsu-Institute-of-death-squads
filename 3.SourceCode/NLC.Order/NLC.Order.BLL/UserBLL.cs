@@ -29,7 +29,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile(e.Message);
+                //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -50,7 +50,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
-                LogHelper.WriteLogFile(e.Message);
+                //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -70,7 +70,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
-                LogHelper.WriteLogFile(e.Message);
+                //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -122,7 +122,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = e.Message;
-                LogHelper.WriteLogFile(e.Message);
+                //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
