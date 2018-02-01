@@ -48,7 +48,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult AddUser(UserInfo user)
         {
-            return AddUser(user);
+            return userBLL.AddUser(user);
         }
 
         /// <summary>
