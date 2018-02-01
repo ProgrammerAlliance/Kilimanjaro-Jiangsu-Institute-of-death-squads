@@ -3,6 +3,7 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace NLC.Order.SqlServerDAL
@@ -16,10 +17,10 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool DeleteUser(string userId)
         {
-            string sql = "delete from Emp where Empno=@empno";
+            string sql = "delete from Emp where UserId=@UserId";
             SqlParameter[] parameters =
             {
-                new SqlParameter("Empno",userId)
+                new SqlParameter("UserId",userId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
             if (result > 0)
@@ -39,13 +40,13 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool InsertUser(UserInfo user)
         {
-            string sql = "insert into Emp(Empno,Name,Type,Password,Dephno,Gender) values(@Empno,@Name,@Type,@Password,@Dephno,@Gender)";
+            string sql = "insert into Emp(UserId,UserName,UserType,UserPwd,Dephno,Gender) values(@UserId,@UserName,@UserType,@UserPwd,@Dephno,@Gender)";
             SqlParameter[] parameters =
             {
-                new SqlParameter("Empno",user.UserId),
-                new SqlParameter("Name",user.UserName),
-                new SqlParameter("Type",user.UserType),
-                new SqlParameter("Password",user.UserPwd),
+                new SqlParameter("UserId",user.UserId),
+                new SqlParameter("UserName",user.UserName),
+                new SqlParameter("UserType",user.UserType),
+                new SqlParameter("UserPwd",user.UserPwd),
                 new SqlParameter("Deptno",user.Deptno),
                 new SqlParameter("Gender",user.Gender)
             };
@@ -66,7 +67,11 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public IList<UserInfo> SelectAllUser()
         {
-            throw new NotImplementedException();
+            string sql = "select e.UserId,e.UserName,e.Gender,d.Deptname,t.Typename " +
+                " from Emp e,Deptment d,UserType t " +
+                " where e.UserType=t.Type and e.Deptno=d.Deptno";
+            DataSet ds=DBHelper.Query(sql, null);
+            return DBHelper.GetListbyDataSet<UserInfo>(ds);
         }
 
         /// <summary>
@@ -106,11 +111,11 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool UpdateUser(string userId, string psassword)
         {
-            string sql = "update Emp set Password=@Password where Empno=@empno";
+            string sql = "update Emp set UserPwd=@UserPwd where UserId=@UserId";
             SqlParameter[] parameters =
             {
-                new SqlParameter("Password",psassword),
-                new SqlParameter("Empno",userId)
+                new SqlParameter("UserPwd",psassword),
+                new SqlParameter("UserId",userId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
             if (result > 0)

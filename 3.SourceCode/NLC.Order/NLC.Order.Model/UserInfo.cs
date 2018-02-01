@@ -29,9 +29,19 @@ namespace NLC.Order.Model
         public int Deptno { get; set; }
 
         /// <summary>
+        /// 部门名称
+        /// </summary>
+        public string DeptName { get; set; }
+
+        /// <summary>
         /// 用户类型
         /// </summary>
         public int UserType { get; set; }
+
+        /// <summary>
+        /// 用户类型名字
+        /// </summary>
+        public int TypeNmae { get; set; }
 
         /// <summary>
         /// 性别
