@@ -45,11 +45,11 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <param name="user">用户信息</param>
         /// <returns></returns>
-        //[HttpGet]
-        //public JsonResult AddUser(UserInfo user)
-        //{
-        //    return AddUser(user);
-        //}
+        [HttpGet]
+        public JsonResult AddUser(UserInfo user)
+        {
+            return AddUser(user);
+        }
 
         /// <summary>
         /// 删除用户
