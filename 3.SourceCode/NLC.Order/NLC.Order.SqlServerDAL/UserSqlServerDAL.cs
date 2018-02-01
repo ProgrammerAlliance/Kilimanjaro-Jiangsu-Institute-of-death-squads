@@ -91,13 +91,6 @@ namespace NLC.Order.SqlServerDAL
                             )t
                             WHERE UserId=1001 and UserPwd=123";
             SqlParameter[] parameters = null;
-
-            //SqlParameter[] parameters =
-            //{
-            //    new SqlParameter("Type",type),
-            //    new SqlParameter("Empno",UserId),
-            //    new SqlParameter("Password",pwd)
-            //};
             var data = DBHelper.Query(sql, parameters);
 
             return DBHelper.GetListbyDataSet<UserInfo>(data)[0];
