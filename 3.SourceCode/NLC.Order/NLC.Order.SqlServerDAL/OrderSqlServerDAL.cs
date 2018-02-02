@@ -104,7 +104,12 @@ namespace NLC.Order.SqlServerDAL
             DataSet ds = DBHelper.Query(sql, null);
             return ds.Tables[0].Rows.Count;
         }
-
+        
+        /// <summary>
+        /// 今日是否订餐
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public bool IsOrder(int UserId)
         {
             string sql = @"SELECT  UserId
