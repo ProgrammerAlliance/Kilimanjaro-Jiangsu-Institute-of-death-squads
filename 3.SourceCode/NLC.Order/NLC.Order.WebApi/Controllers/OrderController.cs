@@ -1,4 +1,6 @@
-﻿using NLC.Order.Common;
+﻿using NLC.Order.BLL;
+using NLC.Order.Common;
+using NLC.Order.IBLL;
 using NLC.Order.Model;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,11 @@ namespace NLC.Order.WebApi.Controllers
     public class OrderController : ApiController
     {
         /// <summary>
+        /// OrderBLL对象
+        /// </summary>
+        private IOrderBLL orderBLL = new OrderBLL();
+
+        /// <summary>
         /// 订餐
         /// </summary>
         /// <param name="order"></param>
@@ -19,7 +26,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult AddOrder(OrderInfo order)
         {
-            return null;
+            return orderBLL.OrderFood(order);
         }
 
         /// <summary>
@@ -30,7 +37,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult CancelOrder(int orderId)
         {
-            return null;
+            return orderBLL.CancelOrder(orderId);
         }
 
         /// <summary>
@@ -40,6 +47,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult ProduceSweep()
         {
+            //return orderBLL.ProudceSweep();
             return null;
         }
 
@@ -50,7 +58,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult GetOrderPeople()
         {
-            return null;
+            return orderBLL.GetOrderPeople();
         }
 
         /// <summary>
@@ -60,7 +68,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult CountOrderNumber()
         {
-            return null;
+            return orderBLL.CountOrderNumber();
         }
     }
 }
