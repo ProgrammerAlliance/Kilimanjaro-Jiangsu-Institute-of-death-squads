@@ -1,4 +1,5 @@
-﻿using NLC.Order.BLL;
+﻿using Newtonsoft.Json;
+using NLC.Order.BLL;
 using NLC.Order.Common;
 using NLC.Order.IBLL;
 using NLC.Order.Model;
@@ -24,9 +25,10 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="order"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult AddOrder(OrderInfo order)
+        public JsonResult AddOrder(string order)
         {
-            return orderBLL.OrderFood(order);
+            OrderInfo orderInfo = JsonConvert.DeserializeObject<OrderInfo>(order);
+            return orderBLL.OrderFood(orderInfo);
         }
 
         /// <summary>
