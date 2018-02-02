@@ -5,6 +5,7 @@ using NLC.Order.Model;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
 using System.Configuration;
+using System.Linq;
 
 namespace NLC.Order.BLL
 {
@@ -113,7 +114,31 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
-
+            var list = OrderDAL.Cleaner();
+            if (list.Count > 0)
+            {
+                int[] GetId = { };
+                for (int i = 0; i < 2; i++)
+                {
+                    int number = new Random().Next(list.Count);
+                    var randowitem = list[number];
+                    if (!GetId.Contains(number))
+                    {
+                        GetId[i] = number;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    jr.Result = OrderDAL.GetName(GetId[i]);
+                }
+                jr.Status = 200;
+            }
+            else
+            {
+                jr.Result = "无人订餐";
+                jr.Status = 404;
+            }
             return jr;
         }
     }
