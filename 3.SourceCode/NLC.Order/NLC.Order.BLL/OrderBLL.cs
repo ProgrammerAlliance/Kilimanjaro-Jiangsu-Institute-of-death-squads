@@ -38,7 +38,17 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CountOrderNumber()
         {
-            return null;
+            try
+            {
+                jr.Result = OrderDAL.CountOrderNumber();
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
+            }
+            return jr;
         }
 
         /// <summary>
