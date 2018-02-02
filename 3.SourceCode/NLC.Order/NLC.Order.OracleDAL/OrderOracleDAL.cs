@@ -25,7 +25,7 @@ namespace NLC.Order.OracleDAL
             throw new NotImplementedException();
         }
 
-        public IList<string> GetName()
+        public IList<UserInfo> GetName()
         {
             throw new NotImplementedException();
         }

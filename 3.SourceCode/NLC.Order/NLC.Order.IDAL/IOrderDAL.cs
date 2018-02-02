@@ -41,7 +41,7 @@ namespace NLC.Order.IDAL
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        IList<string> GetName();
+        IList<UserInfo> GetName();
 
         /// <summary>
         /// 获取今日订餐人员数
