@@ -13,12 +13,21 @@ namespace NLC.Order.BLL
         private JsonResult jr = new JsonResult();
 
         /// <summary>
+        /// 获取时间对象
+        /// </summary>
+        System.DateTime currentTime = System.DateTime.Now;
+
+        /// <summary>
         /// 取消订餐
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
         public JsonResult CancelOrder(int  UserId)
         {
+            if(currentTime.Hour>=17)
+            {
+                jr.Result = "已超过取消订餐时间";
+            }
             try
             {
                 jr.Result = OrderDAL.SubOrder(UserId);
@@ -77,6 +86,11 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult OrderFood(OrderInfo order)
         {
+            if(currentTime.Hour>=17)
+            {
+                jr.Result = "已超过订餐时间";
+                return jr;
+            }
             try
             {
                 jr.Result = OrderDAL.AddOrder(order);
