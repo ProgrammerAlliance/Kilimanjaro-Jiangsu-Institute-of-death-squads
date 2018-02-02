@@ -48,10 +48,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NL.Order.DALFactory\NLC.Order.DALFactory.csproj">
+      <Project>{098FD830-BC48-4347-B26B-07E797816179}</Project>
+      <Name>NLC.Order.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.Order.IDAL\NLC.Order.IDAL.csproj">
+      <Project>{2D02AD0F-0EB8-4604-8C83-27B1ABD24F41}</Project>
+      <Name>NLC.Order.IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NLC.Order.SqlServerDAL\NLC.Order.SqlServerDAL.csproj">
       <Project>{4c1bfd70-7c75-46e7-8e44-f5f9e88c3578}</Project>
       <Name>NLC.Order.SqlServerDAL</Name>
