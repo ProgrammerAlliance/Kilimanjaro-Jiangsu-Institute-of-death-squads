@@ -49,5 +49,17 @@ namespace NLC.Order.IDAL
         /// <returns></returns>
         int CountOrderNumber();
 
+        /// <summary>
+        /// 判断该用户今日是否订餐
+        /// </summary>
+        /// <param name="UserId">用户ID</param>
+        /// <returns></returns>
+        bool IsOrder(int UserId);
+
+        /// <summary>
+        /// 判断今日是否产生打扫人员
+        /// </summary>
+        /// <returns></returns>
+        bool IsProduce();
     }
 }
