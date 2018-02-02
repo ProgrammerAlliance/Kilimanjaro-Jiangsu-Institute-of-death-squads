@@ -1,4 +1,5 @@
 ﻿using NLC.Order.Common;
+using NLC.Order.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,13 @@ namespace NLC.Order.WebApi.Controllers
 {
     public class OrderController : ApiController
     {
-
+        /// <summary>
+        /// 订餐
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
         [HttpGet]
-        public JsonResult AddOrder()
+        public JsonResult AddOrder(OrderInfo order)
         {
             return null;
         }
