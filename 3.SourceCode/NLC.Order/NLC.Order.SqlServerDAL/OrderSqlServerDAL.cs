@@ -7,6 +7,7 @@ using System.Text;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
+using System.Data;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -19,17 +20,8 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool AddOrder(OrderInfo order)
         {
-            string sql = @"insert into OrderTable
-                           (UserId, Clean, Remark)
-                           values
-                           (@UserId, @Clean, @Remark)";
-            SqlParameter[] parameters =
-           {
-                new SqlParameter("UserId",order.UserId),
-                new SqlParameter("Clean",order.Clean),
-                new SqlParameter("Remark",order.Remark)
-            };
-            return DBHelper.NonQuery(sql, parameters) > 0 ? true : false;
+            string sql = "";
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -39,7 +31,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool SubOrder(int UserId)
         {
-            throw new NotImplementedException();
+            string sql = "delete from ordertable where DateDiff(dd,createtime,getdate())=0 and UserId=@UserId";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("UserId",UserId)
+            };
+            int result = DBHelper.NonQuery(sql, parameters);
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -48,7 +53,9 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<OrderInfo> Cleaner()
         {
-            throw new NotImplementedException();
+            string sql = "select * from OrderTable where DateDiff(dd,createtime,getdate())=0";
+            DataSet ds = DBHelper.Query(sql, null);
+            return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
 
         /// <summary>

@@ -31,17 +31,17 @@ namespace NLC.Order.DALFactory
         /// 根据配置文件中的值创建OrderDAL
         /// </summary>
         /// <returns></returns>
-        public static IUserDAL CreateOrderDAL()
+        public static IOrderDAL CreateOrderDAL()
         {
-            IUserDAL userDAL = null;
+            IOrderDAL orderDAL = null;
             switch (dataBaseType)
             {
                 case "SqlServer":
-                    userDAL = new UserSqlServerDAL(); break;
+                    orderDAL = new OrderSqlServerDAL(); break;
                 case "Oracle":
-                    userDAL = new UserOracleDAL(); break;
+                    orderDAL = new OrderOracleDAL(); break;
             }
-            return userDAL;
+            return orderDAL;
         }
 
         /// <summary>
