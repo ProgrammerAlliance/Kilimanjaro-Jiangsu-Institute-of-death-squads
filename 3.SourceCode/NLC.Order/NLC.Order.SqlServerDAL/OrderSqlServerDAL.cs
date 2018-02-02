@@ -117,7 +117,9 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public int CountOrderNumber()
         {
-            throw new NotImplementedException();
+            string sql = "select count(*) from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
+            DataSet ds = DBHelper.Query(sql, null);
+            return ds.Tables[0].Rows.Count;
         }
     }
 }
