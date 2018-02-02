@@ -71,5 +71,11 @@ namespace NLC.Order.WebApi.Controllers
         {
             return orderBLL.CountOrderNumber();
         }
+
+        public JsonResult WetherProduce()
+        {
+            return null;
+        }
+
     }
 }
