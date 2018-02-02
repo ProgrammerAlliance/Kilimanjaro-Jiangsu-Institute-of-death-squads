@@ -149,6 +149,10 @@ namespace NLC.Order.BLL
             return jr;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult GetCleanEmpName()
         {
             try
