@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /3.SourceCode/NLC.Order/NLC.Order.WebApi/Properties/PublishProfiles
 /3.SourceCode/NLC.Order/NL.Order.Common
+/3.SourceCode/NLC.Order/NLC.Order.SqlServerDAL/*.config
