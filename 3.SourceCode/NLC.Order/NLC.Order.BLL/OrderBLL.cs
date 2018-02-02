@@ -101,7 +101,7 @@ namespace NLC.Order.BLL
                 jr.Status = 200;
             }
             catch (Exception)
-            {
+            {  
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
             }
