@@ -150,11 +150,57 @@ namespace NLC.Order.BLL
             return jr;
         }
 
-        public JsonResult GetName()
+        public JsonResult GetCleanEmpName()
         {
-          
+            try
+            {
+                jr.Result = OrderDAL.GetName(1);
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
+            }
             return jr;
         }
-       
+
+        /// <summary>
+        /// 今日是否产生打扫人员
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult WetherProudce()
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return jr;
+        }
+
+        /// <summary>
+        /// 今日是否订餐
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public JsonResult UserIsOrder(int UserId)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return jr;
+            
+        }
     }
 }
