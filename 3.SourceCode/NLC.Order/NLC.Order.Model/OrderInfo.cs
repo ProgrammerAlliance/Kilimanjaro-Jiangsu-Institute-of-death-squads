@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.Order.Model
 {
-    class OrderInfo
+   public class OrderInfo
     {
         /// <summary>
         /// 订餐号
