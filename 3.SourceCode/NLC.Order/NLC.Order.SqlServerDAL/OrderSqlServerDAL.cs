@@ -5,6 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NLC.Order.Model;
+using System.Data.SqlClient;
+using NLC.Order.DBUtility;
+using System.Data;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -28,7 +31,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool SubOrder(int UserId)
         {
-            throw new NotImplementedException();
+            string sql = "delete from ordertable where DateDiff(dd,createtime,getdate())=0 and UserId=@UserId";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("UserId",UserId)
+            };
+            int result = DBHelper.NonQuery(sql, parameters);
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -37,7 +53,9 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<OrderInfo> Cleaner()
         {
-            throw new NotImplementedException();
+            string sql = "select * from OrderTable where DateDiff(dd,createtime,getdate())=0";
+            DataSet ds = DBHelper.Query(sql, null);
+            return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
 
         /// <summary>
