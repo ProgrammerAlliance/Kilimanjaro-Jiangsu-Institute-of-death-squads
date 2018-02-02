@@ -65,7 +65,7 @@ namespace NLC.Order.SqlServerDAL
         /// <summary>
         /// 获取打扫人员姓名
         /// </summary>
-        /// <param name="UserId"></param>
+        /// <param name="UserId">用户ID</param>
         /// <returns></returns>
         public IList<UserInfo> GetName()
         {
@@ -124,6 +124,10 @@ namespace NLC.Order.SqlServerDAL
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
+        /// <summary>
+        /// 判断今日是否生成打扫人员
+        /// </summary>
+        /// <returns></returns>
         public bool IsProduce()
         {
             string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
