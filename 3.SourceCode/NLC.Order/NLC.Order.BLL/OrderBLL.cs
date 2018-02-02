@@ -40,14 +40,15 @@ namespace NLC.Order.BLL
         {
             try
             {
-               
+                jr.Result = OrderDAL.Cleaner();
+                jr.Status = 200;
             }
             catch (Exception)
             {
-
-                throw;
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
             }
-            return null;
+            return jr;
         }
 
         /// <summary>
