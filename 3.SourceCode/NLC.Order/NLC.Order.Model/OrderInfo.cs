@@ -8,5 +8,6 @@ namespace NLC.Order.Model
 {
     class OrderInfo
     {
+
     }
 }
