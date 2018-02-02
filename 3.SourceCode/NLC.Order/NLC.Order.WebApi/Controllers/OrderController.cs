@@ -76,18 +76,20 @@ namespace NLC.Order.WebApi.Controllers
         /// 今日是否产生打扫人员
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult WetherProduce()
         {
-            return orderBLL.WetherProduce();
+            return orderBLL.WetherProudce();
         }
 
         /// <summary>
         /// 用户今日是否订餐
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult UserIsOrder(int userId)
         {
-            return orderBLL.UserIsOrder();
+            return orderBLL.UserIsOrder(userId);
         }
 
     }

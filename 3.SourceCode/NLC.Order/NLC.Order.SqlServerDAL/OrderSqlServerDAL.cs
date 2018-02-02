@@ -46,14 +46,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",UserId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -74,18 +67,15 @@ namespace NLC.Order.SqlServerDAL
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public string GetName(int UserId)
+        public IList<UserInfo> GetName()
         {
-            string sql = @"SELECT  UserName
-                           FROM      dbo.Emp
-                           WHERE   (UserId = @UserId)";
-            SqlParameter[] parameters =
-           {
-                new SqlParameter("UserId",UserId)
-            };
-            DataSet ds = DBHelper.Query(sql, parameters);
+            string sql = "select e.UserName " +
+                " from Emp e,OrderTable o " +
+                " where e.UserId=o.UserId and o.Clean=1 " +
+                " and  DateDiff(dd, CreateTime, getdate()) = 0";
+            DataSet ds = DBHelper.Query(sql, null);
             List<UserInfo> list = DBHelper.GetListbyDataSet<UserInfo>(ds);
-            return list.Count > 0 ? list[0].UserName : null;
+            return list;
         }
 
         /// <summary>
@@ -101,14 +91,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",UserId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -122,6 +105,11 @@ namespace NLC.Order.SqlServerDAL
             return ds.Tables[0].Rows.Count;
         }
 
+        /// <summary>
+        /// 今日是否订餐
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public bool IsOrder(int UserId)
         {
             string sql = @"SELECT  UserId
@@ -133,12 +121,17 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",UserId)
             };
             DataSet ds = DBHelper.Query(sql, parameters);
-            return ds.Tables[0].Rows.Count < 0 ? false : true;
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
         public bool IsProduce()
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
+                         FROM dbo.OrderTable
+                         WHERE   
+                        (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
+            DataSet ds = DBHelper.Query(sql, null);
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
     }
 }

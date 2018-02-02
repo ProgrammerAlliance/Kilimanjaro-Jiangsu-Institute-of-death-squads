@@ -23,14 +23,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",userId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -53,14 +46,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("Gender",user.Gender)
             };
             int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -115,14 +101,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",userId)
             };
             int result = DBHelper.NonQuery(sql, parameters);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result > 0 ? true : false;
         }
     }
 }
