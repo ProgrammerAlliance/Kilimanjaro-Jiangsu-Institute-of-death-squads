@@ -80,17 +80,17 @@ namespace NLC.Order.DBUtility
         }
 
         /// <summary>
-        ///  Dataset 集合根据传入的 类型。自动转换List集合"
+        ///  Dataset集合根据传入的类型自动转换List集合
         /// </summary>
-        /// <typeparam name="T">类（属性类 modle）</typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <param name="ds">数据集合</param>
-        /// <returns>List集合</returns>
+        /// <returns></returns>
         public static List<T> GetListbyDataSet<T>(DataSet ds) where T : new()
         {
-            List<T> list = new List<T>(); //声明要返回的集合
+            List<T> list = new List<T>();
             var type = typeof(T);          // 获取传入类型
             var str = type.GetProperties(); // 获取传入类型的属性集合
-            if (ds.Tables[0] == null || ds.Tables[0].Rows.Count < 0) //判断ds的null和是否包含数据
+            if (ds.Tables[0] == null || ds.Tables[0].Rows.Count < 0) //判断ds是否包含数据
             {
                 return list;
             }
