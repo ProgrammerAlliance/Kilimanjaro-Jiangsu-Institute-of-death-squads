@@ -76,16 +76,16 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public string GetName(int UserId)
         {
-            string sql = @"SELECT UserName
-                           FROM Emp
-                           WHERE UserId=@UserId";
+            string sql = @"SELECT  UserName
+                           FROM      dbo.Emp
+                           WHERE   (UserId = @UserId)";
             SqlParameter[] parameters =
            {
                 new SqlParameter("UserId",UserId)
             };
             DataSet ds = DBHelper.Query(sql, parameters);
-            List<OrderInfo> list = DBHelper.GetListbyDataSet<OrderInfo>(ds);
-            return list[0].UserName;
+            List<UserInfo> list = DBHelper.GetListbyDataSet<UserInfo>(ds);
+            return list.Count > 0 ? list[0].UserName : null;
         }
 
         /// <summary>
