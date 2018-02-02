@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NLC.Order.Model;
+using System.Data.SqlClient;
+using NLC.Order.DBUtility;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -17,8 +19,17 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool AddOrder(OrderInfo order)
         {
-            string sql = "";
-            throw new NotImplementedException();
+            string sql = @"insert into OrderTable
+                           (UserId, Clean, Remark)
+                           values
+                           (@UserId, @Clean, @Remark)";
+            SqlParameter[] parameters =
+           {
+                new SqlParameter("UserId",order.UserId),
+                new SqlParameter("Clean",order.Clean),
+                new SqlParameter("Remark",order.Remark)
+            };
+            return DBHelper.NonQuery(sql, parameters) > 0 ? true : false;
         }
 
         /// <summary>
