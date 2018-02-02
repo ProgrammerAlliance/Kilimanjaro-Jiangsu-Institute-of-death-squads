@@ -22,9 +22,8 @@ namespace NLC.Order.WebApi.Controllers
         {
             try
             {
-                string name = OrderDAL.GetName(1001);
                 jr.Status = 202;
-                jr.Result = name == null ? "又是空的字符串" : name;
+                jr.Result = OrderDAL.GetName();
             }
             catch (Exception e)
             {

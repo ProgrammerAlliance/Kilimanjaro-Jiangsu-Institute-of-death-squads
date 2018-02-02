@@ -75,7 +75,7 @@ namespace NLC.Order.SqlServerDAL
                 " and  DateDiff(dd, CreateTime, getdate()) = 0";
             DataSet ds = DBHelper.Query(sql, null);
             List<UserInfo> list = DBHelper.GetListbyDataSet<UserInfo>(ds);
-            return list.Count > 0 ? list: null;
+            return list.Count > 0 ? list : null;
         }
 
         /// <summary>
@@ -121,7 +121,12 @@ namespace NLC.Order.SqlServerDAL
 
         public bool IsProduce()
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
+                         FROM dbo.OrderTable
+                         WHERE   
+                        (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
+            DataSet ds = DBHelper.Query(sql, null);
+            return ds.Tables[0].Rows.Count < 0 ? false : true;
         }
     }
 }

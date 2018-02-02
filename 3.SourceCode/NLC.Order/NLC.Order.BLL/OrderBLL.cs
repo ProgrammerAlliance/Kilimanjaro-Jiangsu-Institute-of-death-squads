@@ -153,7 +153,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = OrderDAL.GetName(1);
+                jr.Result = OrderDAL.GetName();
                 jr.Status = 200;
             }
             catch (Exception)
