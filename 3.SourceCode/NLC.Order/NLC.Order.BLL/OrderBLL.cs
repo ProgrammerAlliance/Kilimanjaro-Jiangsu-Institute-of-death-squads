@@ -114,6 +114,11 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
+            if(currentTime.Hour< Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            {
+                jr.Status = 404;
+                jr.Result = "未到订餐截止时间";
+            }
             var list = OrderDAL.Cleaner();
             if (list.Count > 0)
             {
