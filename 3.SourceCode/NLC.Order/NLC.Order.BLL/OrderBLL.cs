@@ -117,10 +117,10 @@ namespace NLC.Order.BLL
             var list = OrderDAL.Cleaner();
             if (list.Count > 0)
             {
-                int[] GetId = { };
+                int[] GetId = new int[2];
                 for (int i = 0; i < 2; i++)
                 {
-                    int number = new Random().Next(list.Count);
+                    int number = new Random().Next(0,list.Count);
                     var randowitem = list[number];
                     if (!GetId.Contains(number))
                     {
@@ -128,9 +128,11 @@ namespace NLC.Order.BLL
                     }
                     else
                     {
+                        i--;
                         continue;
                     }
-                    jr.Result = OrderDAL.GetName(GetId[i]);
+                    OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
+                    jr.Result += OrderDAL.GetName(list[GetId[i]].UserId);
                 }
                 jr.Status = 200;
             }

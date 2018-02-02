@@ -95,7 +95,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool ModifyCleanState(int UserId)
         {
-            string sql = "update OrderTable set Clean=1 where UserId=@UserId";
+            string sql = "update OrderTable set Clean=1 where UserId=@UserId and DateDiff(dd, CreateTime, getdate()) = 0";
             SqlParameter[] parameters =
             {
                 new SqlParameter("UserId",UserId)

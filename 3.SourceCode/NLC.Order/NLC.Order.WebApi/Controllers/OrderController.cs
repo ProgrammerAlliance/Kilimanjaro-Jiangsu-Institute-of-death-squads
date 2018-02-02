@@ -49,8 +49,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult ProduceSweep()
         {
-            //return orderBLL.ProudceSweep();
-            return null;
+            return orderBLL.ProudceSweep();
         }
 
         /// <summary>
