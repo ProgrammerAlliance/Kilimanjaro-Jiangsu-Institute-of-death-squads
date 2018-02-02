@@ -30,6 +30,16 @@ namespace NLC.Order.OracleDAL
             throw new NotImplementedException();
         }
 
+        public bool IsOrder(int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsProduce()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ModifyCleanState(int UserId)
         {
             throw new NotImplementedException();

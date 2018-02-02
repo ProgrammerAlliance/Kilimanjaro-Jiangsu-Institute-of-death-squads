@@ -121,5 +121,15 @@ namespace NLC.Order.SqlServerDAL
             DataSet ds = DBHelper.Query(sql, null);
             return ds.Tables[0].Rows.Count;
         }
+
+        public bool IsOrder(int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsProduce()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
