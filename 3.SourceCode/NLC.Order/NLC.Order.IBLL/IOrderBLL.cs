@@ -39,6 +39,10 @@ namespace NLC.Order.IBLL
         /// 获取打扫人员的名字
         /// </summary>
         /// <returns></returns>
-        JsonResult GetName();
+        JsonResult GetCleanEmpName();
+
+        JsonResult WetherProudce();
+
+        JsonResult UserIsOrder(int UserId);
     }
 }
