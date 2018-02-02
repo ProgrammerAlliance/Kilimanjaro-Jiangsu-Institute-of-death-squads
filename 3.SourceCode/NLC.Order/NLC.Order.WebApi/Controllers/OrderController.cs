@@ -92,5 +92,14 @@ namespace NLC.Order.WebApi.Controllers
             return orderBLL.UserIsOrder(userId);
         }
 
+        /// <summary>
+        /// 获取打扫人员名字
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetCleanName()
+        {
+            return orderBLL.GetCleanEmpName();
+        }
     }
 }
