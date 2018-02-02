@@ -9,7 +9,7 @@ namespace NLC.Order.IBLL
         /// 订餐
         /// </summary>
         /// <returns></returns>
-        JsonResult OrderFood();
+        JsonResult OrderFood(OrderInfo order);
 
         /// <summary>
         /// 取消订餐
@@ -21,13 +21,13 @@ namespace NLC.Order.IBLL
         /// 产生打扫人员
         /// </summary>
         /// <returns></returns>
-        JsonResult ProudceSweep();
+        JsonResult ProudceSweep(int UserId);
 
         /// <summary>
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        JsonResult GetOrderPeople(OrderInfo order);
+        JsonResult GetOrderPeople();
 
         /// <summary>
         /// 统计今日订餐人数
