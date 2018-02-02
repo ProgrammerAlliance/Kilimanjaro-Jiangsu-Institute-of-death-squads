@@ -97,12 +97,14 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
-            int[] getId = { };
+            
             var list = OrderDAL.Cleaner();
-            for (int i = 0; i < 2; i++)
+            if (list.Count > 0)
             {
-                if (list.Count > 0)
+                int[] getId = { };
+                for (int i = 0; i < 2; i++)
                 {
+
                     int number = new Random().Next(list.Count);
                     var id = list[number];
                     if (!getId.Contains(Convert.ToInt32(id)))
@@ -113,10 +115,18 @@ namespace NLC.Order.BLL
                     {
                         continue;
                     }
+
+                    jr.Result = OrderDAL.GetName(getId[i]);
                 }
-                jr.Result = OrderDAL.GetName(getId[i]);
+                jr.Status = 200;
             }
-            jr.Status = 200;
+            else
+            {
+                jr.Status = 404;
+                jr.Result = "无人订餐";
+
+            }
+            
             return jr;
         }
 
