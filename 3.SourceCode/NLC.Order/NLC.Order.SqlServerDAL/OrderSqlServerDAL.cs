@@ -74,7 +74,7 @@ namespace NLC.Order.SqlServerDAL
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public string GetName(int UserId)
+        public IList<string> GetName()
         {
             string sql = @"SELECT  UserName
                            FROM      dbo.Emp
