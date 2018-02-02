@@ -34,5 +34,11 @@ namespace NLC.Order.IBLL
         /// </summary>
         /// <returns></returns>
         JsonResult CountOrderNumber();
+
+        /// <summary>
+        /// 获取打扫人员的名字
+        /// </summary>
+        /// <returns></returns>
+        JsonResult GetName();
     }
 }

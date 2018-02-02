@@ -72,7 +72,20 @@ namespace NLC.Order.WebApi.Controllers
             return orderBLL.CountOrderNumber();
         }
 
+        /// <summary>
+        /// 今日是否产生打扫人员
+        /// </summary>
+        /// <returns></returns>
         public JsonResult WetherProduce()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 用户今日是否订餐
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult UserIsOrder(int userId)
         {
             return null;
         }
