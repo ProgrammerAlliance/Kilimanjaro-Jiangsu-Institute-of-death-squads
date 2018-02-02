@@ -124,7 +124,16 @@ namespace NLC.Order.SqlServerDAL
 
         public bool IsOrder(int UserId)
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT  UserId
+                           FROM  dbo.OrderTable
+                           WHERE (DATEDIFF(dd, CreateTime, GETDATE()) = 0) 
+                           AND (UserId = @UserId)";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("UserId",UserId)
+            };
+            DataSet ds = DBHelper.Query(sql, parameters);
+            return ds.Tables[0].Rows.Count < 0 ? false : true;
         }
 
         public bool IsProduce()
