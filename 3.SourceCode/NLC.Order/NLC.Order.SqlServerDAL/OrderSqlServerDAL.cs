@@ -76,7 +76,13 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public string GetName(int UserId)
         {
-          
+            string sql = @"SELECT UserName
+                           FROM Emp
+                           WHERE UserId=@UserId";
+            SqlParameter[] parameters =
+           {
+                new SqlParameter("UserId",UserId)
+            };
             throw new NotImplementedException();
         }
 
