@@ -8,8 +8,26 @@ namespace NLC.Order.Model
 {
     class OrderInfo
     {
+        /// <summary>
+        /// 订餐号
+        /// </summary>
         public int OrderNo { get; set; }
+        /// <summary>
+        /// 员工编号
+        /// </summary>
+        public int UserId { get; set; }
+        /// <summary>
+        /// 点餐时间
+        /// </summary>
+        public DateTime CreateTime { get; set; }
+        /// <summary>
+        /// 打扫人员
+        /// </summary>
+        public int Clean { get; set; }
+        /// <summary>
+        /// 点餐备注
+        /// </summary>
+        public string Remark { get; set; }
 
-          
     }
 }
