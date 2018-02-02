@@ -69,7 +69,7 @@ namespace NLC.Order.BLL
             catch (Exception e)
             {
                 jr.Status = 500;
-                jr.Result = e.Message;
+                jr.Result = "获取用户出错";
                 //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
@@ -100,7 +100,7 @@ namespace NLC.Order.BLL
             catch(Exception e)
             {
                 jr.Status = 500;
-                jr.Result = "系统繁忙";
+                jr.Result = "登录出错";
             }
             return jr;
         }
@@ -121,8 +121,8 @@ namespace NLC.Order.BLL
             catch (Exception e)
             {
                 jr.Status = 500;
-                jr.Result = e.Message;
-                //LogHelper.WriteLogFile(e.Message);
+                jr.Result = "修改密码出错";
+               // LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
