@@ -104,7 +104,7 @@ namespace NLC.Order.SqlServerDAL
             DataSet ds = DBHelper.Query(sql, null);
             return ds.Tables[0].Rows.Count;
         }
-        
+
         /// <summary>
         /// 今日是否订餐
         /// </summary>
@@ -121,7 +121,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("UserId",UserId)
             };
             DataSet ds = DBHelper.Query(sql, parameters);
-            return ds.Tables[0].Rows.Count < 0 ? false : true;
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
         public bool IsProduce()
@@ -131,7 +131,7 @@ namespace NLC.Order.SqlServerDAL
                          WHERE   
                         (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
             DataSet ds = DBHelper.Query(sql, null);
-            return ds.Tables[0].Rows.Count < 0 ? false : true;
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
     }
 }
