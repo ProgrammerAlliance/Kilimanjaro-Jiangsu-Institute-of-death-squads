@@ -84,13 +84,11 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type)
         {
-            string sql = @"SELECT [UserId],[UserName]
-                           FROM 
-                          (SELECT [UserId],[UserName],[UserPwd]
-                           FROM[Order].[dbo].[Emp]
-                           WHERE UserType=@UserType
-                            )t
-                            WHERE UserId=@UserId and UserPwd=@UserPwd";
+            string sql = @"SELECT  e.UserId, e.UserName, d.Deptname
+                           FROM  dbo.Emp AS e INNER JOIN
+                           dbo.Deptment AS d ON e.Deptno = d.Deptno
+                           WHERE   
+                            (e.UserId = @UserId) AND (e.UserPwd = @UserPwd) AND (e.UserType = @UserType)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("UserType",type),
