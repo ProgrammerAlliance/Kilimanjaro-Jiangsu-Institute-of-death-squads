@@ -21,7 +21,7 @@ namespace NLC.Order.IBLL
         /// 产生打扫人员
         /// </summary>
         /// <returns></returns>
-        JsonResult ProudceSweep(int UserId);
+        JsonResult ProudceSweep();
 
         /// <summary>
         /// 获取今日订餐人员信息

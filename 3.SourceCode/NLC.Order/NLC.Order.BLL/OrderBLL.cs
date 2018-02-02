@@ -4,6 +4,7 @@ using NLC.Order.Common;
 using NLC.Order.Model;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
+using System.Linq;
 
 namespace NLC.Order.BLL
 {
@@ -22,7 +23,7 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public JsonResult CancelOrder(int  UserId)
+        public JsonResult CancelOrder(int UserId)
         {
             if(currentTime.Hour>=17)
             {
@@ -108,10 +109,40 @@ namespace NLC.Order.BLL
         /// 生成打扫
         /// </summary>
         /// <returns></returns>
-        public JsonResult ProudceSweep(int UserId)
+        public JsonResult ProudceSweep()
         {
-           
+            
+            var list = OrderDAL.Cleaner();
+            if (list.Count > 0)
+            {
+                int[] getId = { };
+                for (int i = 0; i < 2; i++)
+                {
+
+                    int number = new Random().Next(list.Count);
+                    var id = list[number];
+                    if (!getId.Contains(Convert.ToInt32(id)))
+                    {
+                        getId[i] = Convert.ToInt32(id);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
+                    jr.Result = OrderDAL.GetName(getId[i]);
+                }
+                jr.Status = 200;
+            }
+            else
+            {
+                jr.Status = 404;
+                jr.Result = "无人订餐";
+
+            }
+            
             return jr;
         }
+
     }
 }
