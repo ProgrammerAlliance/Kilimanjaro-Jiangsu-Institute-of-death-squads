@@ -4,7 +4,7 @@ using NLC.Order.Common;
 using NLC.Order.Model;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Linq;
+using System.Configuration;
 
 namespace NLC.Order.BLL
 {
@@ -25,8 +25,9 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CancelOrder(int UserId)
         {
-            if(currentTime.Hour>=17)
+            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
+                jr.Status = 404;
                 jr.Result = "已超过取消订餐时间";
             }
             try
@@ -87,8 +88,9 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult OrderFood(OrderInfo order)
         {
-            if(currentTime.Hour>=17)
+            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
+                jr.Status = 404;
                 jr.Result = "已超过订餐时间";
                 return jr;
             }
@@ -111,38 +113,8 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
-            
-            var list = OrderDAL.Cleaner();
-            if (list.Count > 0)
-            {
-                int[] getId = { };
-                for (int i = 0; i < 2; i++)
-                {
 
-                    int number = new Random().Next(list.Count);
-                    var id = list[number];
-                    if (!getId.Contains(Convert.ToInt32(id)))
-                    {
-                        getId[i] = Convert.ToInt32(id);
-                    }
-                    else
-                    {
-                        continue;
-                    }
-
-                    jr.Result = OrderDAL.GetName(getId[i]);
-                }
-                jr.Status = 200;
-            }
-            else
-            {
-                jr.Status = 404;
-                jr.Result = "无人订餐";
-
-            }
-            
             return jr;
         }
-
     }
 }
