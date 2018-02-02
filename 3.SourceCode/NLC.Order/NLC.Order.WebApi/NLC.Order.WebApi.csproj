@@ -181,6 +181,10 @@
       <Project>{ae82d427-04bb-462a-be9b-3d007c251624}</Project>
       <Name>NLC.Order.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NL.Order.DALFactory\NLC.Order.DALFactory.csproj">
+      <Project>{098FD830-BC48-4347-B26B-07E797816179}</Project>
+      <Name>NLC.Order.DALFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NLC.Order.BLL\NLC.Order.BLL.csproj">
       <Project>{a1b6a477-55e0-4590-a234-0abdc6c7cb4a}</Project>
       <Name>NLC.Order.BLL</Name>
@@ -188,6 +192,10 @@
     <ProjectReference Include="..\NLC.Order.IBLL\NLC.Order.IBLL.csproj">
       <Project>{c6d14dd4-338d-472f-8a3f-b643fc32d2e4}</Project>
       <Name>NLC.Order.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.Order.IDAL\NLC.Order.IDAL.csproj">
+      <Project>{2D02AD0F-0EB8-4604-8C83-27B1ABD24F41}</Project>
+      <Name>NLC.Order.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\NLC.Order.Model\NLC.Order.Model.csproj">
       <Project>{a4e85fcf-6e74-421a-a290-94eebeaeb154}</Project>
