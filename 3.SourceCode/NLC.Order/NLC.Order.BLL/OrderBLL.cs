@@ -101,7 +101,7 @@ namespace NLC.Order.BLL
                 jr.Status = 200;
             }
             catch (Exception)
-            {  
+            {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
             }
@@ -114,7 +114,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
-            if(currentTime.Hour< Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            if (currentTime.Hour < Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;
                 jr.Result = "未到订餐截止时间";
@@ -125,7 +125,7 @@ namespace NLC.Order.BLL
                 int[] GetId = new int[2];
                 for (int i = 0; i < 2; i++)
                 {
-                    int number = new Random().Next(0,list.Count);
+                    int number = new Random().Next(0, list.Count);
                     var randowitem = list[number];
                     if (!GetId.Contains(number))
                     {
@@ -137,7 +137,6 @@ namespace NLC.Order.BLL
                         continue;
                     }
                     OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
-                    
                 }
                 jr.Result = "OK";
                 jr.Status = 200;
@@ -173,12 +172,13 @@ namespace NLC.Order.BLL
         {
             try
             {
-
+                jr.Result = OrderDAL.IsProduce();
+                jr.Status = 200;
             }
             catch (Exception)
             {
-
-                throw;
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
             }
             return jr;
         }
@@ -192,15 +192,15 @@ namespace NLC.Order.BLL
         {
             try
             {
-
+                jr.Result = OrderDAL.IsOrder(UserId);
+                jr.Status = 200;
             }
             catch (Exception)
             {
-
-                throw;
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
             }
             return jr;
-            
         }
     }
 }
