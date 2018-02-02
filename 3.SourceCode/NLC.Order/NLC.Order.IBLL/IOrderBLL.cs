@@ -41,8 +41,17 @@ namespace NLC.Order.IBLL
         /// <returns></returns>
         JsonResult GetCleanEmpName();
 
+        /// <summary>
+        /// 今日是否产生打扫人员
+        /// </summary>
+        /// <returns></returns>
         JsonResult WetherProudce();
 
+        /// <summary>
+        /// 员工今日是否订餐
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         JsonResult UserIsOrder(int UserId);
     }
 }

@@ -109,7 +109,7 @@ namespace NLC.Order.BLL
         }
 
         /// <summary>
-        /// 生成打扫
+        /// 改变订餐人员的打扫状态
         /// </summary>
         /// <returns></returns>
         public JsonResult ProudceSweep()
@@ -150,7 +150,7 @@ namespace NLC.Order.BLL
         }
 
         /// <summary>
-        /// 
+        /// 获取打扫人员的名单
         /// </summary>
         /// <returns></returns>
         public JsonResult GetCleanEmpName()
@@ -188,7 +188,7 @@ namespace NLC.Order.BLL
         }
 
         /// <summary>
-        /// 今日是否订餐
+        /// 判断员工今日是否订餐
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
