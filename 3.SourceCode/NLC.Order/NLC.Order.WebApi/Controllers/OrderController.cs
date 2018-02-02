@@ -37,9 +37,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="orderId"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult CancelOrder(int orderId)
+        public JsonResult CancelOrder(int userId)
         {
-            return orderBLL.CancelOrder(orderId);
+            return orderBLL.CancelOrder(userId);
         }
 
         /// <summary>
