@@ -75,7 +75,7 @@ namespace NLC.Order.SqlServerDAL
                 " and  DateDiff(dd, CreateTime, getdate()) = 0";
             DataSet ds = DBHelper.Query(sql, null);
             List<UserInfo> list = DBHelper.GetListbyDataSet<UserInfo>(ds);
-            return list.Count > 0 ? list : null;
+            return list;
         }
 
         /// <summary>
