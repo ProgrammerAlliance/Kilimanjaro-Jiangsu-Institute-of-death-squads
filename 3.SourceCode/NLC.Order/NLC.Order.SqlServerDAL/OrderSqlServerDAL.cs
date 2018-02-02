@@ -74,6 +74,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public string GetName(int UserId)
         {
+          
             throw new NotImplementedException();
         }
 
