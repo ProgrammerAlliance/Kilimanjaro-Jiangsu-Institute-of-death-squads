@@ -98,7 +98,6 @@ namespace NLC.Order.BLL
         public JsonResult ProudceSweep()
         {
             int[] getId = { };
-            
             var list = OrderDAL.Cleaner();
             for (int i = 0; i < 2; i++)
             {
@@ -114,10 +113,10 @@ namespace NLC.Order.BLL
                     {
                         continue;
                     }
-                   
                 }
                 jr.Result = OrderDAL.GetName(getId[i]);
             }
+            jr.Status = 200;
             return jr;
         }
 
