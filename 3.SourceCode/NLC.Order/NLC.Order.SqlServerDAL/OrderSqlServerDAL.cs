@@ -83,7 +83,9 @@ namespace NLC.Order.SqlServerDAL
            {
                 new SqlParameter("UserId",UserId)
             };
-            throw new NotImplementedException();
+            DataSet ds = DBHelper.Query(sql, parameters);
+            List<OrderInfo> list = DBHelper.GetListbyDataSet<OrderInfo>(ds);
+            return list[0].UserName;
         }
 
         /// <summary>

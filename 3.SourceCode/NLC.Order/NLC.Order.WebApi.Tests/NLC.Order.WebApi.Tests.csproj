@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NLC.Order.SqlServerDAL\NLC.Order.SqlServerDAL.csproj">
+      <Project>{4c1bfd70-7c75-46e7-8e44-f5f9e88c3578}</Project>
+      <Name>NLC.Order.SqlServerDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NLC.Order.WebApi\NLC.Order.WebApi.csproj">
       <Project>{67605351-A90A-4D2F-BC9F-2A06621EF5AB}</Project>
       <Name>NLC.Order.WebApi</Name>

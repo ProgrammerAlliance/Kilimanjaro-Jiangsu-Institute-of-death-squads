@@ -9,6 +9,7 @@ namespace NLC.Order.WebApi.Tests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
