@@ -78,7 +78,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <returns></returns>
         public JsonResult WetherProduce()
         {
-            return orderBLL.WetherProduce();
+            return orderBLL.WetherProudce();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <returns></returns>
         public JsonResult UserIsOrder(int userId)
         {
-            return orderBLL.UserIsOrder();
+            return orderBLL.UserIsOrder(userId);
         }
 
     }
