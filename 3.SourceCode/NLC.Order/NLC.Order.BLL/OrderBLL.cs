@@ -137,8 +137,9 @@ namespace NLC.Order.BLL
                         continue;
                     }
                     OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
-                    jr.Result += OrderDAL.GetName(list[GetId[i]].UserId);
+                    
                 }
+                jr.Result = "OK";
                 jr.Status = 200;
             }
             else
@@ -148,5 +149,12 @@ namespace NLC.Order.BLL
             }
             return jr;
         }
+
+        public JsonResult GetName()
+        {
+          
+            return jr;
+        }
+       
     }
 }
