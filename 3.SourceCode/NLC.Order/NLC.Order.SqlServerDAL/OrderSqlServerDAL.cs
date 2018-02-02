@@ -103,5 +103,13 @@ namespace NLC.Order.SqlServerDAL
             }
         }
 
+        /// <summary>
+        /// 获取今日订餐人员数
+        /// </summary>
+        /// <returns></returns>
+        public int CountOrderNumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

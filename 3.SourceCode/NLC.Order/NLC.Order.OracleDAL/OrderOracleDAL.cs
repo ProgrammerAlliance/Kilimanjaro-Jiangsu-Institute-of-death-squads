@@ -20,6 +20,11 @@ namespace NLC.Order.OracleDAL
             throw new NotImplementedException();
         }
 
+        public int CountOrderNumber()
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetName(int UserId)
         {
             throw new NotImplementedException();
