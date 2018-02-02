@@ -17,7 +17,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool AddOrder(OrderInfo order)
         {
-
+            string sql = "";
             throw new NotImplementedException();
         }
 
