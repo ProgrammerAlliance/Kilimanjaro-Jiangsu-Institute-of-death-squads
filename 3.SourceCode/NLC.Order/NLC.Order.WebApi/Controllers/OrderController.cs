@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLC.Order.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +10,52 @@ namespace NLC.Order.WebApi.Controllers
 {
     public class OrderController : ApiController
     {
-        // GET: api/Order
-        public IEnumerable<string> Get()
+
+        [HttpGet]
+        public JsonResult AddOrder()
         {
-            return new string[] { "value1", "value2" };
+            return null;
         }
 
-        // GET: api/Order/5
-        public string Get(int id)
+        /// <summary>
+        /// 取消订餐
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult CancelOrder(int orderId)
         {
-            return "value";
+            return null;
         }
 
-        // POST: api/Order
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// 产生打扫人员
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult ProduceSweep()
         {
+            return null;
         }
 
-        // PUT: api/Order/5
-        public void Put(int id, [FromBody]string value)
+        /// <summary>
+        /// 获取今日订餐人员信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetOrderPeople()
         {
+            return null;
         }
 
-        // DELETE: api/Order/5
-        public void Delete(int id)
+        /// <summary>
+        /// 统计今日订餐人数
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult CountOrderNumber()
         {
+            return null;
         }
     }
 }
