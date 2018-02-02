@@ -43,5 +43,11 @@ namespace NLC.Order.IDAL
         /// <returns></returns>
         string GetName(int UserId);
 
+        /// <summary>
+        /// 获取今日订餐人员数
+        /// </summary>
+        /// <returns></returns>
+        int CountOrderNumber();
+
     }
 }

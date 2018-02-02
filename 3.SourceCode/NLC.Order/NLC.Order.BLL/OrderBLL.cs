@@ -38,6 +38,16 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CountOrderNumber()
         {
+            return null;
+        }
+
+        /// <summary>
+        /// 获得订餐人员信息
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        public JsonResult GetOrderPeople()
+        {
             try
             {
                 jr.Result = OrderDAL.Cleaner();
@@ -52,31 +62,32 @@ namespace NLC.Order.BLL
         }
 
         /// <summary>
-        /// 获得订餐人员信息
-        /// </summary>
-        /// <param name="order"></param>
-        /// <returns></returns>
-        public JsonResult GetOrderPeople(OrderInfo order)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// 订餐
         /// </summary>
         /// <returns></returns>
-        public JsonResult OrderFood()
+        public JsonResult OrderFood(OrderInfo order)
         {
-            throw new NotImplementedException();
+            try
+            {
+                jr.Result = OrderDAL.AddOrder(order);
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
+            }
+            return jr;
         }
 
         /// <summary>
         /// 生成打扫
         /// </summary>
         /// <returns></returns>
-        public JsonResult ProudceSweep()
+        public JsonResult ProudceSweep(int UserId)
         {
-            throw new NotImplementedException();
+           
+            return jr;
         }
     }
 }
