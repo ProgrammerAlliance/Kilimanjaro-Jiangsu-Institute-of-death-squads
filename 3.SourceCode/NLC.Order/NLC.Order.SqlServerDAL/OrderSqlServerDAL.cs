@@ -20,8 +20,17 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool AddOrder(OrderInfo order)
         {
-            string sql = "";
-            throw new NotImplementedException();
+            string sql = @"insert into OrderTable
+                           (UserId, Clean, Remark)
+                           values
+                           (@UserId, @Clean, @Remark)";
+            SqlParameter[] parameters =
+           {
+                new SqlParameter("UserId",order.UserId),
+                new SqlParameter("Clean",order.Clean),
+                new SqlParameter("Remark",order.Remark)
+            };
+            return DBHelper.NonQuery(sql, parameters) > 0 ? true : false;
         }
 
         /// <summary>
@@ -53,7 +62,9 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<OrderInfo> Cleaner()
         {
-            string sql = "select * from OrderTable where DateDiff(dd,createtime,getdate())=0";
+            string sql = "select o.UserId,e.UserName,d.Deptname,o.Remark " +
+                "from OrderTable o,Emp e, Deptment d " +
+                "where o.userid = e.userid and e.deptno = d.deptno and DateDiff(dd, createtime, getdate())= 0";
             DataSet ds = DBHelper.Query(sql, null);
             return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
@@ -65,6 +76,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public string GetName(int UserId)
         {
+          
             throw new NotImplementedException();
         }
 
@@ -75,7 +87,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool ModifyCleanState(int UserId)
         {
-            throw new NotImplementedException();
+            string sql = "update OrderTable set Clean=1 where UserId=@UserId";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("UserId",UserId)
+            };
+            int result = DBHelper.NonQuery(sql, parameters);
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
