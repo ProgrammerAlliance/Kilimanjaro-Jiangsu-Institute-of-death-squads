@@ -1,12 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLC.Order.IBLL;
+using System;
+using NLC.Order.Common;
+using NLC.Order.Model;
 
 namespace NLC.Order.BLL
 {
-    class MenuBLL
+    public class MbenuBLL : IMenuBLL
     {
+        public JsonResult AddDishes(MenuInfo menu)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JsonResult DelDishes(int DishesId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JsonResult GetAllMenu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public JsonResult ModifyDishes(MenuInfo menu)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

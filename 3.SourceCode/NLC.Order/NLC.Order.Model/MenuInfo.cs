@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.Order.Model
 {
-    class MenuInfo
+    public class MenuInfo
     {
         /// <summary>
         /// 菜编号
