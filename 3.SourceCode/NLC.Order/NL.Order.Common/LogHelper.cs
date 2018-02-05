@@ -5,6 +5,8 @@ namespace NL.Order.Common
 {
     public class LogHelper
     {
+    
+        
 
         //// <summary>
         /// 写入日志文件
@@ -29,8 +31,7 @@ namespace NL.Order.Common
                 w.Write("\n\rLog Entry : ");             
                 w.Write("{0} {1} \n\r", DateTime.Now.ToLongTimeString(),
                 DateTime.Now.ToLongDateString());
-                w.Write(input + "\n\r");           
-                w.Write("------------------------------------\n\r");
+                w.Write(input + "\n\r");          
                 w.Close();
             }
         }

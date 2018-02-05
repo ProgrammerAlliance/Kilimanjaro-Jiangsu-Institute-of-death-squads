@@ -1,4 +1,5 @@
-﻿using NLC.Order.DBUtility;
+﻿using NL.Order.Common;
+using NLC.Order.DBUtility;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
@@ -16,10 +17,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public int CountEmp()
         {
-            string sql = @"SELECT UserId, UserName, UserType, UserPwd, Deptno, Gender
+            DataSet ds = null;
+            try
+            {
+                string sql = @"SELECT UserId, UserName, UserType, UserPwd, Deptno, Gender
                            FROM dbo.Emp AS ordertable
                            WHERE(UserType = 2)";
-            DataSet ds = DBHelper.Query(sql, null);
+                 ds = DBHelper.Query(sql, null);
+            }
+            catch (Exception)
+            {
+
+                LogHelper.WriteLogFile("执行统计员工数量SQL语句失败");
+            }
+            
             return ds.Tables[0].Rows.Count;
         }
 
@@ -30,12 +41,22 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool DeleteUser(string userId)
         {
-            string sql = "delete from Emp where UserId=@UserId";
-            SqlParameter[] parameters =
+            int result = 0;
+            try
             {
+                string sql = "delete from Emp where UserId=@UserId";
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserId",userId)
             };
-            int result = DBHelper.NonQuery(sql, parameters);
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+              
+            }
+            
             return result > 0 ? true : false;
         }
 
@@ -46,11 +67,14 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool InsertUser(UserInfo user)
         {
-            string sql = @"insert into Emp
+            int result = 0;
+            try
+            {
+                string sql = @"insert into Emp
                            (UserId,UserName,UserType,UserPwd,Deptno,Gender)
                            values(@UserId,@UserName,@UserType,@UserPwd,@Deptno,@Gender)";
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserId",user.UserId),
                 new SqlParameter("UserName",user.UserName),
                 new SqlParameter("UserType",user.UserType),
@@ -58,7 +82,13 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("Deptno",user.Deptno),
                 new SqlParameter("Gender",user.Gender)
             };
-            int result = DBHelper.NonQuery(sql, parameters);
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+            }
+            
             return result > 0 ? true : false;
         }
 
@@ -68,21 +98,27 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<UserInfo> SelectAllUser(int rows, int page)
         {
-            int nums = rows * (page - 1);
-            string sql = @"SELECT TOP (@rows) [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
+            DataSet ds = null;
+            try
+            {
+                int nums = rows * (page - 1);
+                string sql = @"SELECT TOP (@rows) [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
                             FROM  (SELECT  row_number() OVER (ORDER BY UserId) AS rownumber, 
                                    [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
                             FROM  [Order].[dbo].[Emp]WHERE   UserType = 2) A
                             WHERE rownumber > @nums";
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("rows",rows),
                 new SqlParameter("nums",nums)
             };
-            DataSet ds = DBHelper.Query(sql, parameters);
+                ds = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+            }          
             return DBHelper.GetListbyDataSet<UserInfo>(ds);
-
-
         }
 
         /// <summary>
@@ -93,19 +129,28 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type)
         {
-            string sql = @"SELECT  e.UserId, e.UserName, d.Deptname
+            DataSet data = null;
+            try
+            {
+                string sql = @"SELECT  e.UserId, e.UserName, d.Deptname
                            FROM  dbo.Emp AS e INNER JOIN
                            dbo.Deptment AS d ON e.Deptno = d.Deptno
                            WHERE   
                             (e.UserId = @UserId) AND (e.UserPwd = @UserPwd) AND (e.UserType = @UserType)";
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserType",type),
                 new SqlParameter("UserId",UserId),
                 new SqlParameter("UserPwd",pwd)
             };
 
-            var data = DBHelper.Query(sql, parameters);
+                data = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败");
+            }
+            
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
 
@@ -117,13 +162,21 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool UpdateUser(string userId, string psassword)
         {
-            string sql = "update Emp set UserPwd=@UserPwd where UserId=@UserId";
-            SqlParameter[] parameters =
+            int result = 0;
+            try
             {
+                string sql = "update Emp set UserPwd=@UserPwd where UserId=@UserId";
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserPwd",psassword),
                 new SqlParameter("UserId",userId)
             };
-            int result = DBHelper.NonQuery(sql, parameters);
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行更新用户SQL语句失败");
+            }           
             return result > 0 ? true : false;
         }
     }
