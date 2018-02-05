@@ -66,7 +66,7 @@ namespace NLC.Order.SqlServerDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        public IList<UserInfo> SelectAllUser(int rows, int page)
+        public List<UserInfo> SelectAllUser(int rows, int page)
         {
             int nums = rows * (page - 1);
             string sql = @"SELECT TOP 10 [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
