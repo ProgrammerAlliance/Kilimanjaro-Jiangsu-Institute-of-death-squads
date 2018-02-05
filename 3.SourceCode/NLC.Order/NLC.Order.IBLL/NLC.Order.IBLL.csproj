@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDeptBLL.cs" />
     <Compile Include="IOrderBLL.cs" />
     <Compile Include="IUserBLL.cs" />
     <Compile Include="IMenuBLL.cs" />
