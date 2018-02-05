@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NL.Order.Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -31,7 +32,8 @@ namespace NLC.Order.DBUtility
             }
             catch (Exception msg)
             {
-                throw new Exception(msg.ToString());
+                LogHelper.WriteLogFile("数据库连接失败！"+msg.ToString());
+
             }
             finally
             {
@@ -69,7 +71,7 @@ namespace NLC.Order.DBUtility
             }
             catch (Exception msg)
             {
-                throw new Exception(msg.ToString());
+                LogHelper.WriteLogFile("执行查询失败");
             }
             finally
             {
@@ -90,23 +92,31 @@ namespace NLC.Order.DBUtility
             List<T> list = new List<T>();
             var type = typeof(T);          // 获取传入类型
             var str = type.GetProperties(); // 获取传入类型的属性集合
-            if (ds.Tables[0] == null || ds.Tables[0].Rows.Count < 0) //判断ds是否包含数据
+            try
             {
-                return list;
-            }
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //循环集合准备获取数据
-            {
-                T t = new T();       // 声明类
-                foreach (var item in str)  // 循环类的属性
+                if (ds.Tables[0] == null || ds.Tables[0].Rows.Count < 0) //判断ds是否包含数据
                 {
-                    string itemstr = item.Name; //类属性名称
-                    var itemtype = item.PropertyType; // 类属性的类型（int string datetime）
-                    object value = GetvalbyDataSet(itemstr, itemtype, ds.Tables[0].Rows[i]); //获取值
-                    item.SetValue(t, value, null);
-
+                    return list;
                 }
-                list.Add(t);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //循环集合准备获取数据
+                {
+                    T t = new T();       // 声明类
+                    foreach (var item in str)  // 循环类的属性
+                    {
+                        string itemstr = item.Name; //类属性名称
+                        var itemtype = item.PropertyType; // 类属性的类型（int string datetime）
+                        object value = GetvalbyDataSet(itemstr, itemtype, ds.Tables[0].Rows[i]); //获取值
+                        item.SetValue(t, value, null);
+
+                    }
+                    list.Add(t);
+                }
             }
+            catch
+            {
+                LogHelper.WriteLogFile("Dataset集合根据传入的类型自动转换List集合失败！");
+            }
+            
             return list;
         }
 
