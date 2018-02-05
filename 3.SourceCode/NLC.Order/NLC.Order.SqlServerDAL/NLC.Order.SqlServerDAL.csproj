@@ -49,6 +49,10 @@
     <Compile Include="UserSqlServerDAL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NL.Order.Common\NLC.Order.Common.csproj">
+      <Project>{AE82D427-04BB-462A-BE9B-3D007C251624}</Project>
+      <Name>NLC.Order.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NLC.Order.DBUtility\NLC.Order.DBUtility.csproj">
       <Project>{0361718B-2708-4755-A74D-A7EC30B7459D}</Project>
       <Name>NLC.Order.DBUtility</Name>

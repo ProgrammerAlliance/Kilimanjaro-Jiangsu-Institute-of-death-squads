@@ -8,6 +8,7 @@ using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using System.Data;
+using NL.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -40,12 +41,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool SubOrder(int UserId)
         {
-            string sql = "delete from ordertable where DateDiff(dd,createtime,getdate())=0 and UserId=@UserId";
-            SqlParameter[] parameters =
+            int result = 0;
+            try
             {
+                string sql = "delete from ordertable where DateDiff(dd,createtime,getdate())=0 and UserId=@UserId";
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserId",UserId)
             };
-            int result = DBHelper.NonQuery(sql, parameters);
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {                
+                LogHelper.WriteLogFile("执行取消订餐SQL语句失败");
+            }
             return result > 0 ? true : false;
         }
 
@@ -53,20 +62,28 @@ namespace NLC.Order.SqlServerDAL
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> SelectOrderPeople(int rows,int page)
+        public List<OrderInfo> SelectOrderPeople(int rows, int page)
         {
-            string sql = "SELECT * FROM " +
+            DataSet ds = null;
+            try
+            {
+                string sql = "SELECT * FROM " +
                 "( SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, o.UserId,e.UserName ,d.Deptname,o.Remark " +
                 "FROM OrderTable as o, Emp as e, Deptment d " +
                 "where e.UserId = o.UserId and e.Deptno = d.Deptno " +
                 "and DateDiff(dd, CreateTime, getdate()) = 0 ) t1 " +
                 "WHERE ROWID between(@startRows) and(@endRows)";
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("startRows",rows*(page-1)+1),
                 new SqlParameter("endRows",rows*page)
             };
-            DataSet ds = DBHelper.Query(sql, parameters);
+                ds = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行获取今日订餐人员信息SQL语句失败");
+            }
             return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
 
@@ -77,12 +94,21 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public IList<UserInfo> GetName()
         {
-            string sql = "select e.UserName " +
-                " from Emp e,OrderTable o " +
-                " where e.UserId=o.UserId and o.Clean=1 " +
-                " and  DateDiff(dd, CreateTime, getdate()) = 0";
-            DataSet ds = DBHelper.Query(sql, null);
-            List<UserInfo> list = DBHelper.GetListbyDataSet<UserInfo>(ds);
+            DataSet ds = null;
+            List<UserInfo> list = null;
+            try
+            {
+                string sql = "select e.UserName " +
+               " from Emp e,OrderTable o " +
+               " where e.UserId=o.UserId and o.Clean=1 " +
+               " and  DateDiff(dd, CreateTime, getdate()) = 0";
+                ds = DBHelper.Query(sql, null);
+                list = DBHelper.GetListbyDataSet<UserInfo>(ds);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行获取打扫人员姓名SQL语句失败");
+            }
             return list;
         }
 
@@ -93,12 +119,20 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool ModifyCleanState(int UserId)
         {
-            string sql = "update OrderTable set Clean=1 where UserId=@UserId and DateDiff(dd, CreateTime, getdate()) = 0";
-            SqlParameter[] parameters =
+            int result = 0;
+            try
             {
+                string sql = "update OrderTable set Clean=1 where UserId=@UserId and DateDiff(dd, CreateTime, getdate()) = 0";
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserId",UserId)
             };
-            int result = DBHelper.NonQuery(sql, parameters);
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行修改打扫人员状态SQL语句失败");
+            }
             return result > 0 ? true : false;
         }
 
@@ -108,8 +142,16 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public int CountOrderNumber()
         {
-            string sql = "select * from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
-            DataSet ds = DBHelper.Query(sql, null);
+            DataSet ds = null;
+            try
+            {
+                string sql = "select * from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
+                ds = DBHelper.Query(sql, null);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行获取今日订餐人员数SQL语句失败");
+            }
             return ds.Tables[0].Rows.Count;
         }
 
@@ -120,15 +162,23 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool IsOrder(int UserId)
         {
-            string sql = @"SELECT  UserId
+            DataSet ds = null;
+            try
+            {
+                string sql = @"SELECT  UserId
                            FROM  dbo.OrderTable
                            WHERE (DATEDIFF(dd, CreateTime, GETDATE()) = 0) 
                            AND (UserId = @UserId)";
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                 new SqlParameter("UserId",UserId)
             };
-            DataSet ds = DBHelper.Query(sql, parameters);
+                ds = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行今日是否订餐SQL语句失败");
+            }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
@@ -138,12 +188,26 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool IsProduce()
         {
-            string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
+            DataSet ds = null;
+            try
+            {
+                string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
                          FROM dbo.OrderTable
                          WHERE   
                         (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
-            DataSet ds = DBHelper.Query(sql, null);
+                ds = DBHelper.Query(sql, null);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行判断今日是否生成打扫人员SQL语句失败");
+            }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
+
+        /// <summary>
+        /// 查看部门加班员工
+        /// </summary>
+        /// <returns></returns>
+
     }
 }

@@ -3,24 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace NLC.Order.DBUtility
 {
     public class DBHelper
     {
-        static string connString = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
-
+        public static readonly string conn = ConfigurationManager.ConnectionStrings["ClassRoomConnectionString"].ToString();
+ 
         /// <summary>
         /// 执行对数据表中数据的增加、删除、修改操作 
         /// </summary>
         public static int NonQuery(string sql, SqlParameter[] parameters)
         {
-            SqlConnection conn = new SqlConnection(connString);
+            SqlConnection SqlConn = new SqlConnection(conn);
             int result = -1;
             try
             {
-                conn.Open();  //打开数据库  
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlConn.Open();  //打开数据库  
+                SqlCommand cmd = new SqlCommand(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
                     foreach (SqlParameter parameter in parameters)
@@ -30,16 +31,16 @@ namespace NLC.Order.DBUtility
                 }
                 result = cmd.ExecuteNonQuery();
             }
-            catch (Exception msg)
+            catch (Exception )
             {
-                LogHelper.WriteLogFile("数据库连接失败！"+msg.ToString());
+                LogHelper.WriteLogFile("数据库连接失败！");
 
             }
             finally
             {
-                if (conn.State == ConnectionState.Open)
+                if (SqlConn.State == ConnectionState.Open)
                 {
-                    conn.Close();    //关闭数据库  
+                    SqlConn.Close();    //关闭数据库  
                 }
             }
             return result;
@@ -54,12 +55,12 @@ namespace NLC.Order.DBUtility
         /// <returns></returns>
         public static DataSet Query(string sql, SqlParameter[] parameters)
         {
-            SqlConnection conn = new SqlConnection(connString);
+            SqlConnection SqlConn = new SqlConnection(conn);
             DataSet ds = new DataSet();
             try
             {
-                conn.Open();      //打开数据库  
-                SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
+                SqlConn.Open();      //打开数据库  
+                SqlDataAdapter adp = new SqlDataAdapter(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
                     foreach (SqlParameter parameter in parameters)
@@ -69,14 +70,14 @@ namespace NLC.Order.DBUtility
                 }
                 adp.Fill(ds);
             }
-            catch (Exception msg)
+            catch (Exception )
             {
                 LogHelper.WriteLogFile("执行查询失败");
             }
             finally
             {
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();      //关闭数据库  
+                if (SqlConn.State == ConnectionState.Open)
+                    SqlConn.Close();      //关闭数据库  
             }
             return ds;
         }

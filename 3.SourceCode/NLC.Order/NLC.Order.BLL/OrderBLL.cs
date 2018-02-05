@@ -41,6 +41,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile(" 取消订餐失败");
             }
             return jr;
         }
@@ -60,6 +61,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("统计订餐人数失败");
             }
             return jr;
         }
@@ -86,6 +88,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("获得订餐人员信息失败");
             }
             return jr;
         }
@@ -111,6 +114,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("订餐失败");
             }
             return jr;
         }
@@ -121,38 +125,45 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult ProudceSweep()
         {
-            if (currentTime.Hour < Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            try
             {
-                jr.Status = 404;
-                jr.Result = "未到订餐截止时间";
-            }
-            var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(),1);
-            if (list.Count > 0)
-            {
-                int[] GetId = new int[2];
-                for (int i = 0; i < 2; i++)
+                if (currentTime.Hour < Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
                 {
-                    int number = new Random().Next(0, list.Count);
-                    var randowitem = list[number];
-                    if (!GetId.Contains(number))
-                    {
-                        GetId[i] = number;
-                    }
-                    else
-                    {
-                        i--;
-                        continue;
-                    }
-                    OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
+                    jr.Status = 404;
+                    jr.Result = "未到订餐截止时间";
                 }
-                jr.Result = "OK";
-                jr.Status = 200;
+                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(), 1);
+                if (list.Count > 0)
+                {
+                    int[] GetId = new int[2];
+                    for (int i = 0; i < 2; i++)
+                    {
+                        int number = new Random().Next(0, list.Count);
+                        var randowitem = list[number];
+                        if (!GetId.Contains(number))
+                        {
+                            GetId[i] = number;
+                        }
+                        else
+                        {
+                            i--;
+                            continue;
+                        }
+                        OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
+                    }
+                    jr.Result = "OK";
+                    jr.Status = 200;
+                }
+                else
+                {
+                    jr.Result = "无人订餐";
+                    jr.Status = 303;
+                }
             }
-            else
+            catch (Exception)
             {
-                jr.Result = "无人订餐";
-                jr.Status = 303;
-            }
+                LogHelper.WriteLogFile("改变订餐人员的打扫状态失败");
+            }          
             return jr;
         }
 
@@ -171,6 +182,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("获取打扫人员的名单失败");
             }
             return jr;
         }
@@ -190,6 +202,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("今日是否产生打扫人员失败");
             }
             return jr;
         }
@@ -210,6 +223,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("判断员工今日是否订餐失败");
             }
             return jr;
         }

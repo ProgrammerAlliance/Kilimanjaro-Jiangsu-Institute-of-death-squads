@@ -25,11 +25,11 @@ namespace NLC.Order.BLL
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                //LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("增加用户失败");
             }
             return jr;
         }
@@ -50,7 +50,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                //LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("删除用户失败");
             }
             return jr;
         }
@@ -76,6 +76,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("获取所有用户失败");
             }
             return jr;
         }
@@ -106,6 +107,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
+                LogHelper.WriteLogFile("登录出错");
             }
             return jr;
         }
@@ -127,7 +129,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
-                // LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("修改密码出错失败");
             }
             return jr;
         }
