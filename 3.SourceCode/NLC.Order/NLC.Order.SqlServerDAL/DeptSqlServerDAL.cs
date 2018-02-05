@@ -4,6 +4,7 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using NLC.Order.DBUtility;
 using System.Data;
+using NL.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -15,10 +16,21 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<DeptInfo> GetAllDept()
         {
-            string sql = @"SELECT  DeptNo, DeptName
+            List<DeptInfo> list = null;
+            try
+            {
+                string sql = @"SELECT  DeptNo, DeptName
                            FROM dbo.Deptment";
-            DataSet ds = DBHelper.Query(sql, null);
-            return DBHelper.GetListbyDataSet<DeptInfo>(ds);
+                DataSet ds = DBHelper.Query(sql, null);
+                list = DBHelper.GetListbyDataSet<DeptInfo>(ds);
+            }
+
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行获取所有的部门SQL语句失败");
+            }
+
+            return list;
         }
-    }
+}
 }
