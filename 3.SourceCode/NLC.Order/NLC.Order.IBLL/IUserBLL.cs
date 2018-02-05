@@ -9,7 +9,7 @@ namespace NLC.Order.IBLL
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        JsonResult GetAllUser();
+        JsonResult GetAllUser(int rows,int page);
 
         /// <summary>
         /// 登录
