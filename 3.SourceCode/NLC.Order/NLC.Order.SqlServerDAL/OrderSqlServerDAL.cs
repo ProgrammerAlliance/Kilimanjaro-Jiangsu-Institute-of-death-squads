@@ -1,9 +1,6 @@
 ﻿using NLC.Order.IDAL;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
@@ -202,6 +199,16 @@ namespace NLC.Order.SqlServerDAL
                 LogHelper.WriteLogFile("执行判断今日是否生成打扫人员SQL语句失败");
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
+        }
+
+        public List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CountOrderNumber(int deptId)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

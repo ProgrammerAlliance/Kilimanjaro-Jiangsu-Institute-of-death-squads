@@ -9,7 +9,7 @@ namespace NLC.Order.DBUtility
 {
     public class DBHelper
     {
-        public static readonly string conn = ConfigurationManager.ConnectionStrings["ClassRoomConnectionString"].ToString();
+         static string conn = ConfigurationManager.ConnectionStrings["ClassRoomConnectionString"].ToString();
  
         /// <summary>
         /// 执行对数据表中数据的增加、删除、修改操作 
