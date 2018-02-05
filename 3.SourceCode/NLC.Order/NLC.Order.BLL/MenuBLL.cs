@@ -14,22 +14,59 @@ namespace NLC.Order.BLL
         private JsonResult jr = new JsonResult();
         public JsonResult AddDishes(MenuInfo menu)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                jr.Result = "系统繁忙";
+                jr.Status = 404;
+            }
+            return jr;
         }
 
         public JsonResult DelDishes(int DishesId)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                jr.Result = "系统繁忙";
+                jr.Status = 404;
+            }
+            return jr;
         }
 
         public JsonResult GetAllMenu()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                jr.Result = "系统繁忙";
+                jr.Status = 404;
+            }
+            return jr;
         }
 
         public JsonResult ModifyDishes(MenuInfo menu)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                jr.Result = "系统繁忙";
+                jr.Status = 404;
+            }
+            return jr;
         }
     }
 }
