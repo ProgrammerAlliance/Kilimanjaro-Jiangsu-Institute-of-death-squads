@@ -53,13 +53,25 @@ namespace NLC.Order.SqlServerDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        public IList<UserInfo> SelectAllUser()
+        public IList<UserInfo> SelectAllUser(int rows,int page)
         {
-            string sql = "select e.UserId,e.UserName,e.Gender,d.Deptname,t.Typename " +
-                " from Emp e,Deptment d,UserType t " +
-                " where e.UserType=t.Type and e.Deptno=d.Deptno";
-            DataSet ds = DBHelper.Query(sql, null);
+            int nums = rows * (page - 1);
+            string sql = @"SELECT TOP (@rows) UserId, UserName, UserType, UserPwd, Deptno, Gender
+                           FROM dbo.Emp
+                           WHERE(UserId NOT IN
+                                    (SELECT  TOP(@nums) UserId
+                                     FROM dbo.Emp AS Emp_1
+                                     ORDER BY UserId))
+                           ORDER BY UserId";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("rows",rows),
+                new SqlParameter("nums",nums)
+            };
+            DataSet ds = DBHelper.Query(sql, parameters);
             return DBHelper.GetListbyDataSet<UserInfo>(ds);
+
+
         }
 
         /// <summary>

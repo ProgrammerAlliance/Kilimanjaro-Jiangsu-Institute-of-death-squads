@@ -41,7 +41,7 @@ namespace NLC.Order.Model
         /// <summary>
         /// 用户类型名字
         /// </summary>
-        public string TypeNmae { get; set; }
+        public string TypeName { get; set; }
 
         /// <summary>
         /// 性别

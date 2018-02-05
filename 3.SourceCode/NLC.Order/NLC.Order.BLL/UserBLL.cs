@@ -48,7 +48,7 @@ namespace NLC.Order.BLL
             catch (Exception e)
             {
                 jr.Status = 500;
-                jr.Result = e.Message;
+                jr.Result = "系统繁忙";
                 //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
@@ -58,18 +58,17 @@ namespace NLC.Order.BLL
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetAllUser()
+        public JsonResult GetAllUser(int rows,int page)
         {
             try
             {
-                jr.Result = userDAL.SelectAllUser();
+                jr.Result = userDAL.SelectAllUser(rows, page);
                 jr.Status = 200;
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "获取用户出错";
-                //LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }

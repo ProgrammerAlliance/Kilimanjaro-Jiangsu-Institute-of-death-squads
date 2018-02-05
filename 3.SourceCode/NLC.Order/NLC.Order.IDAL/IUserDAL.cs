@@ -9,7 +9,7 @@ namespace NLC.Order.IDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        IList<UserInfo> SelectAllUser();
+        IList<UserInfo> SelectAllUser(int rows,int page);
 
         /// <summary>
         /// 根据用户名和密码查找用户

@@ -144,7 +144,7 @@ namespace NLC.Order.BLL
             else
             {
                 jr.Result = "无人订餐";
-                jr.Status = 404;
+                jr.Status = 303;
             }
             return jr;
         }

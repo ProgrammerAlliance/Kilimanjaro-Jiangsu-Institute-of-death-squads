@@ -31,7 +31,7 @@ namespace NLC.Order.OracleDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        public IList<UserInfo> SelectAllUser()
+        public IList<UserInfo> SelectAllUser(int rows,int page)
         {
             throw new NotImplementedException();
         }

@@ -27,9 +27,9 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult GetAllUser()
+        public JsonResult GetAllUser(int rows,int page)
         {
-            return userBLL.GetAllUser();
+            return userBLL.GetAllUser(rows,page);
         }
 
         /// <summary>
