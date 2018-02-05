@@ -132,7 +132,7 @@ namespace NLC.Order.BLL
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
                 }
-                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(), 1);
+                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1,0);
                 if (list.Count > 0)
                 {
                     int[] GetId = new int[2];
