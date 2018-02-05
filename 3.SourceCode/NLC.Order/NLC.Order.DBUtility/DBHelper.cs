@@ -9,7 +9,7 @@ namespace NLC.Order.DBUtility
 {
     public class DBHelper
     {
-         static string conn = ConfigurationManager.ConnectionStrings["ClassRoomConnectionString"].ToString();
+        static string conn = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
  
         /// <summary>
         /// 执行对数据表中数据的增加、删除、修改操作 

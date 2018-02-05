@@ -49,7 +49,7 @@ namespace NLC.Order.SqlServerDAL
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
-            {                
+            {
                 LogHelper.WriteLogFile("执行取消订餐SQL语句失败");
             }
             return result > 0 ? true : false;
@@ -59,21 +59,28 @@ namespace NLC.Order.SqlServerDAL
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> SelectOrderPeople(int rows, int page)
+        public List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId)
         {
             DataSet ds = null;
             try
             {
-                string sql = "SELECT * FROM " +
-                "( SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, o.UserId,e.UserName ,d.Deptname,o.Remark " +
-                "FROM OrderTable as o, Emp as e, Deptment d " +
-                "where e.UserId = o.UserId and e.Deptno = d.Deptno " +
-                "and DateDiff(dd, CreateTime, getdate()) = 0 ) t1 " +
-                "WHERE ROWID between(@startRows) and(@endRows)";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, " +
+                    "o.UserId,e.UserName ,d.Deptname,o.Remark " +
+                    "FROM OrderTable as o, Emp as e, Deptment d " +
+                    "where e.UserId = o.UserId and e.Deptno = d.Deptno " +
+                    "and DateDiff(dd, CreateTime, getdate()) = 0 ");
+                if (deptId != 0)
+                {
+                    sb.Append(" and d.DeptNo=@deptNo");
+                }
+                string sql = "SELECT * FROM (" + sb.ToString() + ")t1 " +
+                    "WHERE ROWID between(@startRows) and(@endRows)";
                 SqlParameter[] parameters =
                 {
                 new SqlParameter("startRows",rows*(page-1)+1),
-                new SqlParameter("endRows",rows*page)
+                new SqlParameter("endRows",rows*page),
+                new SqlParameter("deptNo",deptId)
             };
                 ds = DBHelper.Query(sql, parameters);
             }
@@ -137,13 +144,24 @@ namespace NLC.Order.SqlServerDAL
         /// 获取今日订餐人员数
         /// </summary>
         /// <returns></returns>
-        public int CountOrderNumber()
+        public int CountOrderNumber(int deptId)
         {
             DataSet ds = null;
             try
             {
-                string sql = "select * from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
-                ds = DBHelper.Query(sql, null);
+                StringBuilder sb = new StringBuilder();
+                sb.Append("select * from ordertable o,emp e,deptment d " +
+                    "where o.userid=e.userid and e.deptno=d.deptno and " +
+                    "DateDiff(dd, CreateTime, getdate()) = 0 ");
+                if (deptId != 0)
+                {
+                    sb.Append(" and d.DeptNo=@deptNo");
+                }
+                SqlParameter[] parameters =
+                {
+                new SqlParameter("deptNo",deptId)
+            };
+                ds = DBHelper.Query(sb.ToString(), null);
             }
             catch (Exception)
             {

@@ -54,7 +54,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = OrderDAL.CountOrderNumber();
+                jr.Result = OrderDAL.CountOrderNumber(0);
                 jr.Status = 200;
             }
             catch (Exception)
@@ -71,16 +71,16 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JsonResult GetOrderPeople(int rows, int page)
+        public JsonResult GetOrderPeople(int rows, int page, int deptId)
         {
             Page<OrderInfo> pageObject = new Page<OrderInfo>();
             pageObject.CurrentPage = page;
             pageObject.PageRecord = rows;
             try
             {
-                pageObject.TotalRecord = OrderDAL.CountOrderNumber();
+                pageObject.TotalRecord = OrderDAL.CountOrderNumber(deptId);
                 pageObject.TotalPage = pageObject.TotalRecord % rows == 0 ? pageObject.TotalRecord / rows : pageObject.TotalRecord / rows + 1;
-                pageObject.ObjectList = OrderDAL.SelectOrderPeople(rows, page);
+                pageObject.ObjectList = OrderDAL.SelectOrderPeople(rows, page, deptId);
                 jr.Result = pageObject;
                 jr.Status = 200;
             }
@@ -132,7 +132,7 @@ namespace NLC.Order.BLL
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
                 }
-                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(), 1);
+                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1,0);
                 if (list.Count > 0)
                 {
                     int[] GetId = new int[2];
@@ -163,7 +163,7 @@ namespace NLC.Order.BLL
             catch (Exception)
             {
                 LogHelper.WriteLogFile("改变订餐人员的打扫状态失败");
-            }          
+            }
             return jr;
         }
 
