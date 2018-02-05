@@ -60,5 +60,22 @@ namespace NLC.Order.DALFactory
             }
             return menuDAL;
         }
+
+        /// <summary>
+        /// 根据配置文件中的值创建DeptDAL
+        /// </summary>
+        /// <returns></returns>
+        public static IDeptDAL CreateDeptDAL()
+        {
+            IDeptDAL deptDAL = null;
+            switch (dataBaseType)
+            {
+                case "SqlServer":
+                    deptDAL = new DeptSqlServerDAL(); break;
+                case "Oracle":
+                    deptDAL = new DeptOracleDAL(); break;
+            }
+            return deptDAL;
+        }
     }
 }

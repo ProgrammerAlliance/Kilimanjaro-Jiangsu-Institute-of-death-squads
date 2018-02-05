@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOrderDAL.cs" />
+    <Compile Include="IDeptDAL.cs" />
     <Compile Include="IUserDAL.cs" />
     <Compile Include="IMenuDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
