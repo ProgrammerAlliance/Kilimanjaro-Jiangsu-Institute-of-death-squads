@@ -22,7 +22,7 @@ namespace NLC.Order.BLL
             {
 
                 jr.Result = "系统繁忙";
-                jr.Status = 404;
+                jr.Status = 500;
             }
             return jr;
         }
@@ -36,7 +36,7 @@ namespace NLC.Order.BLL
             catch (Exception)
             {
                 jr.Result = "系统繁忙";
-                jr.Status = 404;
+                jr.Status = 500;
             }
             return jr;
         }
@@ -50,7 +50,7 @@ namespace NLC.Order.BLL
             catch (Exception)
             {
                 jr.Result = "系统繁忙";
-                jr.Status = 404;
+                jr.Status = 500;
             }
             return jr;
         }
@@ -64,7 +64,7 @@ namespace NLC.Order.BLL
             catch (Exception)
             {
                 jr.Result = "系统繁忙";
-                jr.Status = 404;
+                jr.Status = 500;
             }
             return jr;
         }
