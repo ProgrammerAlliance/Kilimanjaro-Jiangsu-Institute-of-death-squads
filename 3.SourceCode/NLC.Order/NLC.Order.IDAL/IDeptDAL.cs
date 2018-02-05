@@ -9,7 +9,7 @@ namespace NLC.Order.IDAL
         /// 查找所有部门
         /// </summary>
         /// <returns></returns>
-        List<DeptInfo> SelectAllUser();
+        List<DeptInfo> GetAllDept();
 
     }
 }
