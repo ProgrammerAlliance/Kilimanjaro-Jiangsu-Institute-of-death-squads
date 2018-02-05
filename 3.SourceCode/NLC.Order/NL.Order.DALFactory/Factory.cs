@@ -48,17 +48,17 @@ namespace NLC.Order.DALFactory
         /// 根据配置文件中的值创建MenuDAL
         /// </summary>
         /// <returns></returns>
-        public static IUserDAL CreateMenuDAL()
+        public static IMenuDAL CreateMenuDAL()
         {
-            IUserDAL userDAL = null;
+            IMenuDAL menuDAL = null;
             switch (dataBaseType)
             {
                 case "SqlServer":
-                    userDAL = new UserSqlServerDAL(); break;
+                    menuDAL = new MenuSqlServerDAL(); break;
                 case "Oracle":
-                    userDAL = new UserOracleDAL(); break;
+                    menuDAL = new MenuOracleDAL(); break;
             }
-            return userDAL;
+            return menuDAL;
         }
     }
 }

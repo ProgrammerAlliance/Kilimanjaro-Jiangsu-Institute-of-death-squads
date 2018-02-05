@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NLC.Order.DBUtility\NLC.Order.DBUtility.csproj">
+      <Project>{0361718B-2708-4755-A74D-A7EC30B7459D}</Project>
+      <Name>NLC.Order.DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NLC.Order.IDAL\NLC.Order.IDAL.csproj">
       <Project>{2d02ad0f-0eb8-4604-8c83-27b1abd24f41}</Project>
       <Name>NLC.Order.IDAL</Name>

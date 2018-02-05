@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using NLC.Order.IDAL;
 
 namespace NLC.Order.SqlServerDAL
 {
-    class MenuSqlServerDAL
+     public class MenuSqlServerDAL: IMenuDAL
     {
     }
 }

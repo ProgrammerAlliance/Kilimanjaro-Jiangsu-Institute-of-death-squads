@@ -11,6 +11,19 @@ namespace NLC.Order.SqlServerDAL
     public class UserSqlServerDAL : IUserDAL
     {
         /// <summary>
+        /// 统计员工数量
+        /// </summary>
+        /// <returns></returns>
+        public int CountEmp()
+        {
+            string sql = @"SELECT UserId, UserName, UserType, UserPwd, Deptno, Gender
+                           FROM dbo.Emp AS ordertable
+                           WHERE(UserType = 2)";
+            DataSet ds = DBHelper.Query(sql, null);
+            return ds.Tables[0].Rows.Count;
+        }
+
+        /// <summary>
         /// 删除用户
         /// </summary>
         /// <param name="userId"></param>
@@ -53,16 +66,14 @@ namespace NLC.Order.SqlServerDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        public IList<UserInfo> SelectAllUser(int rows,int page)
+        public IList<UserInfo> SelectAllUser(int rows, int page)
         {
             int nums = rows * (page - 1);
-            string sql = @"SELECT TOP (@rows) UserId, UserName, UserType, UserPwd, Deptno, Gender
-                           FROM dbo.Emp
-                           WHERE(UserId NOT IN
-                                    (SELECT  TOP(@nums) UserId
-                                     FROM dbo.Emp AS Emp_1
-                                     ORDER BY UserId))
-                           ORDER BY UserId";
+            string sql = @"SELECT TOP 10 [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
+                            FROM  (SELECT  row_number() OVER (ORDER BY UserId) AS rownumber, 
+                                   [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
+                            FROM  [Order].[dbo].[Emp]WHERE   UserType = 2) A
+                            WHERE rownumber > @nums";
             SqlParameter[] parameters =
             {
                 new SqlParameter("rows",rows),

@@ -7,6 +7,11 @@ namespace NLC.Order.OracleDAL
 {
     public class UserOracleDAL : IUserDAL
     {
+        public int CountEmp()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 删除用户
         /// </summary>

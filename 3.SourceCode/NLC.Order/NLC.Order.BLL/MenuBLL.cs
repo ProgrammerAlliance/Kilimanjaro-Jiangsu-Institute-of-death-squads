@@ -1,12 +1,17 @@
-﻿using NLC.Order.IBLL;
+﻿
 using System;
 using NLC.Order.Common;
 using NLC.Order.Model;
+using NLC.Order.IBLL;
+using NLC.Order.DALFactory;
+using NLC.Order.IDAL;
 
 namespace NLC.Order.BLL
 {
     public class MbenuBLL : IMenuBLL
     {
+        private IMenuDAL MenuDAL = Factory.CreateMenuDAL();
+        private JsonResult jr = new JsonResult();
         public JsonResult AddDishes(MenuInfo menu)
         {
             throw new NotImplementedException();

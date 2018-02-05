@@ -12,7 +12,7 @@ namespace NL.Order.Common
         /// <param name="input"></param>
         public static void WriteLogFile(string input)
         {
-            string fname = "C:\\LogFile.txt";
+            string fname = @"F:\LogFile.txt";
             FileInfo fileInfo = new FileInfo(fname);
             if (!fileInfo.Exists)
             {
