@@ -6,6 +6,7 @@ using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
 using System.Configuration;
 using System.Linq;
+using NL.Order.Common;
 
 namespace NLC.Order.BLL
 {
@@ -68,11 +69,17 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JsonResult GetOrderPeople()
+        public JsonResult GetOrderPeople(int rows, int page)
         {
+            Page<OrderInfo> pageObject = new Page<OrderInfo>();
+            pageObject.CurrentPage = page;
+            pageObject.PageRecord = rows;
             try
             {
-                jr.Result = OrderDAL.Cleaner();
+                pageObject.TotalRecord = OrderDAL.CountOrderNumber();
+                pageObject.TotalPage = pageObject.TotalRecord % rows == 0 ? pageObject.TotalRecord / rows : pageObject.TotalRecord / rows + 1;
+                pageObject.ObjectList = OrderDAL.SelectOrderPeople(rows, page);
+                jr.Result = OrderDAL.SelectOrderPeople(rows, page);
                 jr.Status = 200;
             }
             catch (Exception)
@@ -119,7 +126,7 @@ namespace NLC.Order.BLL
                 jr.Status = 404;
                 jr.Result = "未到订餐截止时间";
             }
-            var list = OrderDAL.Cleaner();
+            var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(),1);
             if (list.Count > 0)
             {
                 int[] GetId = new int[2];

@@ -24,7 +24,7 @@ namespace NLC.Order.OracleDAL
         /// 获取今日所有订餐详情表
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> Cleaner()
+        public List<OrderInfo> SelectOrderPeople(int rows,int page)
         {
             throw new NotImplementedException();
         }
