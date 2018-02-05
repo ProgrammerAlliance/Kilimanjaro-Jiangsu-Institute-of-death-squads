@@ -40,5 +40,7 @@ namespace NLC.Order.IDAL
         /// <param name="psassword"></param>
         /// <returns></returns>
         bool UpdateUser(string userId, string psassword);
+
+        int CountEmp();
     }
 }

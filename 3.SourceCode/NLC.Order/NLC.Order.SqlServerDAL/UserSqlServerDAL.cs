@@ -11,6 +11,15 @@ namespace NLC.Order.SqlServerDAL
     public class UserSqlServerDAL : IUserDAL
     {
         /// <summary>
+        /// 统计员工数量
+        /// </summary>
+        /// <returns></returns>
+        public int CountEmp()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// 删除用户
         /// </summary>
         /// <param name="userId"></param>
@@ -56,12 +65,13 @@ namespace NLC.Order.SqlServerDAL
         public IList<UserInfo> SelectAllUser(int rows,int page)
         {
             int nums = rows * (page - 1);
-            string sql = @"SELECT TOP (@rows) UserId, UserName, UserType, UserPwd, Deptno, Gender
+            string sql = @"SELECT  TOP (@rows) UserId, UserName, UserType, UserPwd, Deptno, Gender
                            FROM dbo.Emp
-                           WHERE(UserId NOT IN
-                                    (SELECT  TOP(@nums) UserId
-                                     FROM dbo.Emp AS Emp_1
-                                     ORDER BY UserId))
+                           WHERE (UserId NOT IN
+                                 (SELECT  TOP (@nums) UserId
+                                  FROM dbo.Emp AS Emp_1
+                                  WHERE (UserType = 2)
+                                  ORDER BY UserId)) AND (UserType = 2)
                            ORDER BY UserId";
             SqlParameter[] parameters =
             {
