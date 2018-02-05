@@ -17,7 +17,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <summary>
         /// DeptBLL对象
         /// </summary>
-        private IDeptBLL deptBLL = new DeptBLL();
+        private IDeptBLL DeptBLL = new DeptBLL();
 
         /// <summary>
         /// 获取所有部门信息
@@ -26,7 +26,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult GetAllDept()
         {
-            return deptBLL.GetAllDept();
+            return DeptBLL.GetAllDept();
         }
     }
 }

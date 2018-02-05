@@ -12,11 +12,12 @@ namespace NLC.Order.BLL
 {
     public class DeptBLL : IDeptBLL
     {
-        private IOrderDAL OrderDAL = Factory.CreateOrderDAL();
+        private IDeptDAL DeptDAL = Factory.CreateOrderDAL();
         private JsonResult jr = new JsonResult();
         
         public JsonResult GetAllDept()
         {
+            
             return jr;
         }
 
