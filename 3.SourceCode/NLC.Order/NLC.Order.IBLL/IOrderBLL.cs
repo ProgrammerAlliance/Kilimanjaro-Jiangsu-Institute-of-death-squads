@@ -27,7 +27,7 @@ namespace NLC.Order.IBLL
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        JsonResult GetOrderPeople();
+        JsonResult GetOrderPeople(int rows,int page);
 
         /// <summary>
         /// 统计今日订餐人数

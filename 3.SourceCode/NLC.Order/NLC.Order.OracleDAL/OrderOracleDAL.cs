@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLC.Order.Model;
+using System.Data;
+using NLC.Order.DBUtility;
 
 namespace NLC.Order.OracleDAL
 {
@@ -24,7 +26,7 @@ namespace NLC.Order.OracleDAL
         /// 获取今日所有订餐详情表
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> Cleaner()
+        public List<OrderInfo> SelectOrderPeople(int rows,int page)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +37,9 @@ namespace NLC.Order.OracleDAL
         /// <returns></returns>
         public int CountOrderNumber()
         {
-            throw new NotImplementedException();
+            string sql = "select * from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
+            DataSet ds = DBHelper.Query(sql, null);
+            return ds.Tables[0].Rows.Count;
         }
 
         /// <summary>

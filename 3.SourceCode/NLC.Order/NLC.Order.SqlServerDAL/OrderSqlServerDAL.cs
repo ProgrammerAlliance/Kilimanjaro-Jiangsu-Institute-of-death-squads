@@ -50,15 +50,23 @@ namespace NLC.Order.SqlServerDAL
         }
 
         /// <summary>
-        /// 产生打扫人员
+        /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> Cleaner()
+        public List<OrderInfo> SelectOrderPeople(int rows,int page)
         {
-            string sql = "select o.UserId,e.UserName,d.Deptname,o.Remark " +
-                "from OrderTable o,Emp e, Deptment d " +
-                "where o.userid = e.userid and e.deptno = d.deptno and DateDiff(dd, createtime, getdate())= 0";
-            DataSet ds = DBHelper.Query(sql, null);
+            string sql = "SELECT * FROM " +
+                "( SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, o.UserId,e.UserName ,d.Deptname,o.Remark " +
+                "FROM OrderTable as o, Emp as e, Deptment d " +
+                "where e.UserId = o.UserId and e.Deptno = d.Deptno " +
+                "and DateDiff(dd, CreateTime, getdate()) = 0 ) t1 " +
+                "WHERE ROWID between(@startRows) and(@endRows)";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("startRows",rows*(page-1)+1),
+                new SqlParameter("endRows",rows*page)
+            };
+            DataSet ds = DBHelper.Query(sql, parameters);
             return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
 

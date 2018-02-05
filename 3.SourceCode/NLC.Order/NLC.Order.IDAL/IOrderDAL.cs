@@ -27,7 +27,7 @@ namespace NLC.Order.IDAL
         /// 获取所有今日订餐人员
         /// </summary>
         /// <returns></returns>
-        List<OrderInfo> Cleaner();
+        List<OrderInfo> SelectOrderPeople(int rows,int page);
 
         /// <summary>
         /// 修改打扫人员状态
