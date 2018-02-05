@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using System.Data;
 using NL.Order.Common;
+using System.Text;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -219,20 +220,8 @@ namespace NLC.Order.SqlServerDAL
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
-        public List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public int CountOrderNumber(int deptId)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 查看部门加班员工
-        /// </summary>
-        /// <returns></returns>
-
+      
     }
 }
