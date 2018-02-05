@@ -79,7 +79,7 @@ namespace NLC.Order.BLL
                 pageObject.TotalRecord = OrderDAL.CountOrderNumber();
                 pageObject.TotalPage = pageObject.TotalRecord % rows == 0 ? pageObject.TotalRecord / rows : pageObject.TotalRecord / rows + 1;
                 pageObject.ObjectList = OrderDAL.SelectOrderPeople(rows, page);
-                jr.Result = OrderDAL.SelectOrderPeople(rows, page);
+                jr.Result = pageObject;
                 jr.Status = 200;
             }
             catch (Exception)
