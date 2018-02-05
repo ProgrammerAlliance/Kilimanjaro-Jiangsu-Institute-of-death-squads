@@ -69,7 +69,7 @@ namespace NLC.Order.SqlServerDAL
         public List<UserInfo> SelectAllUser(int rows, int page)
         {
             int nums = rows * (page - 1);
-            string sql = @"SELECT TOP 10 [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
+            string sql = @"SELECT TOP (@rows) [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
                             FROM  (SELECT  row_number() OVER (ORDER BY UserId) AS rownumber, 
                                    [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
                             FROM  [Order].[dbo].[Emp]WHERE   UserType = 2) A
