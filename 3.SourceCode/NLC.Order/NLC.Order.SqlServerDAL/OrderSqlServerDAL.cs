@@ -53,7 +53,7 @@ namespace NLC.Order.SqlServerDAL
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
-        public List<OrderInfo> SelectOrderPeople(int rows,int page)
+        public List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId)
         {
             string sql = "SELECT * FROM " +
                 "( SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, o.UserId,e.UserName ,d.Deptname,o.Remark " +
