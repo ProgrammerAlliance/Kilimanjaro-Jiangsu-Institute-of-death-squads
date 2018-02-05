@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.Order.IDAL
 {
-    interface IMenuDAL
+    public interface IMenuDAL
     {
 
 
