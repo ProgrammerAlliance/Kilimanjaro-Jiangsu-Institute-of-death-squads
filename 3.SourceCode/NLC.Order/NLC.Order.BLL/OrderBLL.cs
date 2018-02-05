@@ -12,7 +12,7 @@ namespace NLC.Order.BLL
 {
     public class OrderBLL : IOrderBLL
     {
-        private IOrderDAL OrderDAL = Factory.CreateOrderDAL();
+        private IOrderDAL OrderDAL = Factory.CreateOrderDAL();m
         private JsonResult jr = new JsonResult();
 
         /// <summary>

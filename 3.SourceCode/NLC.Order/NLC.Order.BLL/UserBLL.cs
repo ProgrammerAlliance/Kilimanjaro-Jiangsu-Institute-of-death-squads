@@ -1,4 +1,5 @@
-﻿using NLC.Order.Common;
+﻿using NL.Order.Common;
+using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;
@@ -58,17 +59,23 @@ namespace NLC.Order.BLL
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetAllUser(int rows,int page)
+        public JsonResult GetAllUser(int rows, int page)
         {
+            Page<UserInfo> pageObject = new Page<UserInfo>();
+            pageObject.CurrentPage = page;
+            pageObject.PageRecord = rows;
             try
             {
-                jr.Result = userDAL.SelectAllUser(rows, page);
+                pageObject.TotalRecord = userDAL.CountEmp();
+                pageObject.TotalPage = pageObject.TotalRecord % rows == 0 ? pageObject.TotalRecord / rows : pageObject.TotalRecord / rows + 1;
+                pageObject.ObjectList = userDAL.SelectAllUser(rows, page);
+                jr.Result = pageObject;
                 jr.Status = 200;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 jr.Status = 500;
-                jr.Result = "获取用户出错";
+                jr.Result = "系统繁忙";
             }
             return jr;
         }
@@ -84,7 +91,7 @@ namespace NLC.Order.BLL
             try
             {
                 var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
-                if (Result == null||Result.Count==0)//没有用户
+                if (Result == null || Result.Count == 0)//没有用户
                 {
                     jr.Status = 404;
                     jr.Result = "用户名或密码错误";
@@ -95,7 +102,7 @@ namespace NLC.Order.BLL
                     jr.Result = Result[0];
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
@@ -120,7 +127,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
-               // LogHelper.WriteLogFile(e.Message);
+                // LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
