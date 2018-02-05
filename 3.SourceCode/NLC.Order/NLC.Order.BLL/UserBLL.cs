@@ -5,6 +5,7 @@ using NLC.Order.IBLL;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
+using System.Data.SqlClient;
 
 namespace NLC.Order.BLL
 {
@@ -24,6 +25,11 @@ namespace NLC.Order.BLL
             {
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
+            }
+            catch (SqlException)
+            {
+                jr.Status = 405;
+                jr.Result = "数据库错误";
             }
             catch (Exception e)
             {
@@ -45,6 +51,11 @@ namespace NLC.Order.BLL
             {
                 jr.Result = userDAL.DeleteUser(userId);
                 jr.Status = 200;
+            }
+            catch (SqlException)
+            {
+                jr.Status = 405;
+                jr.Result = "数据库错误";
             }
             catch (Exception e)
             {
@@ -71,6 +82,11 @@ namespace NLC.Order.BLL
                 pageObject.ObjectList = userDAL.SelectAllUser(rows, page);
                 jr.Result = pageObject;
                 jr.Status = 200;
+            }
+            catch (SqlException)
+            {
+                jr.Status = 405;
+                jr.Result = "数据库错误";
             }
             catch (Exception)
             {
@@ -102,6 +118,11 @@ namespace NLC.Order.BLL
                     jr.Result = Result[0];
                 }
             }
+            catch (SqlException)
+            {
+                jr.Status = 405;
+                jr.Result = "数据库错误";
+            }
             catch (Exception e)
             {
                 jr.Status = 500;
@@ -122,6 +143,11 @@ namespace NLC.Order.BLL
             {
                 jr.Result = userDAL.UpdateUser(userId, password);
                 jr.Status = 200;
+            }
+            catch (SqlException)
+            {
+                jr.Status = 405;
+                jr.Result = "数据库错误";
             }
             catch (Exception e)
             {
