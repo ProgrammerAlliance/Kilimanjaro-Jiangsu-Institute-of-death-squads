@@ -10,7 +10,7 @@ namespace NLC.Order.OracleDAL
 {
     public class DeptOracleDAL : IDeptDAL
     {
-        public List<DeptInfo> SelectAllUser()
+        public List<DeptInfo> GetAllDept()
         {
             throw new NotImplementedException();
         }
