@@ -1,6 +1,8 @@
-﻿namespace NLC.Order.SqlServerDAL
+﻿using NLC.Order.IDAL;
+
+namespace NLC.Order.SqlServerDAL
 {
-     public class MenuSqlServerDAL
+     public class MenuSqlServerDAL: IMenuDAL
     {
     }
 }

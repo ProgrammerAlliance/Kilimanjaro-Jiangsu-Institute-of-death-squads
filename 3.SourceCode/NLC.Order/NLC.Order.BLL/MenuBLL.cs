@@ -4,6 +4,7 @@ using NLC.Order.Common;
 using NLC.Order.Model;
 using NLC.Order.IBLL;
 using NLC.Order.DALFactory;
+using NLC.Order.IDAL;
 
 namespace NLC.Order.BLL
 {
