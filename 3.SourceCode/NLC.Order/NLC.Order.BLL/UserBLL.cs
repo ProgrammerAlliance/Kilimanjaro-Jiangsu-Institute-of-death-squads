@@ -9,7 +9,7 @@ namespace NLC.Order.BLL
 {
     public class UserBLL : IUserBLL
     {
-        private IUserDAL userDAL = Factory.CreateUserDAL();
+        private IUserDAL UserDAL = Factory.CreateUserDAL();
         private JsonResult jr = new JsonResult();
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = userDAL.InsertUser(user);
+                jr.Result = UserDAL.InsertUser(user);
                 jr.Status = 200;
             }
             catch (Exception e)
@@ -42,7 +42,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = userDAL.DeleteUser(userId);
+                jr.Result = UserDAL.DeleteUser(userId);
                 jr.Status = 200;
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = userDAL.SelectAllUser(rows, page);
+                jr.Result = UserDAL.SelectAllUser(rows, page);
                 jr.Status = 200;
             }
             catch (Exception e)
@@ -83,7 +83,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
+                var Result = UserDAL.SelectByIdAndPwd(UserId, pwd, type);
                 if (Result == null||Result.Count==0)//没有用户
                 {
                     jr.Status = 404;
@@ -113,7 +113,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result = userDAL.UpdateUser(userId, password);
+                jr.Result = UserDAL.UpdateUser(userId, password);
                 jr.Status = 200;
             }
             catch (Exception e)
