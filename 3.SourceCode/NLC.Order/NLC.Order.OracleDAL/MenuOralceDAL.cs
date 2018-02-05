@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.Order.OracleDAL
 {
-    class MenuOracleDAL
+   public class MenuOracleDAL
     {
     }
 }

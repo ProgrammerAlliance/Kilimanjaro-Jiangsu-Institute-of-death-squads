@@ -12,17 +12,17 @@ namespace NL.Order.Common
         /// <param name="input"></param>
         public static void WriteLogFile(string input)
         {
-            string fname = "C:\\LogFile.txt";
-            FileInfo finfo = new FileInfo(fname);
-            if (!finfo.Exists)
+            string fname = @"F:\LogFile.txt";
+            FileInfo fileInfo = new FileInfo(fname);
+            if (!fileInfo.Exists)
             {
                 FileStream fs;
                 fs = File.Create(fname);
                 fs.Close();
-                finfo = new FileInfo(fname);
+                fileInfo = new FileInfo(fname);
             }
            
-            using (FileStream fs = finfo.OpenWrite())
+            using (FileStream fs = fileInfo.OpenWrite())
             {                
                 StreamWriter w = new StreamWriter(fs);
                 w.BaseStream.Seek(0, SeekOrigin.End);               
