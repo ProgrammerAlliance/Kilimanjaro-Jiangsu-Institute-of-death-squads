@@ -47,7 +47,7 @@ namespace NLC.Order.IDAL
         /// 获取今日订餐人员数
         /// </summary>
         /// <returns></returns>
-        int CountOrderNumber();
+        int CountOrderNumber(int deptId);
 
         /// <summary>
         /// 判断该用户今日是否订餐

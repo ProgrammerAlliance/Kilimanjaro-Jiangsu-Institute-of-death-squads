@@ -35,7 +35,7 @@ namespace NLC.Order.OracleDAL
         /// 统计今日订餐人数
         /// </summary>
         /// <returns></returns>
-        public int CountOrderNumber()
+        public int CountOrderNumber(int deptId)
         {
             string sql = "select * from ordertable where DateDiff(dd, CreateTime, getdate()) = 0";
             DataSet ds = DBHelper.Query(sql, null);
