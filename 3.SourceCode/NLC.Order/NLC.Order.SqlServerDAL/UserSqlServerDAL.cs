@@ -102,8 +102,8 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 int nums = rows * (page - 1);
-                string sql = @"SELECT TOP (@rows) UserName,UserId,UserPwd,DeptName
-                            FROM(SELECT row_number() OVER(ORDER BY UserId) AS rownumber, e.UserName, e.UserId, e.UserPwd, d.DeptName
+                string sql = @"SELECT TOP (@rows) UserName,UserId,UserPwd,DeptName,Deptno
+                            FROM(SELECT row_number() OVER(ORDER BY UserId) AS rownumber, e.UserName, e.UserId, e.UserPwd, d.DeptName,d.Deptno
                             FROM Emp e, Deptment d WHERE e.Deptno = d.DeptNo and e.UserType = 2) t1
                             WHERE rownumber > @nums";
                 SqlParameter[] parameters =
