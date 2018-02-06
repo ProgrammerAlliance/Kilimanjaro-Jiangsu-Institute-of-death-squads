@@ -36,7 +36,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="dish">菜对象</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult AddlDish(MenuInfo dish)
+        public JsonResult AddDish(MenuInfo dish)
         {
             return menuBLL.AddDish(dish);
         }
