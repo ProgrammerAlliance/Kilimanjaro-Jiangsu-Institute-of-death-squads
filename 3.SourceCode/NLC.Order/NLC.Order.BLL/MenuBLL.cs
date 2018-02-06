@@ -17,9 +17,19 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="menu"></param>
         /// <returns></returns>
-        public JsonResult AddFood(MenuInfo menu)
+        public JsonResult AddDishes(MenuInfo menu)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                jr.Result = "系统繁忙";
+                jr.Status = 500;
+            }
+            return jr;
         }
 
         /// <summary>
@@ -27,18 +37,38 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="DishesId"></param>
         /// <returns></returns>
-        public JsonResult DelFood(int DishesId)
+        public JsonResult DelDishes(int DishesId)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                jr.Result = "系统繁忙";
+                jr.Status = 500;
+            }
+            return jr;
         }
 
         /// <summary>
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetMenu(int Id)
+        public JsonResult GetAllMenu()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                jr.Result = "系统繁忙";
+                jr.Status = 500;
+            }
+            return jr;
         }
+
+       
     }
 }
