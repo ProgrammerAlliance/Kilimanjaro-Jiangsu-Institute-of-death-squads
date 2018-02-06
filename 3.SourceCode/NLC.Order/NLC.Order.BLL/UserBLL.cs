@@ -12,6 +12,7 @@ namespace NLC.Order.BLL
     public class UserBLL : IUserBLL
     {
         private IUserDAL userDAL = Factory.CreateUserDAL();
+        private IOrderDAL orderDAL = Factory.CreateOrderDAL();
         private JsonResult jr = new JsonResult();
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace NLC.Order.BLL
                 jr.Result = "数据库错误";
                 LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception )
+            catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
@@ -65,7 +66,7 @@ namespace NLC.Order.BLL
                 jr.Result = "数据库错误";
                 LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception )
+            catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
@@ -127,9 +128,9 @@ namespace NLC.Order.BLL
                 }
                 else
                 {
+                    Result[0].IsOrder = orderDAL.IsOrder(UserId);
                     jr.Status = 200;
                     jr.Result = Result[0];
-                    
                 }
             }
             catch (SqlException)
@@ -138,7 +139,7 @@ namespace NLC.Order.BLL
                 jr.Result = "数据库错误";
                 LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception )
+            catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
@@ -166,7 +167,7 @@ namespace NLC.Order.BLL
                 jr.Result = "数据库错误";
                 LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception )
+            catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
