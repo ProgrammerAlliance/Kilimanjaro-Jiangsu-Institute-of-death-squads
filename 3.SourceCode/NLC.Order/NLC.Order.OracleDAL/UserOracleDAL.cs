@@ -52,6 +52,11 @@ namespace NLC.Order.OracleDAL
             throw new NotImplementedException();
         }
 
+        public bool SelectByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 更新用户
         /// </summary>

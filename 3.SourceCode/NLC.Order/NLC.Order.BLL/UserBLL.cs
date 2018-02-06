@@ -23,6 +23,12 @@ namespace NLC.Order.BLL
         {
             try
             {
+                if (userDAL.SelectByUserId(user.UserId))
+                {
+                    jr.Result = "该工号已存在";
+                    jr.Status = 201;
+                    return jr;
+                }
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
             }
