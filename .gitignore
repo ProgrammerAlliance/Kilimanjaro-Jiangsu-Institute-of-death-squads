@@ -263,3 +263,5 @@ __pycache__/
 /3.SourceCode/NLC.Order/NL.Order.Common
 /3.SourceCode/NLC.Order/NLC.Order.SqlServerDAL/*.config
 /3.SourceCode/NLC.Order/NLC.Order.BLL/*.cd
+/3.SourceCode/NLC.Order/NLC.Order.DBUtility/ConnectionSQL.xml
+/desktop.ini

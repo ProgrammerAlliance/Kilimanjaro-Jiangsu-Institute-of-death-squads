@@ -1,14 +1,12 @@
-﻿using NLC.Order.IBLL;
-using System;
+﻿using NL.Order.Common;
 using NLC.Order.Common;
-using NLC.Order.Model;
-using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Linq;
-using NL.Order.Common;
-using System.Web.Configuration;
+using NLC.Order.IBLL;
+using NLC.Order.IDAL;
+using NLC.Order.Model;
+using System;
 using System.Configuration;
-using System.Collections.Specialized;
+using System.Linq;
 using System.Xml;
 
 namespace NLC.Order.BLL
@@ -26,7 +24,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 取消订餐
         /// </summary>
-        /// <param name="UserId"></param>
+        /// <param name="UserId">员工编号</param>
         /// <returns></returns>
         public JsonResult CancelOrder(int UserId)
         {
@@ -73,7 +71,9 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 获得订餐人员信息
         /// </summary>
-        /// <param name="order"></param>
+        /// <param name="rows">行数</param>
+        /// <param name="page">页数</param>
+        /// <param name="deptId">部门号</param>
         /// <returns></returns>
         public JsonResult GetOrderPeople(int rows, int page, int deptId)
         {
@@ -100,6 +100,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 订餐
         /// </summary>
+        /// <param name="order">订餐信息</param>
         /// <returns></returns>
         public JsonResult OrderFood(OrderInfo order)
         {
@@ -130,7 +131,7 @@ namespace NLC.Order.BLL
         }
 
         /// <summary>
-        /// 改变订餐人员的打扫状态
+        /// 改变订餐人员的打扫状态，生成随机打扫人员
         /// </summary>
         /// <returns></returns>
         public JsonResult ProudceSweep()
@@ -141,6 +142,13 @@ namespace NLC.Order.BLL
                 {
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
+                    return jr;
+                }
+                if (OrderDAL.IsProduce())
+                {
+                    jr.Status = 201;
+                    jr.Result = "今日已产生打扫人员";
+                    return jr;
                 }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
                 if (list.Count > 1)
@@ -220,7 +228,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 判断员工今日是否订餐
         /// </summary>
-        /// <param name="UserId"></param>
+        /// <param name="UserId">员工编号</param>
         /// <returns></returns>
         public JsonResult UserIsOrder(int UserId)
         {
@@ -262,9 +270,10 @@ namespace NLC.Order.BLL
 
                 jr.Result = "修改成功";
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                jr.Result = e.Message;
+                jr.Result = "修改失败";
+                LogHelper.WriteLogFile("修改订餐截止时间失败");
             }
             return jr;
         }
