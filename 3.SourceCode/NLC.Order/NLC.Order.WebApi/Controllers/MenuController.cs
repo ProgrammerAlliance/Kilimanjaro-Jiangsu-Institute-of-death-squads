@@ -14,23 +14,16 @@ namespace NLC.Order.WebApi.Controllers
 {
     public class MenuController : ApiController
     {
-        private IOrderDAL OrderDAL = Factory.CreateOrderDAL();
+        private IMenuDAL MenuDAL = Factory.CreateMenuDAL();
         private JsonResult jr = new JsonResult();
 
         [HttpGet]
-        public JsonResult Test()
+        public JsonResult GetMenu()
         {
-            try
-            {
-                jr.Status = 202;
-                jr.Result = OrderDAL.GetName();
-            }
-            catch (Exception)
-            {
-                jr.Status = 500;
-                jr.Result = "出错";
-            }
-            return jr;
+            return null;
         }
+
+
+
     }
 }

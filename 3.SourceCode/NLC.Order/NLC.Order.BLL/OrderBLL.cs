@@ -1,14 +1,12 @@
-﻿using NLC.Order.IBLL;
-using System;
+﻿using NL.Order.Common;
 using NLC.Order.Common;
-using NLC.Order.Model;
-using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Linq;
-using NL.Order.Common;
-using System.Web.Configuration;
+using NLC.Order.IBLL;
+using NLC.Order.IDAL;
+using NLC.Order.Model;
+using System;
 using System.Configuration;
-using System.Collections.Specialized;
+using System.Linq;
 using System.Xml;
 
 namespace NLC.Order.BLL
@@ -153,7 +151,7 @@ namespace NLC.Order.BLL
                     return jr;
                 }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
-                if (list.Count > 0)
+                if (list.Count > 1)
                 {
                     int[] GetId = new int[2];
                     for (int i = 0; i < 2; i++)
