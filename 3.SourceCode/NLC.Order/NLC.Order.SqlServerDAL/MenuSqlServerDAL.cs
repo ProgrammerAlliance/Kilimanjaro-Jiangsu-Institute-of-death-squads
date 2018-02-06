@@ -5,6 +5,7 @@ using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using NL.Order.Common;
+using System.Data;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -69,7 +70,18 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<RestaurInfo> SelectAllRestaurant()
         {
-            throw new NotImplementedException();
+            DataSet ds = null;
+            try
+            {
+                string sql = @"SELECT *
+                           FROM [Order].[dbo].[Restaurant]";
+                ds = DBHelper.Query(sql, null);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+            }
+            return DBHelper.GetListbyDataSet<RestaurInfo>(ds);
         }
 
         /// <summary>

@@ -41,11 +41,23 @@ namespace NLC.Order.WebApi.Controllers
             return menuBLL.AddDish(dish);
         }
 
+        /// <summary>
+        /// 删除菜
+        /// </summary>
+        /// <param name="id">菜ID</param>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult DelDish(int id)
         {
             return menuBLL.DelDish(id);
         }
+
+        [HttpGet]
+        public JsonResult GetAllRest()
+        {
+            return menuBLL;
+        }
+
 
     }
 }

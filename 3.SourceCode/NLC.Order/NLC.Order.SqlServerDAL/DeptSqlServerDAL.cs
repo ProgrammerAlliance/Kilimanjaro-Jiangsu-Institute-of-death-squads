@@ -29,7 +29,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行获取所有的部门SQL语句失败");
             }
-
             return list;
         }
     }
