@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
+using System.Data.SqlClient;
+using NLC.Order.DBUtility;
+using NL.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -14,7 +17,21 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool DelMenu(int menuId)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            try
+            {
+                string sql = "delete from Menu where MenuId=@MenuId";
+                SqlParameter[] parameters =
+                {
+                new SqlParameter("MenuId",menuId)
+            };
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除菜单SQL语句失败");
+            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -24,7 +41,26 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool InsertMenu(MenuInfo menu)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            try
+            {
+                string sql = @"insert into Menu
+                           (FoodId,RestaurantId,FoodName,Price)
+                           values(@FoodId,@RestaurantId,@FoodName,@Price)";
+                SqlParameter[] parameters =
+                {
+                new SqlParameter("FoodId",menu.FoodId),
+                new SqlParameter("RestaurantId",menu.RestaurantId),
+                new SqlParameter("FoodName",menu.FoodName),
+                new SqlParameter("Price",menu.Price)
+            };
+                result = DBHelper.NonQuery(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+            }
+            return result > 0 ? true : false;
         }
 
         /// <summary>
