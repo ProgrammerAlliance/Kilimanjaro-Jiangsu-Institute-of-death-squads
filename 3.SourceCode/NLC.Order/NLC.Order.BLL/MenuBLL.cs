@@ -21,7 +21,8 @@ namespace NLC.Order.BLL
         {
             try
             {
-
+                jr.Result=MenuDAL.InsertMenu(menu);
+                jr.Status = 200;
             }
             catch (Exception)
             {
@@ -37,11 +38,12 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="DishesId"></param>
         /// <returns></returns>
-        public JsonResult DelDish(int DishesId)
+        public JsonResult DelDish(int menuId)
         {
             try
             {
-
+                jr.Result= MenuDAL.DelMenu(menuId);
+                jr.Status = 200;
             }
             catch (Exception)
             {
@@ -55,11 +57,12 @@ namespace NLC.Order.BLL
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetMenu(int Id)
+        public JsonResult GetMenu(int id)
         {
             try
             {
-
+               jr.Result= MenuDAL.SelectMenuByRestaurant(id);
+               jr.Status = 200;
             }
             catch (Exception)
             {
