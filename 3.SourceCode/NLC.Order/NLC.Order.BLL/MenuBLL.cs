@@ -27,7 +27,7 @@ namespace NLC.Order.BLL
             catch (Exception)
             {
 
-                jr.Result = "系统繁忙";
+                jr.Result = "增加菜单失败";
                 jr.Status = 500;
             }
             return jr;
@@ -47,7 +47,7 @@ namespace NLC.Order.BLL
             }
             catch (Exception)
             {
-                jr.Result = "系统繁忙";
+                jr.Result = "删除菜单失败";
                 jr.Status = 500;
             }
             return jr;
@@ -66,12 +66,29 @@ namespace NLC.Order.BLL
             }
             catch (Exception)
             {
-                jr.Result = "系统繁忙";
+                jr.Result = "获取所有菜单失败";
                 jr.Status = 500;
             }
             return jr;
         }
 
-       
+        /// <summary>
+        /// 获取所有饭店
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetRestaurant()
+        {
+            try
+            {
+                jr.Result = MenuDAL.SelectAllRestaurant();
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Result = "获取所有饭店";
+                jr.Status = 500;
+            }
+            return jr;
+        }
     }
 }
