@@ -1,4 +1,5 @@
-﻿using NLC.Order.Common;
+﻿using NL.Order.Common;
+using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;
@@ -15,7 +16,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 增加菜单
         /// </summary>
-        /// <param name="menu"></param>
+        /// <param name="menu">菜单</param>
         /// <returns></returns>
         public JsonResult AddDish(MenuInfo menu)
         {
@@ -29,6 +30,7 @@ namespace NLC.Order.BLL
 
                 jr.Result = "增加菜单失败";
                 jr.Status = 500;
+                LogHelper.WriteLogFile("增加菜单失败！");
             }
             return jr;
         }
@@ -36,7 +38,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 删除菜单
         /// </summary>
-        /// <param name="DishesId"></param>
+        /// <param name="menuId"></param>
         /// <returns></returns>
         public JsonResult DelDish(int menuId)
         {
@@ -49,13 +51,15 @@ namespace NLC.Order.BLL
             {
                 jr.Result = "删除菜单失败";
                 jr.Status = 500;
+                LogHelper.WriteLogFile("删除菜单失败！");
             }
             return jr;
         }
 
         /// <summary>
-        /// 获取所有菜单
+        /// 根据饭店获取所有菜单
         /// </summary>
+        /// <param name="id">饭店的ID</param>
         /// <returns></returns>
         public JsonResult GetMenu(int id)
         {
@@ -68,6 +72,7 @@ namespace NLC.Order.BLL
             {
                 jr.Result = "获取所有菜单失败";
                 jr.Status = 500;
+                LogHelper.WriteLogFile("获取所有菜单失败！");
             }
             return jr;
         }
@@ -85,8 +90,9 @@ namespace NLC.Order.BLL
             }
             catch (Exception)
             {
-                jr.Result = "获取所有饭店";
+                jr.Result = "获取所有饭店失败";
                 jr.Status = 500;
+                LogHelper.WriteLogFile("获取所有饭店失败！");
             }
             return jr;
         }
