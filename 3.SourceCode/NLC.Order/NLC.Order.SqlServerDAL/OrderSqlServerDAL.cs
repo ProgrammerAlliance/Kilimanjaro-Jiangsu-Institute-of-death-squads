@@ -1,14 +1,12 @@
 ﻿using NLC.Order.IDAL;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using System.Data;
 using NL.Order.Common;
+using System.Text;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -221,11 +219,6 @@ namespace NLC.Order.SqlServerDAL
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
-
-        /// <summary>
-        /// 查看部门加班员工
-        /// </summary>
-        /// <returns></returns>
 
     }
 }

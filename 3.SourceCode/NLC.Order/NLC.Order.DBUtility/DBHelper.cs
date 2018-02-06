@@ -108,7 +108,6 @@ namespace NLC.Order.DBUtility
                         var itemtype = item.PropertyType; // 类属性的类型（int string datetime）
                         object value = GetvalbyDataSet(itemstr, itemtype, ds.Tables[0].Rows[i]); //获取值
                         item.SetValue(t, value, null);
-
                     }
                     list.Add(t);
                 }
