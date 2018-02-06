@@ -162,7 +162,7 @@ namespace NLC.Order.SqlServerDAL
                 {
                 new SqlParameter("deptNo",deptId)
             };
-                ds = DBHelper.Query(sb.ToString(), null);
+                ds = DBHelper.Query(sb.ToString(), parameters);
             }
             catch (Exception)
             {
