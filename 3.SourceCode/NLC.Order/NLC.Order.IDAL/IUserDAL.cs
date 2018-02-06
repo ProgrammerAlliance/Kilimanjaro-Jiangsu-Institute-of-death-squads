@@ -41,6 +41,17 @@ namespace NLC.Order.IDAL
         /// <returns></returns>
         bool UpdateUser(string userId, string psassword);
 
+        /// <summary>
+        /// 统计员工数
+        /// </summary>
+        /// <returns></returns>
         int CountEmp();
+
+        /// <summary>
+        /// 根据用户编号查找用户
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        bool SelectByUserId(int userId);
     }
 }
