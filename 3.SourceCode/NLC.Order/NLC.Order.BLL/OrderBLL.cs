@@ -1,14 +1,12 @@
-﻿using NLC.Order.IBLL;
-using System;
+﻿using NL.Order.Common;
 using NLC.Order.Common;
-using NLC.Order.Model;
-using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Linq;
-using NL.Order.Common;
-using System.Web.Configuration;
+using NLC.Order.IBLL;
+using NLC.Order.IDAL;
+using NLC.Order.Model;
+using System;
 using System.Configuration;
-using System.Collections.Specialized;
+using System.Linq;
 using System.Xml;
 
 namespace NLC.Order.BLL
