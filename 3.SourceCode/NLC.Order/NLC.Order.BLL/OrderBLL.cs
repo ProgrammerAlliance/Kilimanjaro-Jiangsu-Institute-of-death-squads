@@ -7,6 +7,8 @@ using NLC.Order.DALFactory;
 using System.Configuration;
 using System.Linq;
 using NL.Order.Common;
+using System.Web.Configuration;
+using System.Xml;
 
 namespace NLC.Order.BLL
 {
@@ -126,7 +128,7 @@ namespace NLC.Order.BLL
                 jr.Status = 404;
                 jr.Result = "未到订餐截止时间";
             }
-            var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1,0);
+            var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
             if (list.Count > 0)
             {
                 int[] GetId = new int[2];
@@ -210,6 +212,34 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+            }
+            return jr;
+        }
+
+        /// <summary>
+        /// 修改订餐截止时间
+        /// </summary>
+        /// <param name="hour">时</param>
+        /// <param name="minutes">分</param>
+        /// <returns></returns>
+        public JsonResult ModifyTime(int hour, int minutes)
+        {
+            try
+            {
+                ConfigurationManager.AppSettings["Hour"] = hour.ToString();
+
+                Configuration config = WebConfigurationManager.OpenWebConfiguration("/NLC.Order.WebApi");
+                AppSettingsSection app = config.AppSettings;
+                app.Settings["Hour"].Value = $"{hour.ToString()}";
+
+                string str = app.Settings["Hour"].Value;
+                config.Save(ConfigurationSaveMode.Modified);
+
+                jr.Result = "成功";
+            }
+            catch (Exception e)
+            {
+                jr.Result = "失败";
             }
             return jr;
         }

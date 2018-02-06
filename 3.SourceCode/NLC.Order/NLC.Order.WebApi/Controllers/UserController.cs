@@ -21,16 +21,6 @@ namespace NLC.Order.WebApi.Controllers
         private IUserBLL userBLL = new UserBLL();
 
         /// <summary>
-        /// 获取所有用户
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult GetAllUser(int rows,int page)
-        {
-            return userBLL.GetAllUser(rows,page);
-        }
-
-        /// <summary>
         /// 登录
         /// </summary>
         /// <param name="name">用户名</param>
@@ -77,5 +67,14 @@ namespace NLC.Order.WebApi.Controllers
             return userBLL.ModifyPassword(userId, newPassword);
         }
 
+        /// <summary>
+        /// 获取所有用户
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetAllUser(int rows, int page)
+        {
+            return userBLL.GetAllUser(rows, page);
+        }
     }
 }

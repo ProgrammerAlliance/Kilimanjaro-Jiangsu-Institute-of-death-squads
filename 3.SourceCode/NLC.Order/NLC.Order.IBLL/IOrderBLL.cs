@@ -53,5 +53,13 @@ namespace NLC.Order.IBLL
         /// <param name="UserId"></param>
         /// <returns></returns>
         JsonResult UserIsOrder(int UserId);
+
+        /// <summary>
+        /// 修改截止订餐时间
+        /// </summary>
+        /// <param name="hour"></param>
+        /// <param name="minutes"></param>
+        /// <returns></returns>
+        JsonResult ModifyTime(int hour, int minutes);
     }
 }

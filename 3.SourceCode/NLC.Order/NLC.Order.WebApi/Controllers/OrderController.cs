@@ -101,5 +101,17 @@ namespace NLC.Order.WebApi.Controllers
         {
             return orderBLL.GetCleanEmpName();
         }
+
+        /// <summary>
+        /// 修改订餐截止时间
+        /// </summary>
+        /// <param name="hour">时</param>
+        /// <param name="minute">分</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult ModifyTime(int hour,int minute)
+        {
+            return orderBLL.ModifyTime(hour, minute);
+        }
     }
 }
