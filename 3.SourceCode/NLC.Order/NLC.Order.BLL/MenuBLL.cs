@@ -1,10 +1,9 @@
-﻿
-using System;
-using NLC.Order.Common;
-using NLC.Order.Model;
-using NLC.Order.IBLL;
+﻿using NLC.Order.Common;
 using NLC.Order.DALFactory;
+using NLC.Order.IBLL;
 using NLC.Order.IDAL;
+using NLC.Order.Model;
+using System;
 
 namespace NLC.Order.BLL
 {
@@ -16,7 +15,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-
+                
             }
             catch (Exception)
             {

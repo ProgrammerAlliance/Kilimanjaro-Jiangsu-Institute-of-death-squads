@@ -1,12 +1,8 @@
 ﻿using NLC.Order.IBLL;
 using System;
 using NLC.Order.Common;
-using NLC.Order.Model;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Configuration;
-using System.Linq;
-using NL.Order.Common;
 using System.Data.SqlClient;
 
 namespace NLC.Order.BLL
@@ -16,6 +12,10 @@ namespace NLC.Order.BLL
         private IDeptDAL DeptDAL = Factory.CreateDeptDAL();
         private JsonResult jr = new JsonResult();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult GetAllDept()
         {
             try

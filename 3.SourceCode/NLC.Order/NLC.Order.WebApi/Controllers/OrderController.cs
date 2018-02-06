@@ -57,9 +57,9 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult GetOrderPeople(int rows,int page,int deptId)
+        public JsonResult GetOrderPeople(int rows, int page, int deptId)
         {
-            return orderBLL.GetOrderPeople(rows,page,deptId);
+            return orderBLL.GetOrderPeople(rows, page, deptId);
         }
 
         /// <summary>
