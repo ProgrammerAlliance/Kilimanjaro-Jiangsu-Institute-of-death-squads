@@ -220,8 +220,5 @@ namespace NLC.Order.SqlServerDAL
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
-       
-
-      
     }
 }
