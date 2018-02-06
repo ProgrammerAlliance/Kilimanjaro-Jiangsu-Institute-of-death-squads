@@ -47,5 +47,10 @@ namespace NLC.Order.Model
         /// 性别
         /// </summary>
         public string Gender { get; set; }
+
+        /// <summary>
+        /// 用户今日是否订餐
+        /// </summary>
+        public bool IsOrder { get; set; }
     }
 }
