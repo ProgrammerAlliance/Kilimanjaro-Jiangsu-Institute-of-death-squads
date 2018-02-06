@@ -11,6 +11,12 @@ namespace NLC.Order.BLL
     {
         private IMenuDAL MenuDAL = Factory.CreateMenuDAL();
         private JsonResult jr = new JsonResult();
+
+        /// <summary>
+        /// 增加菜单
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         public JsonResult AddDishes(MenuInfo menu)
         {
             try
@@ -26,6 +32,11 @@ namespace NLC.Order.BLL
             return jr;
         }
 
+        /// <summary>
+        /// 删除菜单
+        /// </summary>
+        /// <param name="DishesId"></param>
+        /// <returns></returns>
         public JsonResult DelDishes(int DishesId)
         {
             try
@@ -40,6 +51,10 @@ namespace NLC.Order.BLL
             return jr;
         }
 
+        /// <summary>
+        /// 获取所有菜单
+        /// </summary>
+        /// <returns></returns>
         public JsonResult GetAllMenu()
         {
             try
@@ -54,6 +69,11 @@ namespace NLC.Order.BLL
             return jr;
         }
 
+        /// <summary>
+        /// 修改菜单
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         public JsonResult ModifyDishes(MenuInfo menu)
         {
             try

@@ -8,7 +8,5 @@ namespace NLC.Order.IDAL
 {
     public interface IMenuDAL
     {
-
-
     }
 }
