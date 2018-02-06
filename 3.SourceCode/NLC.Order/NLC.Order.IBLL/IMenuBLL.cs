@@ -25,13 +25,6 @@ namespace NLC.Order.IBLL
         JsonResult DelDishes(int DishesId);
 
         /// <summary>
-        /// 更改菜单
-        /// </summary>
-        /// <param name="menu">菜单</param>
-        /// <returns></returns>
-        JsonResult ModifyDishes(MenuInfo menu);
-
-        /// <summary>
         /// 获取所有菜品
         /// </summary>
         /// <returns></returns>
