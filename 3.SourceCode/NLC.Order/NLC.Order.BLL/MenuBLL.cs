@@ -17,7 +17,7 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="menu"></param>
         /// <returns></returns>
-        public JsonResult AddDishes(MenuInfo menu)
+        public JsonResult AddDish(MenuInfo menu)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="DishesId"></param>
         /// <returns></returns>
-        public JsonResult DelDishes(int DishesId)
+        public JsonResult DelDish(int DishesId)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace NLC.Order.BLL
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetAllMenu()
+        public JsonResult GetMenu(int Id)
         {
             try
             {
