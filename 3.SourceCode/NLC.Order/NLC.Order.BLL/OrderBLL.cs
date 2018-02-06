@@ -151,6 +151,12 @@ namespace NLC.Order.BLL
                     return jr;
                 }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
+                if (list.Count == 0)
+                {
+                    jr.Result = "无人订餐";
+                    jr.Status = 303;
+                    return jr;
+                }
                 if (list.Count > 1)
                 {
                     int[] GetId = new int[2];
@@ -169,14 +175,13 @@ namespace NLC.Order.BLL
                         }
                         OrderDAL.ModifyCleanState(list[GetId[i]].UserId);
                     }
-                    jr.Result = "OK";
-                    jr.Status = 200;
                 }
                 else
                 {
-                    jr.Result = "无人订餐";
-                    jr.Status = 303;
+                    OrderDAL.ModifyCleanState(list[0].UserId);
                 }
+                jr.Result = "OK";
+                jr.Status = 200;
             }
             catch (Exception)
             {
