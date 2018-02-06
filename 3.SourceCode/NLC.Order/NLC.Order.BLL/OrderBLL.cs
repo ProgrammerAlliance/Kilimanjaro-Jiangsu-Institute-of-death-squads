@@ -8,6 +8,8 @@ using System.Linq;
 using NL.Order.Common;
 using System.Web.Configuration;
 using System.Configuration;
+using System.Collections.Specialized;
+using System.Xml;
 
 namespace NLC.Order.BLL
 {
@@ -32,6 +34,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 404;
                 jr.Result = "已超过取消订餐时间";
+                return jr;
             }
             try
             {
@@ -133,7 +136,7 @@ namespace NLC.Order.BLL
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
                 }
-                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1,0);
+                var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
                 if (list.Count > 0)
                 {
                     int[] GetId = new int[2];
@@ -239,37 +242,23 @@ namespace NLC.Order.BLL
         {
             try
             {
-                //Configuration config = WebConfigurationManager.OpenWebConfiguration("/NLC.Order.WebApi");
-                //AppSettingsSection app = config.AppSettings;
-                //app.Settings.Remove("Hour");
-                //config.Save(System.Configuration.ConfigurationSaveMode.Modified);
+                XmlDocument doc = new XmlDocument();
+                string strFileName = AppDomain.CurrentDomain.BaseDirectory.ToString() + "Web.config";
+                doc.Load(strFileName);
+                XmlNodeList nodes = doc.GetElementsByTagName("add");
+                XmlAttribute _key_hour = nodes[0].Attributes["Hour"];
+                XmlAttribute _key_min = nodes[1].Attributes["Minute"];
+                _key_hour = nodes[0].Attributes["value"];
+                _key_hour.Value = hour.ToString();
+                _key_min = nodes[1].Attributes["value"];
+                _key_min.Value = minutes.ToString();
+                doc.Save(strFileName);
 
-
-
-
-
-
-
-
-
-
-
-
-                //ConfigurationManager.AppSettings["Hour"] = hour.ToString();
-
-                //Configuration config = WebConfigurationManager.OpenWebConfiguration("/NLC.Order.WebApi");
-                //AppSettingsSection app = config.AppSettings;
-                //app.Settings["Hour"].Value = $"{hour.ToString()}";
-                //ConfigurationSaveMode csm = new ConfigurationSaveMode();
-                //string str = app.Settings["Hour"].Value;
-                //config.Save(ConfigurationSaveMode.Modified);
-                ////config.Save();
-
-                jr.Result = "成功";
+                jr.Result = "修改成功";
             }
             catch (Exception e)
             {
-                jr.Result = "失败";
+                jr.Result = e.Message;
             }
             return jr;
         }
