@@ -108,6 +108,12 @@ namespace NLC.Order.BLL
             }
             try
             {
+                if (OrderDAL.IsOrder(order.UserId))
+                {
+                    jr.Status = 201;
+                    jr.Result = "该用户今日已订餐";
+                    return jr;
+                }
                 jr.Result = OrderDAL.AddOrder(order);
                 jr.Status = 200;
             }
