@@ -7,7 +7,7 @@ using System;
 
 namespace NLC.Order.BLL
 {
-    public class MbenuBLL : IMenuBLL
+    public class MenuBLL : IMenuBLL
     {
         private IMenuDAL MenuDAL = Factory.CreateMenuDAL();
         private JsonResult jr = new JsonResult();
