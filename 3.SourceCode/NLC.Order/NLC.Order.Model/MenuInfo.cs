@@ -21,7 +21,7 @@ namespace NLC.Order.Model
         /// <summary>
         /// 菜名
         /// </summary>
-        public int FoodName { get; set; }
+        public string FoodName { get; set; }
 
         /// <summary>
         /// 价格

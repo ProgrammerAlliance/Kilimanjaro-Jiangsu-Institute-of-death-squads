@@ -1,4 +1,5 @@
-﻿using NLC.Order.BLL;
+﻿using Newtonsoft.Json;
+using NLC.Order.BLL;
 using NLC.Order.Common;
 using NLC.Order.IBLL;
 using NLC.Order.Model;
@@ -28,9 +29,10 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="dish">菜对象</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult AddlDish(MenuInfo dish)
+        public JsonResult AddDish(string dish)
         {
-            return menuBLL.AddDish(dish);
+            MenuInfo m = JsonConvert.DeserializeObject<MenuInfo>(dish);
+            return menuBLL.AddDish(m);
         }
 
         /// <summary>

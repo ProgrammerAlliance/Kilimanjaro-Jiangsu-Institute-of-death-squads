@@ -40,6 +40,17 @@ namespace NLC.Order.OracleDAL
         }
 
         /// <summary>
+        /// 根据菜品名称和饭店查找菜品
+        /// </summary>
+        /// <param name="foodName"></param>
+        /// <param name="restaurantId"></param>
+        /// <returns></returns>
+        public bool SelectMenuByNameAndRestaurant(string foodName, int restaurantId)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// 根据饭店查找菜单
         /// </summary>
         /// <param name="restaurantId"></param>

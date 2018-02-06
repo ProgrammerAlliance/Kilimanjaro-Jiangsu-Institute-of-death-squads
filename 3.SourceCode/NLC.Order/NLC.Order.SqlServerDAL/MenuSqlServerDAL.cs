@@ -110,5 +110,34 @@ namespace NLC.Order.SqlServerDAL
 
             return DBHelper.GetListbyDataSet<MenuInfo>(data);
         }
+
+        /// <summary>
+        /// 根据菜品名称和饭店查找菜品
+        /// </summary>
+        /// <param name="foodName"></param>
+        /// <param name="restaurantId"></param>
+        /// <returns></returns>
+        public bool SelectMenuByNameAndRestaurant(string foodName, int restaurantId)
+        {
+            DataSet data = null;
+            try
+            {
+                string sql = "select FoodId,FoodName,Price " +
+                    "from Menu " +
+                    "where FoodName = @FoodName and RestaurantId=@RestaurantId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("FoodName",foodName),
+                    new SqlParameter("RestaurantId",restaurantId)
+                };
+                data = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行根据菜品名称和饭店查找菜品SQL语句失败");
+            }
+
+            return data.Tables[0].Rows.Count == 0 ? false : true;
+        }
     }
 }
