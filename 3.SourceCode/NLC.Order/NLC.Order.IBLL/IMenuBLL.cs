@@ -29,5 +29,7 @@ namespace NLC.Order.IBLL
         /// </summary>
         /// <returns></returns>
         JsonResult GetMenu(int Id);
+
+        JsonResult GetRestaurant();
     }
 }

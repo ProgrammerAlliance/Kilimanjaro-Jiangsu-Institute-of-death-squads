@@ -21,12 +21,13 @@ namespace NLC.Order.BLL
         {
             try
             {
-
+                jr.Result=MenuDAL.InsertMenu(menu);
+                jr.Status = 200;
             }
             catch (Exception)
             {
 
-                jr.Result = "系统繁忙";
+                jr.Result = "增加菜单失败";
                 jr.Status = 500;
             }
             return jr;
@@ -37,15 +38,16 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="DishesId"></param>
         /// <returns></returns>
-        public JsonResult DelDish(int DishesId)
+        public JsonResult DelDish(int menuId)
         {
             try
             {
-
+                jr.Result= MenuDAL.DelMenu(menuId);
+                jr.Status = 200;
             }
             catch (Exception)
             {
-                jr.Result = "系统繁忙";
+                jr.Result = "删除菜单失败";
                 jr.Status = 500;
             }
             return jr;
@@ -55,20 +57,38 @@ namespace NLC.Order.BLL
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetMenu(int Id)
+        public JsonResult GetMenu(int id)
         {
             try
             {
-
+               jr.Result= MenuDAL.SelectMenuByRestaurant(id);
+               jr.Status = 200;
             }
             catch (Exception)
             {
-                jr.Result = "系统繁忙";
+                jr.Result = "获取所有菜单失败";
                 jr.Status = 500;
             }
             return jr;
         }
 
-       
+        /// <summary>
+        /// 获取所有饭店
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetRestaurant()
+        {
+            try
+            {
+                jr.Result = MenuDAL.SelectAllRestaurant();
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Result = "获取所有饭店";
+                jr.Status = 500;
+            }
+            return jr;
+        }
     }
 }
