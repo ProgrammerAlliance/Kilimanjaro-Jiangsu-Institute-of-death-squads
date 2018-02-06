@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace NLC.Order.DBUtility
 {
     public class DBHelper
     {
         static string conn = "Data Source=DESKTOP-52NF0RS;Initial Catalog=Order;Persist Security Info=True;User ID=sa;Password=123";
- 
+
         /// <summary>
         /// 执行对数据表中数据的增加、删除、修改操作 
         /// </summary>
@@ -34,7 +33,6 @@ namespace NLC.Order.DBUtility
             catch (Exception )
             {
                 LogHelper.WriteLogFile("数据库连接失败！");
-
             }
             finally
             {
@@ -50,7 +48,7 @@ namespace NLC.Order.DBUtility
         /// <summary>
         /// 执行对数据表中数据的查询操作 
         /// </summary>
-        /// <param name="sql"></param>
+        /// <param name="sql">sql语句</param>
         /// <param name="parameters"></param>
         /// <returns></returns>
         public static DataSet Query(string sql, SqlParameter[] parameters)

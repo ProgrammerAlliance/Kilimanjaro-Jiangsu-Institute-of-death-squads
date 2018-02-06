@@ -17,7 +17,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 增加用户
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">用户</param>
         /// <returns></returns>
         public JsonResult AddUser(UserInfo user)
         {
@@ -42,7 +42,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                //LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("增加用户失败");
             }
             return jr;
         }
@@ -50,7 +50,7 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 删除用户
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="userId">员工编号</param>
         /// <returns></returns>
         public JsonResult DelUser(string userId)
         {
@@ -69,14 +69,16 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                //LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("删除用户失败");
             }
             return jr;
         }
 
         /// <summary>
-        /// 获取所有用户
+        /// /获取所有用户
         /// </summary>
+        /// <param name="rows">行数</param>
+        /// <param name="page">页数</param>
         /// <returns></returns>
         public JsonResult GetAllUser(int rows, int page)
         {
@@ -101,6 +103,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("获取所有用户失败");
             }
             return jr;
         }
@@ -108,8 +111,9 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pwd"></param>
+        /// <param name="UserId">员工编号</param>
+        /// <param name="pwd">密码</param>
+        /// <param name="type">用户类型</param>
         /// <returns></returns>
         public JsonResult Login(int UserId, string pwd, int type)
         {
@@ -138,6 +142,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
+                LogHelper.WriteLogFile("登录出错");
             }
             return jr;
         }
@@ -145,8 +150,8 @@ namespace NLC.Order.BLL
         /// <summary>
         /// 修改密码
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="psassword"></param>
+        /// <param name="userId">员工编号</param>
+        /// <param name="psassword">密码</param>
         /// <returns></returns>
         public JsonResult ModifyPassword(string userId, string password)
         {
@@ -165,7 +170,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
-                // LogHelper.WriteLogFile(e.Message);
+                LogHelper.WriteLogFile("修改密码失败");
             }
             return jr;
         }
