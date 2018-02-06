@@ -4,9 +4,10 @@ using NLC.Order.Common;
 using NLC.Order.Model;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
-using System.Configuration;
 using System.Linq;
 using NL.Order.Common;
+using System.Web.Configuration;
+using System.Configuration;
 
 namespace NLC.Order.BLL
 {
@@ -27,7 +28,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CancelOrder(int UserId)
         {
-            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            if (currentTime.Hour >= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;
                 jr.Result = "已超过取消订餐时间";
@@ -224,6 +225,51 @@ namespace NLC.Order.BLL
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
                 LogHelper.WriteLogFile("判断员工今日是否订餐失败");
+            }
+            return jr;
+        }
+
+        /// <summary>
+        /// 修改订餐截止时间
+        /// </summary>
+        /// <param name="hour">时</param>
+        /// <param name="minutes">分</param>
+        /// <returns></returns>
+        public JsonResult ModifyTime(int hour, int minutes)
+        {
+            try
+            {
+                //Configuration config = WebConfigurationManager.OpenWebConfiguration("/NLC.Order.WebApi");
+                //AppSettingsSection app = config.AppSettings;
+                //app.Settings.Remove("Hour");
+                //config.Save(System.Configuration.ConfigurationSaveMode.Modified);
+
+
+
+
+
+
+
+
+
+
+
+
+                //ConfigurationManager.AppSettings["Hour"] = hour.ToString();
+
+                //Configuration config = WebConfigurationManager.OpenWebConfiguration("/NLC.Order.WebApi");
+                //AppSettingsSection app = config.AppSettings;
+                //app.Settings["Hour"].Value = $"{hour.ToString()}";
+                //ConfigurationSaveMode csm = new ConfigurationSaveMode();
+                //string str = app.Settings["Hour"].Value;
+                //config.Save(ConfigurationSaveMode.Modified);
+                ////config.Save();
+
+                jr.Result = "成功";
+            }
+            catch (Exception e)
+            {
+                jr.Result = "失败";
             }
             return jr;
         }
