@@ -143,7 +143,7 @@ namespace NLC.Order.BLL
                     jr.Result = "未到订餐截止时间";
                 }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
-                if (list.Count > 0)
+                if (list.Count > 1)
                 {
                     int[] GetId = new int[2];
                     for (int i = 0; i < 2; i++)
