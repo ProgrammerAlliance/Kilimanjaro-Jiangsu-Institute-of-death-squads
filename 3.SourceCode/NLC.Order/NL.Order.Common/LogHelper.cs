@@ -5,13 +5,10 @@ namespace NL.Order.Common
 {
     public class LogHelper
     {
-    
-        
-
         //// <summary>
         /// 写入日志文件
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">错误信息</param>
         public static void WriteLogFile(string input)
         {
             string fname = @"F:\LogFile.txt";

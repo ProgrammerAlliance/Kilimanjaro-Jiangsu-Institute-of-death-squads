@@ -57,8 +57,11 @@ namespace NLC.Order.SqlServerDAL
         }
 
         /// <summary>
-        /// 获取今日订餐人员信息
+        /// 获取今日订餐人员信息，分页显示
         /// </summary>
+        /// <param name="rows">行数</param>
+        /// <param name="page">页数</param>
+        /// <param name="deptId">部门ID</param>
         /// <returns></returns>
         public List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId)
         {
@@ -174,7 +177,7 @@ namespace NLC.Order.SqlServerDAL
         /// <summary>
         /// 今日是否订餐
         /// </summary>
-        /// <param name="UserId"></param>
+        /// <param name="UserId">用户ID</param>
         /// <returns></returns>
         public bool IsOrder(int UserId)
         {

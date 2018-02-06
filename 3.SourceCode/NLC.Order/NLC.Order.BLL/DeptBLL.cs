@@ -4,6 +4,7 @@ using NLC.Order.Common;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
 using System.Data.SqlClient;
+using NL.Order.Common;
 
 namespace NLC.Order.BLL
 {
@@ -13,7 +14,7 @@ namespace NLC.Order.BLL
         private JsonResult jr = new JsonResult();
 
         /// <summary>
-        /// 
+        /// 获得所有部门
         /// </summary>
         /// <returns></returns>
         public JsonResult GetAllDept()
@@ -27,11 +28,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库异常";
+                LogHelper.WriteLogFile("数据库异常！");
             }
             catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("获得所有部门！");
             }
             return jr;
         }

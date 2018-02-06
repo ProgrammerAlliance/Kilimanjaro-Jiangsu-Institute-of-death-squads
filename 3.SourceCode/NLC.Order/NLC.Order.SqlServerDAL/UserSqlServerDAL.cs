@@ -54,9 +54,7 @@ namespace NLC.Order.SqlServerDAL
             catch (Exception)
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
-
             }
-
             return result > 0 ? true : false;
         }
 
@@ -88,13 +86,14 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
             }
-
             return result > 0 ? true : false;
         }
 
         /// <summary>
-        /// 查找所有用户
+        /// 查找所有用户，分页显示
         /// </summary>
+        /// <param name="rows">行</param>
+        /// <param name="page">页</param>
         /// <returns></returns>
         public List<UserInfo> SelectAllUser(int rows, int page)
         {
@@ -123,8 +122,9 @@ namespace NLC.Order.SqlServerDAL
         /// <summary>
         /// 根据用户名和密码查找用户
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pwd"></param>
+        /// <param name="UserId">用户ID</param>
+        /// <param name="pwd">密码</param>
+        /// <param name="type">用户类型</param>
         /// <returns></returns>
         public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type)
         {
@@ -156,8 +156,8 @@ namespace NLC.Order.SqlServerDAL
         /// <summary>
         /// 更新用户
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="psassword"></param>
+        /// <param name="userId">用户ID</param>
+        /// <param name="psassword">密码</param>
         /// <returns></returns>
         public bool UpdateUser(string userId, string psassword)
         {
@@ -182,7 +182,7 @@ namespace NLC.Order.SqlServerDAL
         /// <summary>
         /// 根据用户工号查找用户
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="userId">用户ID</param>
         /// <returns></returns>
         public bool SelectByUserId(int userId)
         {
