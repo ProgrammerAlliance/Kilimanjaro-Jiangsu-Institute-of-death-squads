@@ -154,6 +154,10 @@ namespace NLC.Order.DBUtility
                 {
                     return null;
                 }
+                if (typeof(bool) == coltype)
+                {
+                    return false;
+                }
                 return "";
             }
         }
