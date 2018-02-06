@@ -9,19 +9,19 @@ namespace NLC.Order.Model
     public class MenuInfo
     {
         /// <summary>
+        /// 饭店编号
+        /// </summary>
+        public int RestaurantId { get; set; }
+
+        /// <summary>
         /// 菜编号
         /// </summary>
-        public int DishNumber { get; set; }
+        public int FoodId { get; set; }
 
         /// <summary>
         /// 菜名
         /// </summary>
-        public int DishName { get; set; }
-
-        /// <summary>
-        /// 菜图片路径
-        /// </summary>
-        public string Path { get; set; }
+        public int FoodName { get; set; }
 
         /// <summary>
         /// 价格
