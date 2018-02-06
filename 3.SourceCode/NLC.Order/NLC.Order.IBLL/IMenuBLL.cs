@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NLC.Order.IBLL
 {
-   public interface IMenuBLL
+    public interface IMenuBLL
     {
         /// <summary>
         /// 增加菜品

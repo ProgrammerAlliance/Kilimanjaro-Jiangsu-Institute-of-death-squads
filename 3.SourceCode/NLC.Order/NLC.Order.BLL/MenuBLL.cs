@@ -15,7 +15,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                
+
             }
             catch (Exception)
             {

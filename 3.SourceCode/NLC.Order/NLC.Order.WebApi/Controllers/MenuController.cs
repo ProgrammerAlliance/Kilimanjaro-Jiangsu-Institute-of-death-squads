@@ -25,7 +25,7 @@ namespace NLC.Order.WebApi.Controllers
                 jr.Status = 202;
                 jr.Result = OrderDAL.GetName();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 jr.Status = 500;
                 jr.Result = "出错";

@@ -20,15 +20,15 @@ namespace NL.Order.Common
                 fs.Close();
                 fileInfo = new FileInfo(fname);
             }
-           
+
             using (FileStream fs = fileInfo.OpenWrite())
-            {                
+            {
                 StreamWriter w = new StreamWriter(fs);
-                w.BaseStream.Seek(0, SeekOrigin.End);               
-                w.Write("\n\rLog Entry : ");             
+                w.BaseStream.Seek(0, SeekOrigin.End);
+                w.Write("\n\rLog Entry : ");
                 w.Write("{0} {1} \n\r", DateTime.Now.ToLongTimeString(),
                 DateTime.Now.ToLongDateString());
-                w.Write(input + "\n\r");          
+                w.Write(input + "\n\r");
                 w.Close();
             }
         }

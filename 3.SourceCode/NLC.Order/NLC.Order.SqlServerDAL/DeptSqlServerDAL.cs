@@ -32,5 +32,5 @@ namespace NLC.Order.SqlServerDAL
 
             return list;
         }
-}
+    }
 }

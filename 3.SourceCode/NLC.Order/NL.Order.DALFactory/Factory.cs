@@ -9,7 +9,7 @@ namespace NLC.Order.DALFactory
     {
         //获取配置文件中DateBaseType对应的值
         private static string dataBaseType = ConfigurationManager.AppSettings["DataBaseType"].ToString();
-        
+
         /// <summary>
         /// 根据配置文件中的值创建UserDAL
         /// </summary>

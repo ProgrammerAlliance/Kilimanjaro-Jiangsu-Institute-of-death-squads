@@ -201,7 +201,7 @@ namespace NLC.Order.SqlServerDAL
                 LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败");
             }
 
-            return data.Tables[0].Rows.Count==0?false:true;
+            return data.Tables[0].Rows.Count == 0 ? false : true;
         }
     }
 }

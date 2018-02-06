@@ -36,7 +36,7 @@ namespace NLC.Order.OracleDAL
         /// 查找所有用户
         /// </summary>
         /// <returns></returns>
-        public List<UserInfo> SelectAllUser(int rows,int page)
+        public List<UserInfo> SelectAllUser(int rows, int page)
         {
             throw new NotImplementedException();
         }
@@ -47,11 +47,16 @@ namespace NLC.Order.OracleDAL
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type)
+        public IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 根据用户编号查找用户
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public bool SelectByUserId(int userId)
         {
             throw new NotImplementedException();

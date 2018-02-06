@@ -109,7 +109,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="minute">分</param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult ModifyTime(int hour,int minute)
+        public JsonResult ModifyTime(int hour, int minute)
         {
             return orderBLL.ModifyTime(hour, minute);
         }

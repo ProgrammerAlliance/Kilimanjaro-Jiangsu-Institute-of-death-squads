@@ -9,7 +9,7 @@ namespace NLC.Order.IBLL
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        JsonResult GetAllUser(int rows,int page);
+        JsonResult GetAllUser(int rows, int page);
 
         /// <summary>
         /// 登录
@@ -17,7 +17,7 @@ namespace NLC.Order.IBLL
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        JsonResult Login(int UserId, string pwd,int type);
+        JsonResult Login(int UserId, string pwd, int type);
 
         /// <summary>
         /// 增加用户

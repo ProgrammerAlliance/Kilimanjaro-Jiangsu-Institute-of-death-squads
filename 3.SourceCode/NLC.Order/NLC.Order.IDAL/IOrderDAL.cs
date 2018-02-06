@@ -29,7 +29,6 @@ namespace NLC.Order.IDAL
         /// <returns></returns>
         List<OrderInfo> SelectOrderPeople(int rows, int page, int deptId);
 
-      
         /// <summary>
         /// 修改打扫人员状态
         /// </summary>

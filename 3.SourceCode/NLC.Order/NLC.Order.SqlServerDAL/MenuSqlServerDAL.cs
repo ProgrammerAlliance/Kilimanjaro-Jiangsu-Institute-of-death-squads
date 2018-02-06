@@ -2,7 +2,7 @@
 
 namespace NLC.Order.SqlServerDAL
 {
-     public class MenuSqlServerDAL: IMenuDAL
+    public class MenuSqlServerDAL : IMenuDAL
     {
     }
 }

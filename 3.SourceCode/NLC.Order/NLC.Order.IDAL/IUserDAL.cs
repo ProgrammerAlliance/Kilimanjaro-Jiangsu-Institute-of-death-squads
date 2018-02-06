@@ -11,7 +11,7 @@ namespace NLC.Order.IDAL
         /// <param name="rows">行数</param>
         /// <param name="page">页数</param>
         /// <returns></returns>
-        List<UserInfo> SelectAllUser(int rows,int page);
+        List<UserInfo> SelectAllUser(int rows, int page);
 
         /// <summary>
         /// 根据用户名和密码查找用户
@@ -20,7 +20,7 @@ namespace NLC.Order.IDAL
         /// <param name="pwd">密码</param>
         /// <param name="type">用户类型</param>
         /// <returns></returns>
-        IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd,int type);
+        IList<UserInfo> SelectByIdAndPwd(int UserId, string pwd, int type);
 
         /// <summary>
         /// 插入用户
