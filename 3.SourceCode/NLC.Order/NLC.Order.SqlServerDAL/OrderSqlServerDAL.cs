@@ -68,17 +68,17 @@ namespace NLC.Order.SqlServerDAL
             DataSet ds = null;
             try
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, " +
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("SELECT ROW_NUMBER() OVER(ORDER BY o.OrderNo) AS ROWID, " +
                     "o.UserId,e.UserName ,d.Deptname,o.Remark " +
                     "FROM OrderTable as o, Emp as e, Deptment d " +
                     "where e.UserId = o.UserId and e.Deptno = d.Deptno " +
                     "and DateDiff(dd, CreateTime, getdate()) = 0 ");
                 if (deptId != 0)
                 {
-                    sb.Append(" and d.DeptNo=@deptNo");
+                    stringBuilder.Append(" and d.DeptNo=@deptNo");
                 }
-                string sql = "SELECT * FROM (" + sb.ToString() + ")t1 " +
+                string sql = "SELECT * FROM (" + stringBuilder.ToString() + ")t1 " +
                     "WHERE ROWID between(@startRows) and(@endRows)";
                 SqlParameter[] parameters =
                 {
@@ -153,19 +153,19 @@ namespace NLC.Order.SqlServerDAL
             DataSet ds = null;
             try
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("select * from ordertable o,emp e,deptment d " +
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("select * from ordertable o,emp e,deptment d " +
                     "where o.userid=e.userid and e.deptno=d.deptno and " +
                     "DateDiff(dd, CreateTime, getdate()) = 0 ");
                 if (deptId != 0)
                 {
-                    sb.Append(" and d.DeptNo=@deptNo");
+                    stringBuilder.Append(" and d.DeptNo=@deptNo");
                 }
                 SqlParameter[] parameters =
                 {
                 new SqlParameter("deptNo",deptId)
             };
-                ds = DBHelper.Query(sb.ToString(), parameters);
+                ds = DBHelper.Query(stringBuilder.ToString(), parameters);
             }
             catch (Exception)
             {
