@@ -15,19 +15,19 @@ namespace NLC.Order.IBLL
         /// </summary>
         /// <param name="menu">菜单</param>
         /// <returns></returns>
-        JsonResult AddDishes(MenuInfo menu);
+        JsonResult AddFood(MenuInfo menu);
 
         /// <summary>
         /// 删除菜品
         /// </summary>
         /// <param name="DishesId">菜品编号</param>
         /// <returns></returns>
-        JsonResult DelDishes(int DishesId);
+        JsonResult DelFood(int DishesId);
 
         /// <summary>
         /// 获取所有菜品
         /// </summary>
         /// <returns></returns>
-        JsonResult GetAllMenu();
+        JsonResult GetMenu(int Id);
     }
 }
