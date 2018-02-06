@@ -30,6 +30,10 @@ namespace NLC.Order.IDAL
         /// <returns></returns>
         List<MenuInfo> SelectMenuByRestaurant(int restaurantId);
 
-        List<> SelectAllRestaurant();
+        /// <summary>
+        /// 获取所有饭店
+        /// </summary>
+        /// <returns></returns>
+        List<RestaurInfo> SelectAllRestaurant();
     }
 }

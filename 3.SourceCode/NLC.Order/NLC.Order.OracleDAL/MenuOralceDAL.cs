@@ -31,6 +31,15 @@ namespace NLC.Order.OracleDAL
         }
 
         /// <summary>
+        /// 查找所有饭店
+        /// </summary>
+        /// <returns></returns>
+        public List<RestaurInfo> SelectAllRestaurant()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// 根据饭店查找菜单
         /// </summary>
         /// <param name="restaurantId"></param>
