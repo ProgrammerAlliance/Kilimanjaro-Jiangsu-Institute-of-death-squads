@@ -146,12 +146,12 @@ namespace NLC.Order.BLL
                     jr.Result = "未到订餐截止时间";
                     return jr;
                 }
-                //if (OrderDAL.IsProduce())
-                //{
-                //    jr.Status = 201;
-                //    jr.Result = "今日已产生打扫人员";
-                //    return jr;
-                //}
+                if (OrderDAL.IsProduce())
+                {
+                    jr.Status = 201;
+                    jr.Result = "今日已产生打扫人员";
+                    return jr;
+                }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
                 if (list.Count > 0)
                 {
