@@ -55,7 +55,7 @@ namespace NLC.Order.WebApi.Controllers
         [HttpGet]
         public JsonResult GetAllRest()
         {
-            return menuBLL;
+            return menuBLL.GetRestaurant();
         }
 
 
