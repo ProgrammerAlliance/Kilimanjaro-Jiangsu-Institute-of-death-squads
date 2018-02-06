@@ -23,14 +23,14 @@ namespace NLC.Order.SqlServerDAL
                 string sql = @"SELECT UserId, UserName, UserType, UserPwd, Deptno, Gender
                            FROM dbo.Emp AS ordertable
                            WHERE(UserType = 2)";
-                 ds = DBHelper.Query(sql, null);
+                ds = DBHelper.Query(sql, null);
             }
             catch (Exception)
             {
 
                 LogHelper.WriteLogFile("执行统计员工数量SQL语句失败");
             }
-            
+
             return ds.Tables[0].Rows.Count;
         }
 
@@ -54,9 +54,9 @@ namespace NLC.Order.SqlServerDAL
             catch (Exception)
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
-              
+
             }
-            
+
             return result > 0 ? true : false;
         }
 
@@ -88,7 +88,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
             }
-            
+
             return result > 0 ? true : false;
         }
 
@@ -102,10 +102,9 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 int nums = rows * (page - 1);
-                string sql = @"SELECT TOP (@rows) [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
-                            FROM  (SELECT  row_number() OVER (ORDER BY UserId) AS rownumber, 
-                                   [UserId], [UserName], [UserType], [UserPwd], [Deptno], [Gender]
-                            FROM  [Order].[dbo].[Emp]WHERE   UserType = 2) A
+                string sql = @"SELECT TOP (@rows) UserName,UserId,UserPwd,DeptName
+                            FROM(SELECT row_number() OVER(ORDER BY UserId) AS rownumber, e.UserName, e.UserId, e.UserPwd, d.DeptName
+                            FROM Emp e, Deptment d WHERE e.Deptno = d.DeptNo and e.UserType = 2) t1
                             WHERE rownumber > @nums";
                 SqlParameter[] parameters =
                 {
@@ -117,7 +116,7 @@ namespace NLC.Order.SqlServerDAL
             catch (Exception)
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
-            }          
+            }
             return DBHelper.GetListbyDataSet<UserInfo>(ds);
         }
 
@@ -150,7 +149,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败");
             }
-            
+
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
 
@@ -176,8 +175,33 @@ namespace NLC.Order.SqlServerDAL
             catch (Exception)
             {
                 LogHelper.WriteLogFile("执行更新用户SQL语句失败");
-            }           
+            }
             return result > 0 ? true : false;
+        }
+
+        /// <summary>
+        /// 根据用户工号查找用户
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public bool SelectByUserId(int userId)
+        {
+            DataSet data = null;
+            try
+            {
+                string sql = @"SELECT * FROM  dbo.Emp WHERE UserId=@UserId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("UserId",userId)
+                };
+                data = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败");
+            }
+
+            return data.Tables[0].Rows.Count==0?false:true;
         }
     }
 }

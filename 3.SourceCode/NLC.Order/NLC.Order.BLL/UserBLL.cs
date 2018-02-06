@@ -23,6 +23,12 @@ namespace NLC.Order.BLL
         {
             try
             {
+                if (userDAL.SelectByUserId(user.UserId))
+                {
+                    jr.Result = "该工号已存在";
+                    jr.Status = 201;
+                    return jr;
+                }
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
             }
@@ -30,8 +36,9 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
+                LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
@@ -56,8 +63,9 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
+                LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
@@ -87,6 +95,7 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
+                LogHelper.WriteLogFile("数据库错误");
             }
             catch (Exception)
             {
@@ -116,14 +125,16 @@ namespace NLC.Order.BLL
                 {
                     jr.Status = 200;
                     jr.Result = Result[0];
+                    
                 }
             }
             catch (SqlException)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
+                LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
@@ -148,8 +159,9 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
+                LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
