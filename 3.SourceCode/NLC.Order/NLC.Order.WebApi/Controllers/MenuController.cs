@@ -19,18 +19,33 @@ namespace NLC.Order.WebApi.Controllers
         private IMenuBLL menuBLL = new MenuBLL();
         private JsonResult jr = new JsonResult();
 
+        /// <summary>
+        /// 获取菜单
+        /// </summary>
+        /// <param name="id">饭店ID</param>
+        /// <returns></returns>
         [HttpGet]
-        public JsonResult GetMenu()
+        public JsonResult GetMenu(int id)
         {
-            return null;
+            return menuBLL.GetMenu(id);
+        }
+
+        /// <summary>
+        /// 添加菜
+        /// </summary>
+        /// <param name="dish">菜对象</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult AddlDish(MenuInfo dish)
+        {
+            return menuBLL.AddDish(dish);
         }
 
         [HttpGet]
-        public JsonResult AddlDish(MenuInfo food)
+        public JsonResult DelDish(int id)
         {
-            return menu
+            return menuBLL.DelDish(id);
         }
-
 
     }
 }
