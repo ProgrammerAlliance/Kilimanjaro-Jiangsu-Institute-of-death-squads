@@ -5,6 +5,7 @@ using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using NL.Order.Common;
+using System.Data;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -79,7 +80,24 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public List<MenuInfo> SelectMenuByRestaurant(int restaurantId)
         {
-            throw new NotImplementedException();
+            DataSet data = null;
+            try
+            {
+                string sql = "select m.FoodId,m.FoodName,m.Price " +
+                    "from Menu m,Restaurant r " +
+                    "where m.RestaurantId = r.RestaurantId and r.RestaurantId=@RestaurantId";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("RestaurantId",restaurantId)
+                };
+                data = DBHelper.Query(sql, parameters);
+            }
+            catch (Exception)
+            {
+                LogHelper.WriteLogFile("执行根据饭店查找所有菜单SQL语句失败");
+            }
+
+            return DBHelper.GetListbyDataSet<MenuInfo>(data);
         }
     }
 }
