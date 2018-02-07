@@ -282,5 +282,32 @@ namespace NLC.Order.BLL
             }
             return jr;
         }
+
+        /// <summary>
+        /// 是否已到截止时间
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult IsShowProduceSymbol()
+        {
+
+            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            {
+                jr.Status = 404;
+                jr.Result = false;
+                return jr;
+            }
+            try
+            {
+                jr.Result = true;
+                jr.Status = 200;
+            }
+            catch (Exception)
+            {
+                jr.Status = 500;
+                jr.Result = "系统繁忙";
+                LogHelper.WriteLogFile("订餐失败");
+            }
+            return jr;
+        }
     }
 }

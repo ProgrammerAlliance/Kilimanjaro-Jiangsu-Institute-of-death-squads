@@ -66,5 +66,11 @@ namespace NLC.Order.IBLL
         /// <param name="minutes">分</param>
         /// <returns></returns>
         JsonResult ModifyTime(int hour, int minutes);
+
+        /// <summary>
+        /// 是否已到截止时间
+        /// </summary>
+        /// <returns></returns>
+        JsonResult IsShowProduceSymbol();
     }
 }
