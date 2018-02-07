@@ -54,12 +54,18 @@ namespace NLC.Order.WebApi.Controllers
             return menuBLL.DelDish(id);
         }
 
+        /// <summary>
+        /// 获取所有餐馆
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult GetAllRest()
         {
             return menuBLL.GetRestaurant();
         }
 
+        //[HttpGet]
+        //public JsonResult AddRest(string )
 
     }
 }

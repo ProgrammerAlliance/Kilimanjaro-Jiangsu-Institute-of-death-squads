@@ -46,11 +46,10 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = @"insert into Menu
-                           (FoodId,RestaurantId,FoodName,Price)
-                           values(@FoodId,@RestaurantId,@FoodName,@Price)";
+                           (RestaurantId,FoodName,Price)
+                           values(@RestaurantId,@FoodName,@Price)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("FoodId",menu.FoodId),
                 new SqlParameter("RestaurantId",menu.RestaurantId),
                 new SqlParameter("FoodName",menu.FoodName),
                 new SqlParameter("Price",menu.Price)
