@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace NLC.Order.Common
+﻿namespace NLC.Order.Common
 {
     public class JsonResult
     {

@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TimeUp.cs" />
+    <Compile Include="Time.cs" />
     <Compile Include="JsonResult.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="Page.cs" />

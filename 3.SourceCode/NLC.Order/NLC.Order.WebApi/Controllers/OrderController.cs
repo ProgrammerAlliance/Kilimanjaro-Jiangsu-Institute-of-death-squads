@@ -3,11 +3,6 @@ using NLC.Order.BLL;
 using NLC.Order.Common;
 using NLC.Order.IBLL;
 using NLC.Order.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace NLC.Order.WebApi.Controllers
@@ -114,10 +109,14 @@ namespace NLC.Order.WebApi.Controllers
             return orderBLL.ModifyTime(hour, minute);
         }
 
+        /// <summary>
+        /// 是否可以显示生成打扫按钮
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult IsShowProduceSymbol()
         {
-            return null;
+            return orderBLL.IsShowProduceSymbol();
         }
     }
 }

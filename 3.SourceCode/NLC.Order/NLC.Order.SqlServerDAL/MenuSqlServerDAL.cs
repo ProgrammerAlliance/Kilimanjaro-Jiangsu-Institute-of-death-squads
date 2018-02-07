@@ -4,8 +4,8 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
-using NL.Order.Common;
 using System.Data;
+using NLC.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -24,8 +24,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "delete from Menu where FoodId=@FoodId";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("FoodId",menuId)
-            };
+                    new SqlParameter("FoodId",menuId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -50,10 +50,10 @@ namespace NLC.Order.SqlServerDAL
                            values(@RestaurantId,@FoodName,@Price)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("RestaurantId",menu.RestaurantId),
-                new SqlParameter("FoodName",menu.FoodName),
-                new SqlParameter("Price",menu.Price)
-            };
+                    new SqlParameter("RestaurantId",menu.RestaurantId),
+                    new SqlParameter("FoodName",menu.FoodName),
+                    new SqlParameter("Price",menu.Price)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -73,7 +73,7 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = @"SELECT *
-                           FROM [Order].[dbo].[Restaurant]";
+                               FROM [Order].[dbo].[Restaurant]";
                 ds = DBHelper.Query(sql, null);
             }
             catch (Exception)
@@ -94,8 +94,8 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = "select m.FoodId,m.FoodName,m.Price " +
-                    "from Menu m,Restaurant r " +
-                    "where m.RestaurantId = r.RestaurantId and r.RestaurantId=@RestaurantId";
+                             "from Menu m,Restaurant r " +
+                             "where m.RestaurantId = r.RestaurantId and r.RestaurantId=@RestaurantId";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("RestaurantId",restaurantId)
@@ -122,8 +122,8 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = "select FoodId,FoodName,Price " +
-                    "from Menu " +
-                    "where FoodName = @FoodName and RestaurantId=@RestaurantId";
+                             "from Menu " +
+                             "where FoodName = @FoodName and RestaurantId=@RestaurantId";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("FoodName",foodName),

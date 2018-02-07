@@ -1,4 +1,4 @@
-﻿using NL.Order.Common;
+﻿using NLC.Order.Common;
 using NLC.Order.DBUtility;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
@@ -47,8 +47,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "delete from Emp where UserId=@UserId";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserId",userId)
-            };
+                    new SqlParameter("UserId",userId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)

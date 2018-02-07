@@ -4,7 +4,7 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using NLC.Order.DBUtility;
 using System.Data;
-using NL.Order.Common;
+using NLC.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
