@@ -12,3 +12,4 @@ namespace NLC.Order.IBLL
         JsonResult GetAllDept();
     }
 }
+  

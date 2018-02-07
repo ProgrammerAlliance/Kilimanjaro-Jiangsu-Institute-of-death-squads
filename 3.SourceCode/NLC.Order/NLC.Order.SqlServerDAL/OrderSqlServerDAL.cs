@@ -7,6 +7,7 @@ using NLC.Order.DBUtility;
 using System.Data;
 using NLC.Order.Common;
 using System.Text;
+using NLC.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {
