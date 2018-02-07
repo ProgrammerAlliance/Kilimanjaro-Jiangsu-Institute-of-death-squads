@@ -1,5 +1,4 @@
-﻿using NL.Order.Common;
-using NLC.Order.Common;
+﻿using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;

@@ -4,8 +4,8 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
-using NL.Order.Common;
 using System.Data;
+using NLC.Order.Common;
 
 namespace NLC.Order.SqlServerDAL
 {

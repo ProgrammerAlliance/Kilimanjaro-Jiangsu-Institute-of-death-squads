@@ -1,10 +1,9 @@
-﻿using NLC.Order.IBLL;
-using System;
-using NLC.Order.Common;
-using NLC.Order.IDAL;
+﻿using NLC.Order.Common;
 using NLC.Order.DALFactory;
+using NLC.Order.IBLL;
+using NLC.Order.IDAL;
+using System;
 using System.Data.SqlClient;
-using NL.Order.Common;
 
 namespace NLC.Order.BLL
 {
