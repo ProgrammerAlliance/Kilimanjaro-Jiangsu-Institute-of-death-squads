@@ -22,6 +22,12 @@ namespace NLC.Order.BLL
         {
             try
             {
+                if (MenuDAL.SelectMenuByNameAndRestaurant(menu.FoodName, menu.RestaurantId))
+                {
+                    jr.Result = "菜单中已有该菜品";
+                    jr.Status = 201;
+                    return jr;
+                }
                 jr.Result=MenuDAL.InsertMenu(menu);
                 jr.Status = 200;
             }
