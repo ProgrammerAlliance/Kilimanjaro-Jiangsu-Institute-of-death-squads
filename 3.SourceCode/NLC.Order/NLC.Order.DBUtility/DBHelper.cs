@@ -1,4 +1,4 @@
-﻿using NL.Order.Common;
+﻿using NLC.Order.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -89,7 +89,7 @@ namespace NLC.Order.DBUtility
         public static List<T> GetListbyDataSet<T>(DataSet ds) where T : new()
         {
             List<T> list = new List<T>();
-            var type = typeof(T);          // 获取传入类型
+            var type = typeof(T); // 获取传入类型
             var str = type.GetProperties(); // 获取传入类型的属性集合
             try
             {
@@ -99,8 +99,8 @@ namespace NLC.Order.DBUtility
                 }
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //循环集合准备获取数据
                 {
-                    T t = new T();       // 声明类
-                    foreach (var item in str)  // 循环类的属性
+                    T t = new T(); // 声明类
+                    foreach (var item in str) // 循环类的属性
                     {
                         string itemstr = item.Name; //类属性名称
                         var itemtype = item.PropertyType; // 类属性的类型（int string datetime）

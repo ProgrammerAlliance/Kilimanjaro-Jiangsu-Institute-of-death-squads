@@ -1,10 +1,5 @@
 ﻿using NLC.Order.Common;
 using NLC.Order.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLC.Order.IBLL
 {
@@ -30,6 +25,10 @@ namespace NLC.Order.IBLL
         /// <returns></returns>
         JsonResult GetMenu(int Id);
 
+        /// <summary>
+        /// 获取所有餐馆
+        /// </summary>
+        /// <returns></returns>
         JsonResult GetRestaurant();
     }
 }

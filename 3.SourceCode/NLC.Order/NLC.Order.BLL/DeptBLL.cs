@@ -4,7 +4,6 @@ using NLC.Order.Common;
 using NLC.Order.IDAL;
 using NLC.Order.DALFactory;
 using System.Data.SqlClient;
-using NL.Order.Common;
 
 namespace NLC.Order.BLL
 {

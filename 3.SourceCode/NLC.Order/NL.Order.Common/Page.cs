@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NL.Order.Common
+namespace NLC.Order.Common
 {
     public class Page<T>
     {

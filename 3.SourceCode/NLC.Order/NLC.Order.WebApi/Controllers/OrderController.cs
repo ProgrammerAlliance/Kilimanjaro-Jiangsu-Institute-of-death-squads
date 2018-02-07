@@ -113,11 +113,5 @@ namespace NLC.Order.WebApi.Controllers
         {
             return orderBLL.ModifyTime(hour, minute);
         }
-
-        [HttpGet]
-        public JsonResult IsShowProduceSymbol()
-        {
-            return null;
-        }
     }
 }

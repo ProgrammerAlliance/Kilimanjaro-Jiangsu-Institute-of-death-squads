@@ -4,7 +4,7 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
-using NL.Order.Common;
+using NLC.Order.Common;
 using System.Data;
 
 namespace NLC.Order.SqlServerDAL
@@ -24,8 +24,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "delete from Menu where FoodId=@FoodId";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("FoodId",menuId)
-            };
+                    new SqlParameter("FoodId",menuId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -50,10 +50,10 @@ namespace NLC.Order.SqlServerDAL
                            values(@RestaurantId,@FoodName,@Price)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("RestaurantId",menu.RestaurantId),
-                new SqlParameter("FoodName",menu.FoodName),
-                new SqlParameter("Price",menu.Price)
-            };
+                    new SqlParameter("RestaurantId",menu.RestaurantId),
+                    new SqlParameter("FoodName",menu.FoodName),
+                    new SqlParameter("Price",menu.Price)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -106,7 +106,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据饭店查找所有菜单SQL语句失败");
             }
-
             return DBHelper.GetListbyDataSet<MenuInfo>(data);
         }
 
@@ -135,7 +134,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据菜品名称和饭店查找菜品SQL语句失败");
             }
-
             return data.Tables[0].Rows.Count == 0 ? false : true;
         }
     }

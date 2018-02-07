@@ -1,5 +1,4 @@
-﻿using NL.Order.Common;
-using NLC.Order.Common;
+﻿using NLC.Order.Common;
 using NLC.Order.DALFactory;
 using NLC.Order.IBLL;
 using NLC.Order.IDAL;
@@ -272,7 +271,6 @@ namespace NLC.Order.BLL
                 _key_min = nodes[1].Attributes["value"];
                 _key_min.Value = minutes.ToString();
                 doc.Save(strFileName);
-
                 jr.Result = "修改成功";
             }
             catch (Exception)
@@ -289,7 +287,6 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult IsShowProduceSymbol()
         {
-
             if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;

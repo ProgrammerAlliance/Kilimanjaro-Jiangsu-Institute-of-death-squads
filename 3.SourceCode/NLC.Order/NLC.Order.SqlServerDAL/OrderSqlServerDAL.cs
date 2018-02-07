@@ -5,7 +5,7 @@ using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using System.Data;
-using NL.Order.Common;
+using NLC.Order.Common;
 using System.Text;
 
 namespace NLC.Order.SqlServerDAL
@@ -82,10 +82,10 @@ namespace NLC.Order.SqlServerDAL
                     "WHERE ROWID between(@startRows) and(@endRows)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("startRows",rows*(page-1)+1),
-                new SqlParameter("endRows",rows*page),
-                new SqlParameter("deptNo",deptId)
-            };
+                    new SqlParameter("startRows",rows*(page-1)+1),
+                    new SqlParameter("endRows",rows*page),
+                    new SqlParameter("deptNo",deptId)
+                };
                 ds = DBHelper.Query(sql, parameters);
             }
             catch (Exception)
@@ -133,8 +133,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "update OrderTable set Clean=1 where UserId=@UserId and DateDiff(dd, CreateTime, getdate()) = 0";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserId",UserId)
-            };
+                    new SqlParameter("UserId",UserId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -163,8 +163,8 @@ namespace NLC.Order.SqlServerDAL
                 }
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("deptNo",deptId)
-            };
+                    new SqlParameter("deptNo",deptId)
+                };
                 ds = DBHelper.Query(stringBuilder.ToString(), parameters);
             }
             catch (Exception)
@@ -190,8 +190,8 @@ namespace NLC.Order.SqlServerDAL
                            AND (UserId = @UserId)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserId",UserId)
-            };
+                    new SqlParameter("UserId",UserId)
+                };
                 ds = DBHelper.Query(sql, parameters);
             }
             catch (Exception)
@@ -222,9 +222,5 @@ namespace NLC.Order.SqlServerDAL
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
-
-
-
-
     }
 }
