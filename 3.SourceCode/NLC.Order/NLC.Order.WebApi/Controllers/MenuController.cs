@@ -10,7 +10,6 @@ namespace NLC.Order.WebApi.Controllers
     public class MenuController : ApiController
     {
         private IMenuBLL menuBLL = new MenuBLL();
-        private JsonResult jr = new JsonResult();
 
         /// <summary>
         /// 获取菜单
@@ -47,7 +46,7 @@ namespace NLC.Order.WebApi.Controllers
         }
 
         /// <summary>
-        /// 获取所有餐馆
+        /// 获取所有饭店信息
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -55,9 +54,5 @@ namespace NLC.Order.WebApi.Controllers
         {
             return menuBLL.GetRestaurant();
         }
-
-        //[HttpGet]
-        //public JsonResult AddRest(string )
-
     }
 }

@@ -114,7 +114,6 @@ namespace NLC.Order.DBUtility
             {
                 LogHelper.WriteLogFile("Dataset集合根据传入的类型自动转换List集合失败！");
             }
-
             return list;
         }
 
