@@ -62,7 +62,5 @@ namespace NLC.Order.WebApi.Controllers
         {
             return menuBLL.GetRestaurant();
         }
-
-
     }
 }
