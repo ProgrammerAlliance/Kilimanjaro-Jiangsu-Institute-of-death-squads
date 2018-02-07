@@ -1,5 +1,4 @@
 ﻿using NLC.Order.Common;
-using NLC.Order.Model;
 
 namespace NLC.Order.IBLL
 {
@@ -12,3 +11,4 @@ namespace NLC.Order.IBLL
         JsonResult GetAllDept();
     }
 }
+  

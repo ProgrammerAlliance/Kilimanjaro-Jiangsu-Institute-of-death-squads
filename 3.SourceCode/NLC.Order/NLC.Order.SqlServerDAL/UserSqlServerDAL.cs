@@ -27,10 +27,8 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception)
             {
-
                 LogHelper.WriteLogFile("执行统计员工数量SQL语句失败");
             }
-
             return ds.Tables[0].Rows.Count;
         }
 
@@ -73,13 +71,13 @@ namespace NLC.Order.SqlServerDAL
                            values(@UserId,@UserName,@UserType,@UserPwd,@Deptno,@Gender)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserId",user.UserId),
-                new SqlParameter("UserName",user.UserName),
-                new SqlParameter("UserType",user.UserType),
-                new SqlParameter("UserPwd",user.UserPwd),
-                new SqlParameter("Deptno",user.Deptno),
-                new SqlParameter("Gender",user.Gender)
-            };
+                    new SqlParameter("UserId",user.UserId),
+                    new SqlParameter("UserName",user.UserName),
+                    new SqlParameter("UserType",user.UserType),
+                    new SqlParameter("UserPwd",user.UserPwd),
+                    new SqlParameter("Deptno",user.Deptno),
+                    new SqlParameter("Gender",user.Gender)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -107,9 +105,9 @@ namespace NLC.Order.SqlServerDAL
                             WHERE rownumber > @nums";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("rows",rows),
-                new SqlParameter("nums",nums)
-            };
+                    new SqlParameter("rows",rows),
+                    new SqlParameter("nums",nums)
+                };
                 ds = DBHelper.Query(sql, parameters);
             }
             catch (Exception)
@@ -138,18 +136,16 @@ namespace NLC.Order.SqlServerDAL
                             (e.UserId = @UserId) AND (e.UserPwd = @UserPwd) AND (e.UserType = @UserType)";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserType",type),
-                new SqlParameter("UserId",UserId),
-                new SqlParameter("UserPwd",pwd)
-            };
-
+                    new SqlParameter("UserType",type),
+                    new SqlParameter("UserId",UserId),
+                    new SqlParameter("UserPwd",pwd)
+                };
                 data = DBHelper.Query(sql, parameters);
             }
             catch (Exception)
             {
                 LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败");
             }
-
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
 
@@ -167,9 +163,9 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "update Emp set UserPwd=@UserPwd where UserId=@UserId";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserPwd",psassword),
-                new SqlParameter("UserId",userId)
-            };
+                    new SqlParameter("UserPwd",psassword),
+                    new SqlParameter("UserId",userId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -200,7 +196,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败");
             }
-
             return data.Tables[0].Rows.Count == 0 ? false : true;
         }
     }

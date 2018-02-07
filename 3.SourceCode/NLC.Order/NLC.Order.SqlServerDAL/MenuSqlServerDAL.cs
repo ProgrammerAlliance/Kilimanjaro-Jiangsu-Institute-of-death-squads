@@ -4,8 +4,8 @@ using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
-using System.Data;
 using NLC.Order.Common;
+using System.Data;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -73,7 +73,7 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = @"SELECT *
-                               FROM [Order].[dbo].[Restaurant]";
+                           FROM [Order].[dbo].[Restaurant]";
                 ds = DBHelper.Query(sql, null);
             }
             catch (Exception)
@@ -94,8 +94,8 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = "select m.FoodId,m.FoodName,m.Price " +
-                             "from Menu m,Restaurant r " +
-                             "where m.RestaurantId = r.RestaurantId and r.RestaurantId=@RestaurantId";
+                    "from Menu m,Restaurant r " +
+                    "where m.RestaurantId = r.RestaurantId and r.RestaurantId=@RestaurantId";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("RestaurantId",restaurantId)
@@ -106,7 +106,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据饭店查找所有菜单SQL语句失败");
             }
-
             return DBHelper.GetListbyDataSet<MenuInfo>(data);
         }
 
@@ -122,8 +121,8 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = "select FoodId,FoodName,Price " +
-                             "from Menu " +
-                             "where FoodName = @FoodName and RestaurantId=@RestaurantId";
+                    "from Menu " +
+                    "where FoodName = @FoodName and RestaurantId=@RestaurantId";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("FoodName",foodName),
@@ -135,7 +134,6 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据菜品名称和饭店查找菜品SQL语句失败");
             }
-
             return data.Tables[0].Rows.Count == 0 ? false : true;
         }
     }

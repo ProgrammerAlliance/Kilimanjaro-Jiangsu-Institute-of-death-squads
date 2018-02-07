@@ -7,6 +7,10 @@ namespace NLC.Order.OracleDAL
 {
     public class UserOracleDAL : IUserDAL
     {
+        /// <summary>
+        /// 统计员工人数
+        /// </summary>
+        /// <returns></returns>
         public int CountEmp()
         {
             throw new NotImplementedException();

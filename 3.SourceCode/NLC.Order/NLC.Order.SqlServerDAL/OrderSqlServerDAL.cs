@@ -5,8 +5,8 @@ using NLC.Order.Model;
 using System.Data.SqlClient;
 using NLC.Order.DBUtility;
 using System.Data;
-using System.Text;
 using NLC.Order.Common;
+using System.Text;
 
 namespace NLC.Order.SqlServerDAL
 {
@@ -45,8 +45,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "delete from ordertable where DateDiff(dd,createtime,getdate())=0 and UserId=@UserId";
                 SqlParameter[] parameters =
                 {
-                    new SqlParameter("UserId",UserId)
-                };
+                new SqlParameter("UserId",UserId)
+            };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -107,9 +107,9 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = "select e.UserName " +
-                             " from Emp e,OrderTable o " +
-                             " where e.UserId=o.UserId and o.Clean=1 " +
-                             " and  DateDiff(dd, CreateTime, getdate()) = 0";
+               " from Emp e,OrderTable o " +
+               " where e.UserId=o.UserId and o.Clean=1 " +
+               " and  DateDiff(dd, CreateTime, getdate()) = 0";
                 ds = DBHelper.Query(sql, null);
                 list = DBHelper.GetListbyDataSet<UserInfo>(ds);
             }
@@ -133,8 +133,8 @@ namespace NLC.Order.SqlServerDAL
                 string sql = "update OrderTable set Clean=1 where UserId=@UserId and DateDiff(dd, CreateTime, getdate()) = 0";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("UserId",UserId)
-            };
+                    new SqlParameter("UserId",UserId)
+                };
                 result = DBHelper.NonQuery(sql, parameters);
             }
             catch (Exception)
@@ -155,16 +155,16 @@ namespace NLC.Order.SqlServerDAL
             {
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append("select * from ordertable o,emp e,deptment d " +
-                                     "where o.userid=e.userid and e.deptno=d.deptno and " +
-                                     "DateDiff(dd, CreateTime, getdate()) = 0 ");
+                    "where o.userid=e.userid and e.deptno=d.deptno and " +
+                    "DateDiff(dd, CreateTime, getdate()) = 0 ");
                 if (deptId != 0)
                 {
                     stringBuilder.Append(" and d.DeptNo=@deptNo");
                 }
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("deptNo",deptId)
-            };
+                    new SqlParameter("deptNo",deptId)
+                };
                 ds = DBHelper.Query(stringBuilder.ToString(), parameters);
             }
             catch (Exception)
@@ -211,9 +211,9 @@ namespace NLC.Order.SqlServerDAL
             try
             {
                 string sql = @"SELECT OrderNo, UserId, CreateTime, Clean, Remark
-                               FROM dbo.OrderTable
-                               WHERE   
-                               (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
+                         FROM dbo.OrderTable
+                         WHERE   
+                        (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
                 ds = DBHelper.Query(sql, null);
             }
             catch (Exception)
@@ -222,9 +222,5 @@ namespace NLC.Order.SqlServerDAL
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
-
-
-
-
     }
 }

@@ -4,6 +4,7 @@ using NLC.Order.IBLL;
 using NLC.Order.IDAL;
 using NLC.Order.Model;
 using System;
+using System.Configuration;
 using System.Linq;
 using System.Xml;
 
@@ -15,9 +16,9 @@ namespace NLC.Order.BLL
         private JsonResult jr = new JsonResult();
 
         /// <summary>
-        /// 判断时间对象
+        /// 获取时间对象
         /// </summary>
-        Time time = new Time();
+        System.DateTime currentTime = System.DateTime.Now;
 
         /// <summary>
         /// 取消订餐
@@ -26,7 +27,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CancelOrder(int UserId)
         {
-            if (time.IsTimeUp()==false)
+            if (currentTime.Hour >= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;
                 jr.Result = "已超过取消订餐时间";
@@ -102,7 +103,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult OrderFood(OrderInfo order)
         {
-            if (time.IsTimeUp()==false)
+            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;
                 jr.Result = "已超过订餐时间";
@@ -136,7 +137,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                if (time.IsTimeUp())
+                if (currentTime.Hour < Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
                 {
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
@@ -270,7 +271,6 @@ namespace NLC.Order.BLL
                 _key_min = nodes[1].Attributes["value"];
                 _key_min.Value = minutes.ToString();
                 doc.Save(strFileName);
-
                 jr.Result = "修改成功";
             }
             catch (Exception)
@@ -287,8 +287,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult IsShowProduceSymbol()
         {
-
-            if (time.IsTimeUp())
+            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
             {
                 jr.Status = 404;
                 jr.Result = false;
