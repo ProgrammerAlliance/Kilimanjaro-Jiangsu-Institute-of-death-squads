@@ -21,10 +21,10 @@ namespace NLC.Order.SqlServerDAL
             int result = 0;
             try
             {
-                string sql = "delete from Menu where MenuId=@MenuId";
+                string sql = "delete from Menu where FoodId=@FoodId";
                 SqlParameter[] parameters =
                 {
-                new SqlParameter("MenuId",menuId)
+                new SqlParameter("FoodId",menuId)
             };
                 result = DBHelper.NonQuery(sql, parameters);
             }
