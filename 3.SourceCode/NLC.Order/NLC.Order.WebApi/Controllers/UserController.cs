@@ -5,7 +5,6 @@ using NLC.Order.IBLL;
 using NLC.Order.Model;
 using System.Web.Http;
 
-
 namespace NLC.Order.WebApi.Controllers
 {
     public class UserController : ApiController

@@ -32,7 +32,6 @@ namespace NLC.Order.BLL
             }
             catch (Exception)
             {
-
                 jr.Result = "增加菜单失败";
                 jr.Status = 500;
                 LogHelper.WriteLogFile("增加菜单失败！");
