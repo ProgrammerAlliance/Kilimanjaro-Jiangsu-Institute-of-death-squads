@@ -150,6 +150,7 @@ namespace NLC.Order.BLL
                     return jr;
                 }
                 var list = OrderDAL.SelectOrderPeople(OrderDAL.CountOrderNumber(0), 1, 0);
+                list.Insert(0, null);
                 if (list.Count == 0)
                 {
                     jr.Result = "无人订餐";
