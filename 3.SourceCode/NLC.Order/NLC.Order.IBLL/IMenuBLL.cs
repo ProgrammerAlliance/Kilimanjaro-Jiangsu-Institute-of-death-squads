@@ -20,7 +20,7 @@ namespace NLC.Order.IBLL
         JsonResult DelDish(int DishesId);
 
         /// <summary>
-        /// 获取所有菜品
+        /// 获取所有菜品 
         /// </summary>
         /// <returns></returns>
         JsonResult GetMenu(int Id);
