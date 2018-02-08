@@ -108,5 +108,15 @@ namespace NLC.Order.WebApi.Controllers
         {
             return orderBLL.ModifyTime(hour, minute);
         }
+
+        /// <summary>
+        /// 是否可以显示生成打扫按钮
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult IsShowProduceSymbol()
+        {
+            return orderBLL.IsShowProduceSymbol();
+        }
     }
 }

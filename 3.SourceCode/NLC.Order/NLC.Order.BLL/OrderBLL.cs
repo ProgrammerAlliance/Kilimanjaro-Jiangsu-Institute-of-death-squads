@@ -16,9 +16,9 @@ namespace NLC.Order.BLL
         private JsonResult jr = new JsonResult();
 
         /// <summary>
-        /// 获取时间对象
+        /// 判断时间对象
         /// </summary>
-        System.DateTime currentTime = System.DateTime.Now;
+        Time time = new Time();
 
         /// <summary>
         /// 取消订餐
@@ -27,7 +27,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult CancelOrder(int UserId)
         {
-            if (currentTime.Hour >= Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Hour"]))
+            if (time.IsTimeUp() == false)
             {
                 jr.Status = 404;
                 jr.Result = "已超过取消订餐时间";
@@ -103,7 +103,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult OrderFood(OrderInfo order)
         {
-            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            if (time.IsTimeUp() == false)
             {
                 jr.Status = 404;
                 jr.Result = "已超过订餐时间";
@@ -137,7 +137,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                if (currentTime.Hour < Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+                if (time.IsTimeUp())
                 {
                     jr.Status = 404;
                     jr.Result = "未到订餐截止时间";
@@ -287,7 +287,7 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult IsShowProduceSymbol()
         {
-            if (currentTime.Hour >= Convert.ToInt32(ConfigurationManager.AppSettings["Hour"]))
+            if (time.IsTimeUp())
             {
                 jr.Status = 404;
                 jr.Result = false;
