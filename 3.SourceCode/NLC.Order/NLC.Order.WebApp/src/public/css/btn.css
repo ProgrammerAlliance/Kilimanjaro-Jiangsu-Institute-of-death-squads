@@ -132,6 +132,7 @@
   margin: 0 auto;
   background: #f0ad4e;
   position: relative;
+  text-decoration: none;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(246, 212, 163, 0.5) inset, 0px -1px 5px 4px rgba(170, 77, 27, 0.2) inset, 0px 0px 0px 7px #fff, 0px 0px 1px 8px rgba(188, 188, 188, 0.4), 0px 0px 0px 9px #fff;
   -moz-box-shadow: 0px 0px 5px 0px rgba(246, 212, 163, 0.5) inset, 0px -1px 5px 4px rgba(170, 77, 27, 0.2) inset, 0px 0px 0px 7px #fff, 0px 0px 1px 8px rgba(188, 188, 188, 0.4), 0px 0px 0px 9px #fff;
   box-shadow: 0px 0px 5px 0px rgba(246, 212, 163, 0.5) inset, 0px -1px 5px 4px rgba(170, 77, 27, 0.2) inset, 0px 0px 0px 7px #fff, 0px 0px 1px 8px rgba(188, 188, 188, 0.4), 0px 0px 0px 9px #fff;
@@ -149,6 +150,7 @@
   text-align: center;
   vertical-align: middle;
   font-size: 26px;
+  text-decoration: none;
   color: #fff;
   text-shadow: 0 1px 1px #A03F16;
   font-family: "Arvo", "Myriad Pro", "Trebuchet MS", sans-serif;
@@ -206,4 +208,26 @@
 .a-btn:active span:nth-child(2) {
   color: rgba(170, 77, 27, 0.8);
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.swal-footer {
+  text-align: center !important;
+}
+
+.btn1 {
+  /*background: url(image/ok.gif) no-repeat 8px center;*/
+  background-color: #f9f9f9;
+  vertical-align: middle;
+  margin: 8px;
+  font-size: 1em;
+}
+
+.pbtn1 {
+  border: solid 2px #dcdcdc;
+  padding:2px 5px;
+  color: #959595;
+}
+
+.pbtn1:hover {
+  border: solid 2px #75CD02;
 }

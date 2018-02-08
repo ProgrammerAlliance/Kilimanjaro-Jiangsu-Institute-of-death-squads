@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../actions/actions';
+import {Link, withRouter} from 'react-router-dom';
 import PersonCenter from './PersonCenter';
 import {Route, Router, IndexRoute} from 'react-router';
 import TodayOrder from './TodayOrder';
@@ -15,9 +16,13 @@ const routes = [
 ];
 
 export class User extends Component {
+  // componentWillMount() {
+  //   this.props.history.push('/user');
+  // }
+
   render() {
     return (
-      <div>
+      <div className="banner">
         <ul className="user-person">
           <li><Route path="/user/menu" component={PersonCenter}/></li>
           <li>

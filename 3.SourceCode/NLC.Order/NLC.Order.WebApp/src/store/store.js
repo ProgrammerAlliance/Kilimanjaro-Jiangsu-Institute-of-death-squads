@@ -9,7 +9,7 @@ const middlewares = [apiMiddleware];
  * 设置初始状态
  */
 const initialState = {
-  url: 'http://192.168.2.69:8080/src/public/images/',
+  url: 'http://192.168.2.69:8080//src/public/images/',
   userType: 'user',
   update: 'hide',
   delete: 'hide',
@@ -34,7 +34,9 @@ const initialState = {
     totalPage: 0,
     orderPeople: [{UserName: ''}]
   },
-  select: [{DeptNo: 0, DeptName: ''}]
+  select: [{DeptNo: 0, DeptName: ''}],
+  label1: ['不要辣', '不要太甜', '多点饭'],
+  label2: ['不要葱', '不要姜', '不要蒜'],
 };
 
 const createStoreEnhanced = compose(applyMiddleware(...middlewares))(createStore);

@@ -4,7 +4,7 @@ import store from './store/store';
 import {Provider} from 'react-redux';
 import {Route, Router, IndexRoute} from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, withRouter, Switch} from 'react-router-dom';
 import Nav from './component/Nav/Nav';
 import TodayMenu from './component/TodayMenu';
 import Login from './component/Login/Login';
@@ -24,6 +24,8 @@ const routes = [
   {path: '/user', component: User},
 ];
 
+localStorage.setItem('store', store);
+let s = localStorage.getItem('store');
 export default class App extends Component {
   render() {
     return (
@@ -31,11 +33,13 @@ export default class App extends Component {
         <Router history={history}>
           <div>
             <Nav/>
-            <Route path="/" component={Login} exact/>
-            {
-              routes.map((route, index) =>
-                <Route key={index} path={route.path} component={route.component}/>)
-            }
+            <Switch>
+              <Route path="/" component={Login} exact/>
+              {
+                routes.map((route, index) =>
+                  <Route key={index} path={route.path} component={route.component}/>)
+              }
+            </Switch>
           </div>
         </Router>
       </Provider>

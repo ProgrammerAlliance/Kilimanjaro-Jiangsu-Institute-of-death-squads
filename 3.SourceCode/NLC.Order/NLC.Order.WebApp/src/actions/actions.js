@@ -23,6 +23,7 @@ export const actions = {
   TODAY_STAR: 'TODAY_STAR',
   QUERY_STAR: 'QUERY_STAR',
   QUERY_DEPT: 'QUERY_DEPT',
+  QUERY_IS_HAVE_STAR: 'QUERY_IS_HAVE_STAR',
 };
 
 export const actionCreators = {
@@ -48,6 +49,8 @@ export const actionCreators = {
     request.get(http + '/Order/GetCleanName', params)(actions.QUERY_STAR),
   queryDept: (params) =>
     request.get(http + '/Dept/GetAllDept', params)(actions.QUERY_DEPT),
+  queryIsHaveStar: (params) =>
+    request.get(http + '/Order/WetherProduce', params)(actions.QUERY_IS_HAVE_STAR),
   changeUserType: (type) => ({type: actions.CHANGE_USER_TYPE, payload: type}),
   showUpdate: (type, id) => ({type: actions.SHOW_UPDATE, payload: type, id}),
   showDelete: (type) => ({type: actions.SHOW_DELETE, payload: type}),
@@ -74,6 +77,10 @@ export const handlers = {
     return {...state};
   },
   [onSuccess(actions.UPDATE_PWD)]: (state, action) => {
+    //console.log(action.payload);
+    return {...state};
+  },
+  [onSuccess(actions.QUERY_IS_HAVE_STAR)]: (state, action) => {
     //console.log(action.payload);
     return {...state};
   },

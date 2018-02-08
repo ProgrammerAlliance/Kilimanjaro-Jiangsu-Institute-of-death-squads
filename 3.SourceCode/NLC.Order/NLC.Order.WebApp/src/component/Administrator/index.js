@@ -14,7 +14,7 @@ const routes = [
 export class Admin extends Component {
   render() {
     return (
-      <div>
+      <div className="banner">
         {
           routes.map((route, index) =>
             <Route key={index} path={route.path} component={route.component}/>)

@@ -3,11 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../actions/actions';
 import OrderDetail from './OrderDetail';
+import swal from 'sweetalert';
 
 export class PersonNumber extends Component {
-  componentDidMount() {
-    this.props.queryOrderToday({rows: 10, page: 1, deptId: 0});
-  }
 
   render() {
     return (
@@ -44,10 +42,31 @@ export class PersonNumber extends Component {
                 </a>
               </li>
               <li className={new Date().getHours() <= 24 &&
-              new Date().getHours() >= 17 ?
+              new Date().getHours() >= 0 ?
                 '' : 'hide'}>
                 <a href="#" className="a-btn" onClick={() => {
-                  this.props.todayStar();
+                  this.props.todayStar().then(data => {
+                    if (data.payload.Status === 200) {
+                      swal('成功', '打扫人员产生成功！', 'success');
+                    }
+                    else if (data.payload.Status === 303) {
+                      swal('错误:303！', '无人订餐！', 'error');
+                    }
+                    else if (data.payload.Status === 405) {
+                      swal('错误:404！', '未到订餐截止时间！', 'error');
+                    }
+                    else if (data.payload.Status === 500) {
+                      swal('错误：500！', '服务器异常！', 'error');
+                    }
+                  });
+                  this.props.queryIsHaveStar().then(data => {
+                    if (data.payload.Status === 200 && data.payload.Result) {
+                      swal('错误！', '已有打扫人员！', 'error');
+                    }
+                    else if (data.payload.Status === 500) {
+                      swal('错误:500！', '服务器异常！', 'error');
+                    }
+                  });
                 }}>
                   <span/>
                   <span>今日之星</span>

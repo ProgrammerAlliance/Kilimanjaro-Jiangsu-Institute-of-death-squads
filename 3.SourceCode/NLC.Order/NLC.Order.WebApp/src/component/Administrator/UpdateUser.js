@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../actions/actions';
-
+import swal from 'sweetalert';
 export class UpdateUser extends Component {
   constructor() {
     super();
@@ -79,7 +79,8 @@ export class UpdateUser extends Component {
                     <input type="submit" value="确认" className="btn btn-primary"
                            onClick={e => {
                              e.preventDefault();
-                             this.props.showUpdate('hide', '');
+                             swal('', '该功能尚未开放！', 'error');
+                             //this.props.showUpdate('hide', '');
                            }}/>
                     <input type="button" value="退出" className="btn btn-primary"
                            onClick={e => {
