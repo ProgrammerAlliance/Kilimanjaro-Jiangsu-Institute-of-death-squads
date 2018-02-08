@@ -19,7 +19,7 @@ namespace NLC.Order.DBUtility
             int result = -1;
             try
             {
-                SqlConn.Open();  //打开数据库  
+                SqlConn.Open();    
                 SqlCommand cmd = new SqlCommand(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
@@ -38,7 +38,7 @@ namespace NLC.Order.DBUtility
             {
                 if (SqlConn.State == ConnectionState.Open)
                 {
-                    SqlConn.Close();    //关闭数据库  
+                    SqlConn.Close();     
                 }
             }
             return result;
@@ -57,7 +57,7 @@ namespace NLC.Order.DBUtility
             DataSet ds = new DataSet();
             try
             {
-                SqlConn.Open();      //打开数据库  
+                SqlConn.Open();      
                 SqlDataAdapter adp = new SqlDataAdapter(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
@@ -75,7 +75,7 @@ namespace NLC.Order.DBUtility
             finally
             {
                 if (SqlConn.State == ConnectionState.Open)
-                    SqlConn.Close();      //关闭数据库  
+                    SqlConn.Close();        
             }
             return ds;
         }
