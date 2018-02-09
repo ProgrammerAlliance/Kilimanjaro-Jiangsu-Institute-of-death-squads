@@ -13,9 +13,10 @@ export class Nav extends Component {
         <div className="header">
           <div className="container">
             <div className="logo">
-              <img
-                src={url + 'logo.png'}
-                className="img-responsive" alt=""/>
+              {/*<img*/}
+              {/*src={url + 'logo.png'}*/}
+              {/*className="img-responsive" alt=""/>*/}
+              <b className="logo-title">纳龙科技</b>
               <span className={this.props.userType !== 'admin-success'
               && this.props.userType !== 'user-success' ? 'visible' : 'title'}>
                 欢迎回来，<b>{this.props.userType === 'user-success'
@@ -48,29 +49,13 @@ export class Nav extends Component {
                     className={this.props.userType !== 'admin-success'
                     && this.props.userType !== 'user-success' ? '' : 'visible'}>
                     <ul>
-                      {/*<li className="active">*/}
-                      {/*<Link to="/todaymenu">今日菜单</Link>*/}
-                      {/*</li>*/}
-                      <li><Link to="/login">登陆</Link></li>
+                      <li><Link to="/login">登录</Link></li>
                       <li><Link to="/contact">今日之星</Link></li>
                     </ul>
                   </li>
                   <div className="clearfix"/>
                 </ul>
               </div>
-              {/*<div className="header-right1">*/}
-              {/*<div className="cart box_1">*/}
-              {/*<a href="">*/}
-              {/*<h3>*/}
-              {/*<span className="simpleCart_total"> ￥0.00 </span>*/}
-              {/*(<span id="simpleCart_quantity" className="simpleCart_quantity"> 0 </span> 项)*/}
-              {/*<img src={url + 'bag.png'} alt=""/>*/}
-              {/*</h3>*/}
-              {/*</a>*/}
-              {/*<p><a href="" className="simpleCart_empty">清空</a></p>*/}
-              {/*<div className="clearfix"/>*/}
-              {/*</div>*/}
-              {/*</div>*/}
               <div className="clearfix"/>
             </div>
             <div className="clearfix"/>

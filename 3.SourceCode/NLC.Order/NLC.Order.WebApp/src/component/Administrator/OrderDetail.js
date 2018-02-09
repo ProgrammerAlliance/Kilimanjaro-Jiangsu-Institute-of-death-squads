@@ -71,8 +71,8 @@ export class OrderDetail extends Component {
               <table id="table-5">
                 <thead>
                 <tr>
-                  <th>编号:</th>
-                  <th>姓名:</th>
+                  <th>编号</th>
+                  <th>姓名</th>
                   <th><select name="dept"
                               id="dept-select"
                               className="select-dept"
@@ -87,7 +87,7 @@ export class OrderDetail extends Component {
                       );
                     })}
                   </select></th>
-                  <th>备注:</th>
+                  <th>备注</th>
                 </tr>
                 </thead>
                 <tbody>

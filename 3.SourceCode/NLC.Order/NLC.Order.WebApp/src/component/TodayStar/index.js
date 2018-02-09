@@ -30,10 +30,7 @@ export class Contact extends Component {
               <h3 key={index}><b>{item.UserName}</b></h3>
             );
           })}
-
-          <img
-            src={url + 'todayStar.jpg'}
-            className="img-responsive" alt=""/>
+          <div className="star-img"/>
           <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
           <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
           <p>不就是吃饭几十个人就刚好选到你了嘛！</p>

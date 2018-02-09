@@ -154,6 +154,9 @@ export class TodayOrder extends Component {
                   }
                   else if (this.props.add === true) {
                     this.handleOrderCancel();
+                    this.setState = {
+                      remark: ''
+                    };
                   }
                 }
               }>{this.props.add === false ? '确定加餐+1' : '取消加餐-1'}</a></li>

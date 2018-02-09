@@ -62,7 +62,6 @@ export const actionCreators = {
   saveDelUser: (type) => ({type: actions.SAVE_DEL_USER, payload: type}),
 };
 
-
 export const handlers = {
   [onSuccess(actions.QUERY_USER)]: (state, action) => {
     //console.log(action.payload);
@@ -85,7 +84,7 @@ export const handlers = {
     return {...state};
   },
   [onSuccess(actions.QUERY_ALL_USERS)]: (state, action) => {
-    //console.log(action.payload);
+    console.log(action.payload);
     let n = [];
     for (let i = 1, len = action.payload.Result.TotalPage; i <= len; i++) {
       n.push(i);

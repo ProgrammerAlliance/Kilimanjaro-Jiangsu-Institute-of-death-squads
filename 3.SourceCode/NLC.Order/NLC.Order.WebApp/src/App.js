@@ -11,6 +11,12 @@ import Login from './component/Login/Login';
 import TodayStar from './component/TodayStar';
 import Admin from './component/Administrator';
 import User from './component/User';
+// import '../src/public/css/bootstrap.min.css';
+// import '../src/public/css/style.css';
+// import '../src/public/css/table.css';
+// import '../src/public/css/update.css';
+// import '../src/public/css/demo.css';
+// import '../src/public/css/btn.css';
 
 const history = createBrowserHistory();
 /**
@@ -24,8 +30,6 @@ const routes = [
   {path: '/user', component: User},
 ];
 
-localStorage.setItem('store', store);
-let s = localStorage.getItem('store');
 export default class App extends Component {
   render() {
     return (

@@ -38,7 +38,6 @@ export class PersonManage extends Component {
   handleQueryUser(page) {
     this.props.queryAllUser({rows: 10, page: page})
       .then(data => {
-        //console.log('status', data);
         if (data.payload.Status === 405) {
           swal('错误:405！', '数据库异常！', 'error');
         }
@@ -65,12 +64,12 @@ export class PersonManage extends Component {
             <table id="table-5">
               <thead>
               <tr>
-                <th>编号:</th>
-                <th>姓名:</th>
-                <th>卡号:</th>
-                <th>部门号:</th>
-                <th>密码:</th>
-                <th>操作:</th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>卡号</th>
+                <th>部门</th>
+                {/*<th>密码</th>*/}
+                <th>操作</th>
               </tr>
               </thead>
               <tbody>
@@ -80,15 +79,15 @@ export class PersonManage extends Component {
                     <td>{index + 1 + (this.props.userInfo.currentPage - 1) * 10}</td>
                     <td>{item.UserName}</td>
                     <td>{item.UserId}</td>
-                    <td>{item.Deptno}:{item.DeptName}</td>
-                    <td>{item.UserPwd}</td>
+                    <td>{item.DeptName}</td>
+                    {/*<td>{item.UserPwd}</td>*/}
                     <td>
-                      <a href="" onClick={e => {
+                      <a href="#" onClick={e => {
                         e.preventDefault();
                         this.props.showUpdate('show', index);
                       }}>修改</a>
                       |
-                      <a href="" onClick={e => {
+                      <a href="#" onClick={e => {
                         e.preventDefault();
                         this.props.showDelete('show');
                         this.props.saveDelUser(item);

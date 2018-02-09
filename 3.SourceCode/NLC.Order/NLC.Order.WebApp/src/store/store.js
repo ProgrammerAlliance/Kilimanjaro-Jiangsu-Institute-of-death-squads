@@ -9,7 +9,7 @@ const middlewares = [apiMiddleware];
  * 设置初始状态
  */
 const initialState = {
-  url: 'http://192.168.2.69:8080//src/public/images/',
+  url: './images/',
   userType: 'user',
   update: 'hide',
   delete: 'hide',
