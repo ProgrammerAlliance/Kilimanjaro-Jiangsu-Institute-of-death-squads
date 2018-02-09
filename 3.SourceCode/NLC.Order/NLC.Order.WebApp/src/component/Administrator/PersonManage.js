@@ -5,10 +5,47 @@ import {actionCreators} from '../../actions/actions';
 import UpdateUser from './UpdateUser';
 import DeleteUser from './DeleteUser';
 import AddUser from './AddUser';
+import swal from 'sweetalert';
 
 export class PersonManage extends Component {
+  constructor() {
+    super();
+    this.handleQueryUser = this.handleQueryUser.bind(this);
+  }
+
   componentDidMount() {
-    this.props.queryAllUser({rows: 10, page: 1});
+    this.props.queryAllUser({rows: 10, page: 1})
+      .then(data => {
+        //console.log('status', data);
+        if (data.payload.Status === 405) {
+          swal('错误:405！', '数据库异常！', 'error');
+        }
+        else if (data.payload.Status === 500) {
+          swal('错误:500！', '服务器异常！', 'error');
+        }
+      });
+    this.props.queryDept().then(data => {
+      //console.log('status', data);
+      if (data.payload.Status === 200 && data.payload.Status.Result) {
+        swal('错误！', '部门为空！', 'error');
+      }
+      else if (data.payload.Status === 500) {
+        swal('错误:500！', '服务器异常！', 'error');
+      }
+    });
+  }
+
+  handleQueryUser(page) {
+    this.props.queryAllUser({rows: 10, page: page})
+      .then(data => {
+        //console.log('status', data);
+        if (data.payload.Status === 405) {
+          swal('错误:405！', '数据库异常！', 'error');
+        }
+        else if (data.payload.Status === 500) {
+          swal('错误:500！', '服务器异常！', 'error');
+        }
+      });
   }
 
   render() {
@@ -67,7 +104,7 @@ export class PersonManage extends Component {
                 <a href="#" aria-label="Previous" onClick={e => {
                   e.preventDefault();
                   if (this.props.userInfo.currentPage - 1 > 0) {
-                    this.props.queryAllUser({rows: 10, page: this.props.userInfo.currentPage - 1});
+                    this.handleQueryUser(this.props.userInfo.currentPage - 1);
                   }
                 }}>
                   <span aria-hidden="true">&laquo;</span>
@@ -79,7 +116,7 @@ export class PersonManage extends Component {
                   <li key={index} className={this.props.userInfo.currentPage === index + 1 ? 'active' : ''}>
                     <a href="#" onClick={e => {
                       e.preventDefault();
-                      this.props.queryAllUser({rows: 10, page: index + 1});
+                      this.handleQueryUser(index + 1);
                     }}>{index + 1}</a>
                   </li>
                 );
@@ -88,7 +125,7 @@ export class PersonManage extends Component {
                 <a href="#" aria-label="Next" onClick={e => {
                   e.preventDefault();
                   if (this.props.userInfo.currentPage < this.props.userInfo.totalPage.length) {
-                    this.props.queryAllUser({rows: 10, page: this.props.userInfo.currentPage + 1});
+                    this.handleQueryUser(this.props.userInfo.currentPage + 1);
                   }
                 }}>
                   <span aria-hidden="true">&raquo;</span>

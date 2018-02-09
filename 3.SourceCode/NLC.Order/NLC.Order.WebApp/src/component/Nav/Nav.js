@@ -13,18 +13,17 @@ export class Nav extends Component {
         <div className="header">
           <div className="container">
             <div className="logo">
-              <a href="">
-                <img
-                  src={url + 'logo.png'}
-                  className="img-responsive" alt=""/>
-              </a>
+              <img
+                src={url + 'logo.png'}
+                className="img-responsive" alt=""/>
               <span className={this.props.userType !== 'admin-success'
               && this.props.userType !== 'user-success' ? 'visible' : 'title'}>
                 欢迎回来，<b>{this.props.userType === 'user-success'
                 ? this.props.user.UserName : '管理员'}</b>
+                <b style={{opacity: 0}}>000</b>
                 <Link to="/" onClick={() => {
                   this.props.changeUserType('user');
-                }}>，注销</Link>
+                }}>注销</Link>
               </span>
             </div>
             <div className="header-left">
@@ -56,7 +55,6 @@ export class Nav extends Component {
                       <li><Link to="/contact">今日之星</Link></li>
                     </ul>
                   </li>
-
                   <div className="clearfix"/>
                 </ul>
               </div>

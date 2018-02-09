@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../actions/actions';
+import swal from 'sweetalert';
 
 export class AddUser extends Component {
   constructor() {
@@ -14,9 +15,12 @@ export class AddUser extends Component {
       UserType: 2,
       Gender: '男',
       cardTip: 'hide',
-      tip: 'hide'
+      tip: 'hide',
+      cardTip2: 'hide'
     };
     this.addUserInfo = this.addUserInfo.bind(this);
+    this.addConfirm = this.addConfirm.bind(this);
+    this.addCancel = this.addCancel.bind(this);
   }
 
   addUserInfo(id, val) {
@@ -50,7 +54,8 @@ export class AddUser extends Component {
     }
     this.setState({
       cardTip: 'hide',
-      tip: 'hide'
+      tip: 'hide',
+      cardTip2: 'hide'
     });
   }
 
@@ -65,12 +70,8 @@ export class AddUser extends Component {
         Gender: this.state.Gender
       })
     }).then(data => {
-      if (data.payload.Status === 201) {
-        this.setState({
-          cardTip: 'show'
-        });
-      }
-      else {
+      if (data.payload.Status === 200 && data.payload.Result) {
+        swal('成功！', '添加成功！', 'success');
         this.props.showAdd('hide');
         this.props.queryAllUser({rows: 10, page: 1});
         this.setState({
@@ -81,15 +82,61 @@ export class AddUser extends Component {
           UserType: 2,
           Gender: '男',
           cardTip: 'hide',
+          cardTip2: 'hide',
           tip: 'hide'
+        });
+      }
+      else if (data.payload.Status === 200 && !data.payload.Result) {
+        swal('错误！', '添加失败！', 'error');
+      }
+      else if (data.payload.Status === 405) {
+        swal('错误:405！', '数据库异常！', 'error');
+      }
+      else if (data.payload.Status === 500) {
+        swal('错误:500！', '服务器异常！', 'error');
+      }
+      else if (data.payload.Status === 201) {
+        this.setState({
+          cardTip: 'show'
         });
       }
     });
   }
 
+  addConfirm() {
+    let reg = /^\d{4}$/;
+    if (
+      this.state.UserName.trim() === ''
+      || this.state.UserId.trim() === '') {
+      this.setState({tip: 'show'});
+    }
+    else if (!reg.test(this.state.UserId)) {
+      this.setState({cardTip2: 'show'});
+    }
+    else {
+      this.add();
+    }
+  }
+
+  addCancel() {
+    this.setState({
+      cardTip: 'hide',
+      tip: 'hide',
+      UserId: '',
+      UserName: '',
+      UserPwd: 111,
+      Deptno: 1,
+      UserType: 2,
+      Gender: '男',
+    });
+    this.props.showAdd('hide');
+    //console.log(this.props);
+  }
+
   render() {
     return (
       <div className={this.props.addUserBox === 'hide' ? 'hide' : ''}>
+        <div className="update-background"/>
         <div className="update update-user">
           <div className="animate-box fadeInUp animated-fast">
             <div className="fdw-pricing-table">
@@ -118,6 +165,8 @@ export class AddUser extends Component {
                            }}/>
                     <b className={this.state.cardTip === 'hide'
                       ? 'hide' : 'card-tip tip'}>卡号重复！</b>
+                    <b className={this.state.cardTip2 === 'hide'
+                      ? 'hide' : 'card-tip tip'}>卡号只能为4位数字！</b>
                   </div>
                   <div className="form-group">
                     <div className="group">
@@ -155,38 +204,18 @@ export class AddUser extends Component {
                     <input type="submit" value="确认" className="btn btn-primary"
                            onClick={e => {
                              e.preventDefault();
-                             if (
-                               this.state.UserName.trim() === ''
-                               || this.state.UserId.trim() === '') {
-                               this.setState({tip: 'show'});
-                             }
-                             else {
-                               this.add();
-                             }
+                             this.addConfirm();
                            }}/>
                     <input type="button" value="退出" className="btn btn-primary"
                            onClick={e => {
                              e.preventDefault();
-                             this.setState({
-                               cardTip: 'hide',
-                               tip: 'hide',
-                               UserId: '',
-                               UserName: '',
-                               UserPwd: 111,
-                               Deptno: 1,
-                               UserType: 2,
-                               Gender: '男',
-                             });
-                             this.props.showAdd('hide');
-                             //console.log(this.props);
+                             this.addCancel();
                            }}/>
                   </div>
-
                 </form>
                 {/*<a className="signup">Sign up</a>*/}
               </div>
             </div>
-
           </div>
         </div>
       </div>
