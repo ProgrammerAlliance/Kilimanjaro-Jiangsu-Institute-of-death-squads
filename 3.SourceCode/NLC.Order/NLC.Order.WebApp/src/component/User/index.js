@@ -16,9 +16,6 @@ const routes = [
 ];
 
 export class User extends Component {
-  // componentWillMount() {
-  //   this.props.history.push('/user');
-  // }
 
   render() {
     return (

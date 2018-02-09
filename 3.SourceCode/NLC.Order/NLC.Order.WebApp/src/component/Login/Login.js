@@ -102,12 +102,12 @@ export class Login extends Component {
               <div className="booking_room">
                 <div className="reservation">
                   <form className="nalong-register">
-                    <h2 className="register-title">登陆界面</h2>
+                    <h2 className="register-title">登录界面</h2>
                     <ul>
                       <li className="span1_of_1">
                         <span>用户ID：</span>
                         <input type="text" className="textbox"
-                               placeholder="请输入用户卡号！"
+                               placeholder="请输入用户ID！"
                                onChange={e => {
                                  this.userId(e.target.value);
                                }}
@@ -132,18 +132,6 @@ export class Login extends Component {
                         </b>
                       </li>
                       <li className="span1_of_1">
-                        <label htmlFor="admin" className="admin">管理员</label>
-                        <input type="radio"
-                               className="textbox"
-                               id="admin"
-                               name="u"
-                               value="admin"
-                               onChange={e => {
-                                 this.props.changeUserType(e.target.value);
-                               }}
-                        />
-
-                        <label htmlFor="user" className="user">普通用户</label>
                         <input type="radio"
                                className="user"
                                id="user"
@@ -154,7 +142,17 @@ export class Login extends Component {
                                  this.props.changeUserType(e.target.value);
                                }}
                         />
-
+                        <label htmlFor="user" className="user">普通用户</label>
+                        <input type="radio"
+                               className="textbox"
+                               id="admin"
+                               name="u"
+                               value="admin"
+                               onChange={e => {
+                                 this.props.changeUserType(e.target.value);
+                               }}
+                        />
+                        <label htmlFor="admin" className="admin">管理员</label>
                       </li>
                       <li className="id-pwd">
                         <b className={this.state.tip1 === '' ? 'hide' : 'tip'}>用户ID或密码不能为空</b>

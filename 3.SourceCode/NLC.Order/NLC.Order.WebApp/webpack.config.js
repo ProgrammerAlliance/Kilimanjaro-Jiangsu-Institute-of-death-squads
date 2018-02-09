@@ -34,21 +34,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.(png|jpg|gif)/,
         use: [{
-          loader: 'url-loader',
+          loader: 'url-loader?limit=40000',
           options: {
             limit: 100,
             outputPath: 'images/'
           }
         }]
-      },
-      {
-        test: /\.(htm|html)$/i,
-        use: ['html-withimg-loader']
       }
     ]
   }

@@ -46,13 +46,14 @@ export class PersonNumber extends Component {
                 '' : 'hide'}>
                 <a href="#" className="a-btn" onClick={() => {
                   this.props.todayStar().then(data => {
+                    //console.log(data);
                     if (data.payload.Status === 200) {
                       swal('成功', '打扫人员产生成功！', 'success');
                     }
                     else if (data.payload.Status === 303) {
                       swal('错误:303！', '无人订餐！', 'error');
                     }
-                    else if (data.payload.Status === 405) {
+                    else if (data.payload.Status === 404) {
                       swal('错误:404！', '未到订餐截止时间！', 'error');
                     }
                     else if (data.payload.Status === 500) {

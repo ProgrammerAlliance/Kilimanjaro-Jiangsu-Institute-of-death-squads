@@ -68,7 +68,8 @@ body a {
 
 .logo {
   float: left;
-  width: 15%;
+  width: 30%;
+  position: relative;
 }
 
 .logo a {
@@ -78,7 +79,7 @@ body a {
 .logo .title {
   position: absolute;
   top: 40%;
-  left: 23%;
+  left: 10em;
 }
 
 .header {
@@ -130,7 +131,7 @@ body a {
 }
 
 .banner {
-  background: url(../images/16.jpg) no-repeat;
+  background: url(../../../dist/images/16.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -311,7 +312,7 @@ i.fbk {
   width: 34px;
   height: 34px;
   display: block;
-  background: url(../images/img-sprite.png) no-repeat -2px -6px;
+  background: url(../../../dist/images/img-sprite.png) no-repeat -2px -6px;
   vertical-align: middle;
 }
 
@@ -323,7 +324,7 @@ i.googpl {
   width: 34px;
   height: 34px;
   display: block;
-  background: url(../images/img-sprite.png) no-repeat -43px -7px;
+  background: url(../../../dist/images/img-sprite.png) no-repeat -43px -7px;
   vertical-align: middle;
 }
 
@@ -335,7 +336,7 @@ i.link {
   width: 34px;
   height: 34px;
   display: block;
-  background: url(../images/img-sprite.png) no-repeat -85px -7px;
+  background: url(../../../dist/images/img-sprite.png) no-repeat -85px -7px;
   vertical-align: middle;
 }
 
@@ -347,7 +348,7 @@ i.rss {
   width: 34px;
   height: 34px;
   display: block;
-  background: url(../images/img-sprite.png) no-repeat -128px -7px;
+  background: url(../../../dist/images/img-sprite.png) no-repeat -128px -7px;
   vertical-align: middle;
 }
 
@@ -359,7 +360,7 @@ i.twt {
   width: 34px;
   height: 34px;
   display: block;
-  background: url(../images/img-sprite.png) no-repeat -172px -7px;
+  background: url(../../../dist/images/img-sprite.png) no-repeat -172px -7px;
   vertical-align: middle;
 }
 
@@ -441,12 +442,12 @@ i.twt:hover {
 
 .nbs-flexisel-nav-left {
   left: -3em;
-  background: url(../images/left.png) no-repeat 1px 1px;
+  background: url(../../../dist/images/left.png) no-repeat 1px 1px;
 }
 
 .nbs-flexisel-nav-right {
   right: -3em;
-  background: url(../images/right.png) no-repeat -1px 1px;
+  background: url(../../../dist/images/right.png) no-repeat -1px 1px;
 }
 
 .feature-top {
@@ -547,7 +548,7 @@ a.see:hover {
   width: 8px;
   height: 8px;
   display: inline-block;
-  background: url(../images/arrow.png) no-repeat 0px 0px;
+  background: url(../../../dist/images/arrow.png) no-repeat 0px 0px;
   margin-right: 0.4em;
 }
 
@@ -670,11 +671,11 @@ select option {
 }
 
 .date {
-  background: url(../images/box.png) no-repeat 94% 50% #FFF;
+  background: url(../../../dist/images/box.png) no-repeat 94% 50% #FFF;
 }
 
 .date1 {
-  background: url(../images/box1.png) no-repeat 94% 50% #FFF;
+  background: url(../../../dist/images/box1.png) no-repeat 94% 50% #FFF;
 }
 
 .date_btn input[type="submit"] {
@@ -876,7 +877,7 @@ li.bt-nn {
 }
 
 .close1, .close2 {
-  background: url('../images/close_1.png') no-repeat 0px 0px;
+  background: url('../../../dist/images/close_1.png') no-repeat 0px 0px;
   cursor: pointer;
   width: 28px;
   height: 28px;
@@ -890,7 +891,7 @@ li.bt-nn {
 }
 
 .close3 {
-  background: url('../images/close_1.png') no-repeat 0px 0px;
+  background: url('../../../dist/images/close_1.png') no-repeat 0px 0px;
   cursor: pointer;
   width: 28px;
   height: 28px;
@@ -1114,7 +1115,7 @@ li.bt-nn h6 {
 }
 
 i.sear {
-  background: url(../images/search-icon.png) no-repeat 0px 2px;
+  background: url(../../../dist/images/search-icon.png) no-repeat 0px 2px;
   height: 26px;
   width: 26px;
   display: inline-block;
@@ -1135,7 +1136,7 @@ i.sear {
 }
 
 i.ca-r {
-  background: url(../images/ca-r.png) no-repeat 0px 0px;
+  background: url(../../../dist/images/ca-r.png) no-repeat 0px 0px;
   height: 26px;
   width: 26px;
   display: inline-block;
@@ -1143,7 +1144,7 @@ i.ca-r {
 }
 
 i.sele {
-  background: url(../images/sele.png) no-repeat 0px 0px;
+  background: url(../../../dist/images/sele.png) no-repeat 0px 0px;
   height: 26px;
   width: 26px;
   display: inline-block;
@@ -1254,7 +1255,7 @@ i.sele {
 
 .checkbox input + i:after {
   content: '';
-  background: url("../images/tick1.png") no-repeat 1px 2px;
+  background: url("../../../dist/images/tick1.png") no-repeat 1px 2px;
   top: 2px;
   left: 2px;
   width: 15px;
@@ -1490,14 +1491,14 @@ a.morebtn {
 }
 
 .b-search:after {
-  content: url(../images/arow.png) 0px 0px;
+  content: url(../../../dist/images/arow.png) 0px 0px;
   position: absolute;
   right: 0px;
   top: 22px;
 }
 
 .pick:after {
-  content: url(../images/arow.png) 0px 0px red;
+  content: url(../../../dist/images/arow.png) 0px 0px red;
   position: absolute;
   right: -36px;
   top: 22px;
@@ -1814,7 +1815,7 @@ a.forgot {
   }
 
   .head-nav span.menu:before {
-    content: url(../images/menu.png);
+    content: url(../../../dist/images/menu.png);
     color: #FFF;
     text-align: right;
     cursor: pointer;
@@ -2637,5 +2638,13 @@ label.user {
 }
 
 label.admin {
-  margin: 1em 0.5em 0 8em;
+  margin: 1em 0.5em 0 0.5em;
+}
+
+#user {
+  margin-left: 7.6em;
+}
+
+.logo-title {
+  font-size: 2em;
 }
