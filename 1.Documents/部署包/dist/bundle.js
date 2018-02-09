@@ -439,7 +439,7 @@ var handlers = exports.handlers = (_handlers = {}, _defineProperty(_handlers, (0
   //console.log(action.payload);
   return _extends({}, state);
 }), _defineProperty(_handlers, (0, _request.onSuccess)(actions.QUERY_ALL_USERS), function (state, action) {
-  console.log(action.payload);
+  //console.log(action.payload);
   var n = [];
   for (var i = 1, len = action.payload.Result.TotalPage; i <= len; i++) {
     n.push(i);
@@ -31455,7 +31455,7 @@ var Login = exports.Login = function (_Component) {
                           { className: 'date_btn' },
                           _react2.default.createElement('input', {
                             type: 'submit',
-                            defaultValue: '\u767B\u9646',
+                            defaultValue: '\u767B\u5F55',
                             onClick: function onClick(e) {
                               e.preventDefault();
                               _this2.login();
@@ -33669,9 +33669,9 @@ var TodayOrder = exports.TodayOrder = function (_Component) {
                         _this4.handleOrderConfirm();
                       } else if (_this4.props.add === true) {
                         _this4.handleOrderCancel();
-                        _this4.setState = {
-                          remark: ''
-                        };
+                        // this.setState = {
+                        //   remark: '100'
+                        // };
                       }
                     } },
                   this.props.add === false ? '确定加餐+1' : '取消加餐-1'
