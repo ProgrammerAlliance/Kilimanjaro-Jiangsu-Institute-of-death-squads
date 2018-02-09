@@ -331,7 +331,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var http = 'http://192.168.2.230/api';
+var http = 'http://127.0.0.1:9999/api';
 
 var actions = exports.actions = {
   CHANGE_USER_TYPE: 'CHANGE_USER_TYPE',
