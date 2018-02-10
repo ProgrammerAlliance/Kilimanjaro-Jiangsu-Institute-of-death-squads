@@ -19,7 +19,7 @@ namespace NLC.Order.DBUtility
             int result = -1;
             try
             {
-                SqlConn.Open();    
+                SqlConn.Open();
                 SqlCommand cmd = new SqlCommand(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
@@ -38,7 +38,7 @@ namespace NLC.Order.DBUtility
             {
                 if (SqlConn.State == ConnectionState.Open)
                 {
-                    SqlConn.Close();     
+                    SqlConn.Close();
                 }
             }
             return result;
@@ -57,7 +57,7 @@ namespace NLC.Order.DBUtility
             DataSet ds = new DataSet();
             try
             {
-                SqlConn.Open();      
+                SqlConn.Open();
                 SqlDataAdapter adp = new SqlDataAdapter(sql, SqlConn);
                 if (parameters != null && parameters.Length > 0)
                 {
@@ -75,7 +75,7 @@ namespace NLC.Order.DBUtility
             finally
             {
                 if (SqlConn.State == ConnectionState.Open)
-                    SqlConn.Close();        
+                    SqlConn.Close();
             }
             return ds;
         }
@@ -110,7 +110,7 @@ namespace NLC.Order.DBUtility
                     list.Add(t);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 LogHelper.WriteLogFile(e.Message);
             }

@@ -21,6 +21,18 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult AddUser(UserInfo user)
         {
+            if (user.UserId == 0)
+            {
+                jr.Result = "用户工号为空";
+                jr.Status = 202;
+                return jr;
+            }
+            if (user.UserPwd == null)
+            {
+                jr.Result = "密码为空";
+                jr.Status = 203;
+                return jr;
+            }
             try
             {
                 if (userDAL.SelectByUserId(user.UserId))
@@ -36,13 +48,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误"+e.Message);
+                LogHelper.WriteLogFile("数据库错误" + e.Message);
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("增加用户失败"+e.Message);
+                LogHelper.WriteLogFile("增加用户失败" + e.Message);
             }
             return jr;
         }
@@ -63,13 +75,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误"+e.Message);
+                LogHelper.WriteLogFile("数据库错误" + e.Message);
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("删除用户失败"+e.Message);
+                LogHelper.WriteLogFile("删除用户失败" + e.Message);
             }
             return jr;
         }
@@ -117,6 +129,18 @@ namespace NLC.Order.BLL
         /// <returns></returns>
         public JsonResult Login(int UserId, string pwd, int type)
         {
+            if (UserId == 0)
+            {
+                jr.Result = "用户工号为空";
+                jr.Status = 202;
+                return jr;
+            }
+            if (pwd == null)
+            {
+                jr.Result = "密码为空";
+                jr.Status = 203;
+                return jr;
+            }
             try
             {
                 var Result = userDAL.SelectByIdAndPwd(UserId, pwd, type);
@@ -153,8 +177,14 @@ namespace NLC.Order.BLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        public JsonResult ModifyPassword(int userId, string password)
+        public JsonResult ModifyPassword(int userId, string password, string repeatPassword)
         {
+            if (!password.Equals(repeatPassword))
+            {
+                jr.Result = "两次密码不一致";
+                jr.Status = 201;
+                return jr;
+            }
             try
             {
                 jr.Result = userDAL.UpdateUser(userId, password);

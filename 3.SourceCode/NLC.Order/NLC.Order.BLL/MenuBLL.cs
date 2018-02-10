@@ -27,7 +27,7 @@ namespace NLC.Order.BLL
                     jr.Status = 201;
                     return jr;
                 }
-                jr.Result=MenuDAL.InsertMenu(menu);
+                jr.Result = MenuDAL.InsertMenu(menu);
                 jr.Status = 200;
             }
             catch (Exception)
@@ -48,7 +48,7 @@ namespace NLC.Order.BLL
         {
             try
             {
-                jr.Result= MenuDAL.DelMenu(menuId);
+                jr.Result = MenuDAL.DelMenu(menuId);
                 jr.Status = 200;
             }
             catch (Exception)
@@ -69,8 +69,8 @@ namespace NLC.Order.BLL
         {
             try
             {
-               jr.Result= MenuDAL.SelectMenuByRestaurant(id);
-               jr.Status = 200;
+                jr.Result = MenuDAL.SelectMenuByRestaurant(id);
+                jr.Status = 200;
             }
             catch (Exception)
             {

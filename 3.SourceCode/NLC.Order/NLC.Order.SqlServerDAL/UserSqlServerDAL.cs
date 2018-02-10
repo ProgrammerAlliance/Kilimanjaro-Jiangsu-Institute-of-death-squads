@@ -27,7 +27,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行统计员工数量SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行统计员工数量SQL语句失败" + e.Message);
             }
             return ds.Tables[0].Rows.Count;
         }
@@ -51,7 +51,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行删除用户SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败" + e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -82,7 +82,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行插入用户SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行插入用户SQL语句失败" + e.Message);
             }
             return result > 0;
         }
@@ -144,7 +144,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败" + e.Message);
             }
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
@@ -170,7 +170,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行更新用户SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行更新用户SQL语句失败" + e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -194,7 +194,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败"+e.Message);
+                LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败" + e.Message);
             }
             return data.Tables[0].Rows.Count == 0 ? false : true;
         }
