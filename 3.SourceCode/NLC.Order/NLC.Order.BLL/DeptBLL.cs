@@ -23,17 +23,17 @@ namespace NLC.Order.BLL
                 jr.Status = 200;
                 jr.Result = DeptDAL.GetAllDept();
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库异常";
-                LogHelper.WriteLogFile("数据库异常！");
+                LogHelper.WriteLogFile(e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("获得所有部门！");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }

@@ -30,11 +30,11 @@ namespace NLC.Order.BLL
                 jr.Result=MenuDAL.InsertMenu(menu);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Result = "增加菜单失败";
                 jr.Status = 500;
-                LogHelper.WriteLogFile("增加菜单失败！");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -51,11 +51,11 @@ namespace NLC.Order.BLL
                 jr.Result= MenuDAL.DelMenu(menuId);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Result = "删除菜单失败";
                 jr.Status = 500;
-                LogHelper.WriteLogFile("删除菜单失败！");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -72,11 +72,11 @@ namespace NLC.Order.BLL
                jr.Result= MenuDAL.SelectMenuByRestaurant(id);
                jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Result = "获取所有菜单失败";
                 jr.Status = 500;
-                LogHelper.WriteLogFile("获取所有菜单失败！");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -92,11 +92,11 @@ namespace NLC.Order.BLL
                 jr.Result = MenuDAL.SelectAllRestaurant();
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Result = "获取所有饭店失败";
                 jr.Status = 500;
-                LogHelper.WriteLogFile("获取所有饭店失败！");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }

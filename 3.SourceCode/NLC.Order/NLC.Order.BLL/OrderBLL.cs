@@ -38,11 +38,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.SubOrder(UserId);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile(" 取消订餐失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -58,11 +58,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.CountOrderNumber(0);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("统计订餐人数失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -87,11 +87,11 @@ namespace NLC.Order.BLL
                 jr.Result = pageObject;
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("获得订餐人员信息失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -120,11 +120,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.AddOrder(order);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("订餐失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -183,9 +183,9 @@ namespace NLC.Order.BLL
                 jr.Result = "OK";
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("改变订餐人员的打扫状态失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -201,11 +201,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.GetName();
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("获取打扫人员的名单失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -221,11 +221,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.IsProduce();
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("今日是否产生打扫人员失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -242,11 +242,11 @@ namespace NLC.Order.BLL
                 jr.Result = OrderDAL.IsOrder(UserId);
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("判断员工今日是否订餐失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -274,10 +274,10 @@ namespace NLC.Order.BLL
                 doc.Save(strFileName);
                 jr.Result = "修改成功";
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Result = "修改失败";
-                LogHelper.WriteLogFile("修改订餐截止时间失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -299,11 +299,11 @@ namespace NLC.Order.BLL
                 jr.Result = true;
                 jr.Status = 200;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("订餐失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
