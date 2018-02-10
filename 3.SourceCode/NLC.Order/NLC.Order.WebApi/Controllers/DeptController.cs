@@ -16,7 +16,6 @@ namespace NLC.Order.WebApi.Controllers
         /// 获取所有部门信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
         public JsonResult GetAllDept()
         {
             return DeptBLL.GetAllDept();

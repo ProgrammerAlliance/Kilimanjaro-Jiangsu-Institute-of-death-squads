@@ -30,9 +30,9 @@ namespace NLC.Order.DBUtility
                 }
                 result = cmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("数据库连接失败！");
+                LogHelper.WriteLogFile("数据库连接失败！"+e.Message);
             }
             finally
             {
@@ -68,9 +68,9 @@ namespace NLC.Order.DBUtility
                 }
                 adp.Fill(ds);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行查询失败");
+                LogHelper.WriteLogFile("执行查询失败"+e.Message);
             }
             finally
             {
@@ -110,9 +110,9 @@ namespace NLC.Order.DBUtility
                     list.Add(t);
                 }
             }
-            catch
+            catch(Exception e)
             {
-                LogHelper.WriteLogFile("Dataset集合根据传入的类型自动转换List集合失败！");
+                LogHelper.WriteLogFile("Dataset集合根据传入的类型自动转换List集合失败！"+e.Message);
             }
             return list;
         }

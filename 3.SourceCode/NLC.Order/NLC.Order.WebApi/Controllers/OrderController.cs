@@ -15,39 +15,6 @@ namespace NLC.Order.WebApi.Controllers
         private IOrderBLL orderBLL = new OrderBLL();
 
         /// <summary>
-        /// 订餐
-        /// </summary>
-        /// <param name="order"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult AddOrder(string order)
-        {
-            OrderInfo orderInfo = JsonConvert.DeserializeObject<OrderInfo>(order);
-            return orderBLL.OrderFood(orderInfo);
-        }
-
-        /// <summary>
-        /// 取消订餐
-        /// </summary>
-        /// <param name="orderId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult CancelOrder(int userId)
-        {
-            return orderBLL.CancelOrder(userId);
-        }
-
-        /// <summary>
-        /// 产生打扫人员
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult ProduceSweep()
-        {
-            return orderBLL.ProudceSweep();
-        }
-
-        /// <summary>
         /// 获取今日订餐人员信息
         /// </summary>
         /// <returns></returns>
@@ -62,7 +29,7 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult CountOrderNumber()
+        public JsonResult GetOrderNumber()
         {
             return orderBLL.CountOrderNumber();
         }
@@ -72,7 +39,7 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult WetherProduce()
+        public JsonResult GetWetherProduce()
         {
             return orderBLL.WetherProudce();
         }
@@ -82,7 +49,7 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult UserIsOrder(int userId)
+        public JsonResult GetUserIsOrder(int userId)
         {
             return orderBLL.UserIsOrder(userId);
         }
@@ -98,25 +65,57 @@ namespace NLC.Order.WebApi.Controllers
         }
 
         /// <summary>
+        /// 是否可以显示生成打扫按钮
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetIsShowProduceSymbol()
+        {
+            return orderBLL.IsShowProduceSymbol();
+        }
+
+        /// <summary>
+        /// 订餐
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult PostAddOrder([FromBody]OrderInfo order)
+        {
+            return orderBLL.OrderFood(order);
+        }
+
+        /// <summary>
+        /// 取消订餐
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public JsonResult DeleteOrder(int userId)
+        {
+            return orderBLL.CancelOrder(userId);
+        }
+
+        /// <summary>
+        /// 产生打扫人员
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        public JsonResult PutProduceSweep()
+        {
+            return orderBLL.ProudceSweep();
+        }
+
+        /// <summary>
         /// 修改订餐截止时间
         /// </summary>
         /// <param name="hour">时</param>
         /// <param name="minute">分</param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult ModifyTime(int hour, int minute)
+        [HttpPut]
+        public JsonResult PutModifyTime(int hour, int minute)
         {
             return orderBLL.ModifyTime(hour, minute);
-        }
-
-        /// <summary>
-        /// 是否可以显示生成打扫按钮
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult IsShowProduceSymbol()
-        {
-            return orderBLL.IsShowProduceSymbol();
         }
     }
 }

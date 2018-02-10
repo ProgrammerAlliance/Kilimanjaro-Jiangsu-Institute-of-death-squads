@@ -32,17 +32,17 @@ namespace NLC.Order.BLL
                 jr.Result = userDAL.InsertUser(user);
                 jr.Status = 200;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误");
+                LogHelper.WriteLogFile("数据库错误"+e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("增加用户失败");
+                LogHelper.WriteLogFile("增加用户失败"+e.Message);
             }
             return jr;
         }
@@ -59,17 +59,17 @@ namespace NLC.Order.BLL
                 jr.Result = userDAL.DeleteUser(userId);
                 jr.Status = 200;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误");
+                LogHelper.WriteLogFile("数据库错误"+e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("删除用户失败");
+                LogHelper.WriteLogFile("删除用户失败"+e.Message);
             }
             return jr;
         }
