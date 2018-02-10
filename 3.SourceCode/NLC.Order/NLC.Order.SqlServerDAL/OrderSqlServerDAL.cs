@@ -30,7 +30,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("Clean",order.Clean),
                 new SqlParameter("Remark",order.Remark)
             };
-            return DBHelper.NonQuery(sql, parameters) > 0 ? true : false;
+            return DBHelper.NonQuery(sql, parameters) > 0;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行取消订餐SQL语句失败" + e.Message);
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行修改打扫人员状态SQL语句失败" + e.Message);
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行今日是否订餐SQL语句失败" + e.Message);
             }
-            return ds.Tables[0].Rows.Count <= 0 ? false : true;
+            return ds.Tables[0].Rows.Count <= 0;
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行判断今日是否生成打扫人员SQL语句失败" + e.Message);
             }
-            return ds.Tables[0].Rows.Count <= 0 ? false : true;
+            return ds.Tables[0].Rows.Count <= 0;
         }
     }
 }

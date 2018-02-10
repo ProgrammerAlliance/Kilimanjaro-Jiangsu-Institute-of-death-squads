@@ -32,7 +32,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行删除菜单SQL语句失败");
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败");
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据菜品名称和饭店查找菜品SQL语句失败");
             }
-            return data.Tables[0].Rows.Count == 0 ? false : true;
+            return data.Tables[0].Rows.Count == 0;
         }
     }
 }

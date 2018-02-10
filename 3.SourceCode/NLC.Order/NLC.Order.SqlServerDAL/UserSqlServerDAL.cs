@@ -53,7 +53,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行删除用户SQL语句失败" + e.Message);
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行更新用户SQL语句失败" + e.Message);
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败" + e.Message);
             }
-            return data.Tables[0].Rows.Count == 0 ? false : true;
+            return data.Tables[0].Rows.Count == 0;
         }
     }
 }
