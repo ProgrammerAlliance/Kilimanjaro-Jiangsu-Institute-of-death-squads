@@ -38,6 +38,6 @@ namespace NLC.Order.IDAL
         /// <param name="foodName"></param>
         /// <param name="restaurantId"></param>
         /// <returns></returns>
-        bool SelectMenuByNameAndRestaurant(string foodName,int restaurantId);
+        bool SelectMenuByNameAndRestaurant(string foodName, int restaurantId);
     }
 }

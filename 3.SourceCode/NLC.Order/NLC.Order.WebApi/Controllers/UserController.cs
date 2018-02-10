@@ -20,9 +20,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        public JsonResult GetLogin(int UserId,string UserPwd,int UserType)
+        public JsonResult GetLogin(int UserId, string UserPwd, int UserType)
         {
-            return userBLL.Login(UserId,UserPwd,UserType);
+            return userBLL.Login(UserId, UserPwd, UserType);
         }
 
         /// <summary>
