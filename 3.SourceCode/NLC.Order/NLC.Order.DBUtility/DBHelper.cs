@@ -32,7 +32,7 @@ namespace NLC.Order.DBUtility
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("数据库连接失败！"+e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             finally
             {
@@ -70,7 +70,7 @@ namespace NLC.Order.DBUtility
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行查询失败"+e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             finally
             {
@@ -112,7 +112,7 @@ namespace NLC.Order.DBUtility
             }
             catch(Exception e)
             {
-                LogHelper.WriteLogFile("Dataset集合根据传入的类型自动转换List集合失败！"+e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             return list;
         }

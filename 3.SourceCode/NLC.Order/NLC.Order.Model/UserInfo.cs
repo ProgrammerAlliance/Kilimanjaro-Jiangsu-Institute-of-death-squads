@@ -46,5 +46,10 @@
         /// 用户今日是否订餐
         /// </summary>
         public bool IsOrder { get; set; }
+
+        /// <summary>
+        /// 重复密码
+        /// </summary>
+        public string RepeatPassword { get; set; }
     }
 }

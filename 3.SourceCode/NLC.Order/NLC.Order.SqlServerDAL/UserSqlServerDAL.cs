@@ -25,9 +25,9 @@ namespace NLC.Order.SqlServerDAL
                            WHERE(UserType = 2)";
                 ds = DBHelper.Query(sql, null);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行统计员工数量SQL语句失败");
+                LogHelper.WriteLogFile("执行统计员工数量SQL语句失败"+e.Message);
             }
             return ds.Tables[0].Rows.Count;
         }
@@ -37,7 +37,7 @@ namespace NLC.Order.SqlServerDAL
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public bool DeleteUser(string userId)
+        public bool DeleteUser(int userId)
         {
             int result = 0;
             try
@@ -49,9 +49,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 result = DBHelper.NonQuery(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+                LogHelper.WriteLogFile("执行删除用户SQL语句失败"+e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -80,9 +80,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 result = DBHelper.NonQuery(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行插入用户SQL语句失败");
+                LogHelper.WriteLogFile("执行插入用户SQL语句失败"+e.Message);
             }
             return result > 0;
         }
@@ -142,9 +142,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 data = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败");
+                LogHelper.WriteLogFile("执行根据用户名和密码查找用户SQL语句失败"+e.Message);
             }
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
@@ -155,7 +155,7 @@ namespace NLC.Order.SqlServerDAL
         /// <param name="userId">用户ID</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        public bool UpdateUser(string userId, string psassword)
+        public bool UpdateUser(int userId, string psassword)
         {
             int result = 0;
             try
@@ -168,9 +168,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 result = DBHelper.NonQuery(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行更新用户SQL语句失败");
+                LogHelper.WriteLogFile("执行更新用户SQL语句失败"+e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -192,9 +192,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 data = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败");
+                LogHelper.WriteLogFile("执行根据用户工号查找用户SQL语句失败"+e.Message);
             }
             return data.Tables[0].Rows.Count == 0 ? false : true;
         }

@@ -31,7 +31,7 @@ namespace NLC.Order.IBLL
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
-        JsonResult DelUser(string userId);
+        JsonResult DelUser(int userId);
 
         /// <summary>
         /// 修改密码
@@ -39,6 +39,6 @@ namespace NLC.Order.IBLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        JsonResult ModifyPassword(string userId, string password);
+        JsonResult ModifyPassword(int userId, string password);
     }
 }

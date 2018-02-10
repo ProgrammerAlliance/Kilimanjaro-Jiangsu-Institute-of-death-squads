@@ -20,17 +20,15 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult GetLogin([FromUri]UserInfo user)
+        public JsonResult GetLogin(int UserId,string UserPwd,int UserType)
         {
-            return userBLL.Login(user.UserId,user.UserPwd,user.UserType);
+            return userBLL.Login(UserId,UserPwd,UserType);
         }
 
         /// <summary>
         /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
         public JsonResult GetAllUser(int rows, int page)
         {
             return userBLL.GetAllUser(rows, page);
@@ -41,8 +39,7 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <param name="user">用户信息</param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult PostAddUser([FromBody] UserInfo user)
+        public JsonResult PostAddUser(UserInfo user)
         {
             return userBLL.AddUser(user);
         }
@@ -52,10 +49,9 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
-        [HttpDelete]
-        public JsonResult DeleteUser(string userId)
+        public JsonResult DeleteUser(UserInfo user)
         {
-            return userBLL.DelUser(userId);
+            return userBLL.DelUser(user.UserId);
         }
 
         /// <summary>
@@ -64,10 +60,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="userId">员工编号</param>
         /// <param name="newPassword">新密码</param>
         /// <returns></returns>
-        [HttpPut]
-        public JsonResult PutModifyPassword(string userId, string newPassword)
+        public JsonResult PutModifyPassword(UserInfo user)
         {
-            return userBLL.ModifyPassword(userId, newPassword);
+            return userBLL.ModifyPassword(user.UserId, user.UserPwd);
         }
     }
 }

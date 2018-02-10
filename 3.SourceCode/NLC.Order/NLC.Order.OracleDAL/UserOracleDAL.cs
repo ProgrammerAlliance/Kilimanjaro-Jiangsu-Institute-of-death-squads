@@ -21,7 +21,7 @@ namespace NLC.Order.OracleDAL
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public bool DeleteUser(string userId)
+        public bool DeleteUser(int userId)
         {
             return false;
         }
@@ -72,7 +72,7 @@ namespace NLC.Order.OracleDAL
         /// <param name="userId"></param>
         /// <param name="psassword"></param>
         /// <returns></returns>
-        public bool UpdateUser(string userId, string psassword)
+        public bool UpdateUser(int userId, string psassword)
         {
             throw new NotImplementedException();
         }

@@ -52,7 +52,7 @@ namespace NLC.Order.BLL
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
-        public JsonResult DelUser(string userId)
+        public JsonResult DelUser(int userId)
         {
             try
             {
@@ -93,13 +93,13 @@ namespace NLC.Order.BLL
                 jr.Result = pageObject;
                 jr.Status = 200;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
                 LogHelper.WriteLogFile("数据库错误");
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
@@ -153,7 +153,7 @@ namespace NLC.Order.BLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        public JsonResult ModifyPassword(string userId, string password)
+        public JsonResult ModifyPassword(int userId, string password)
         {
             try
             {

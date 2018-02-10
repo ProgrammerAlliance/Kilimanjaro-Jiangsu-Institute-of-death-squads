@@ -91,9 +91,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="orderId"></param>
         /// <returns></returns>
         [HttpDelete]
-        public JsonResult DeleteOrder(int userId)
+        public JsonResult DeleteOrder(OrderInfo order)
         {
-            return orderBLL.CancelOrder(userId);
+            return orderBLL.CancelOrder(order.UserId);
         }
 
         /// <summary>

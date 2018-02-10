@@ -34,7 +34,7 @@ namespace NLC.Order.IDAL
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
-        bool DeleteUser(string userId);
+        bool DeleteUser(int userId);
 
         /// <summary>
         /// 更新用户
@@ -42,7 +42,7 @@ namespace NLC.Order.IDAL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        bool UpdateUser(string userId, string psassword);
+        bool UpdateUser(int userId, string psassword);
 
         /// <summary>
         /// 统计员工数

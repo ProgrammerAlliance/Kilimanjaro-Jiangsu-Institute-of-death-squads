@@ -19,6 +19,7 @@ namespace NLC.Order.SqlServerDAL
         /// <returns></returns>
         public bool AddOrder(OrderInfo order)
         {
+
             string sql = @"insert into OrderTable
                            (UserId, Clean, Remark)
                            values
@@ -49,9 +50,9 @@ namespace NLC.Order.SqlServerDAL
             };
                 result = DBHelper.NonQuery(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行取消订餐SQL语句失败");
+                LogHelper.WriteLogFile("执行取消订餐SQL语句失败"+e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -88,9 +89,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 ds = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行获取今日订餐人员信息SQL语句失败");
+                LogHelper.WriteLogFile("执行获取今日订餐人员信息SQL语句失败"+e.Message);
             }
             return DBHelper.GetListbyDataSet<OrderInfo>(ds);
         }
@@ -113,9 +114,9 @@ namespace NLC.Order.SqlServerDAL
                 ds = DBHelper.Query(sql, null);
                 list = DBHelper.GetListbyDataSet<UserInfo>(ds);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行获取打扫人员姓名SQL语句失败");
+                LogHelper.WriteLogFile("执行获取打扫人员姓名SQL语句失败"+e.Message);
             }
             return list;
         }
@@ -137,9 +138,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 result = DBHelper.NonQuery(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行修改打扫人员状态SQL语句失败");
+                LogHelper.WriteLogFile("执行修改打扫人员状态SQL语句失败"+e.Message);
             }
             return result > 0 ? true : false;
         }
@@ -167,9 +168,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 ds = DBHelper.Query(stringBuilder.ToString(), parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行获取今日订餐人员数SQL语句失败");
+                LogHelper.WriteLogFile("执行获取今日订餐人员数SQL语句失败"+e.Message);
             }
             return ds.Tables[0].Rows.Count;
         }
@@ -194,9 +195,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 ds = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行今日是否订餐SQL语句失败");
+                LogHelper.WriteLogFile("执行今日是否订餐SQL语句失败"+e.Message);
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
@@ -216,9 +217,9 @@ namespace NLC.Order.SqlServerDAL
                         (DATEDIFF(dd, CreateTime, GETDATE()) = 0) AND (Clean = 1)";
                 ds = DBHelper.Query(sql, null);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行判断今日是否生成打扫人员SQL语句失败");
+                LogHelper.WriteLogFile("执行判断今日是否生成打扫人员SQL语句失败"+e.Message);
             }
             return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
