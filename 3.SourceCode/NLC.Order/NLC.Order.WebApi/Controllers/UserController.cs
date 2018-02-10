@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using NLC.Order.BLL;
+﻿using NLC.Order.BLL;
 using NLC.Order.Common;
 using NLC.Order.IBLL;
 using NLC.Order.Model;
@@ -62,7 +61,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <returns></returns>
         public JsonResult PutModifyPassword(UserInfo user)
         {
-            return userBLL.ModifyPassword(user.UserId, user.UserPwd);
+            return userBLL.ModifyPassword(user.UserId, user.UserPwd,user.RepeatPassword);
         }
     }
 }
