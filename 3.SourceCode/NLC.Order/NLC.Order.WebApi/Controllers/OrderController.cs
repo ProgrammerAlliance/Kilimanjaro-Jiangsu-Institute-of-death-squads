@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using NLC.Order.BLL;
+﻿using NLC.Order.BLL;
 using NLC.Order.Common;
 using NLC.Order.IBLL;
 using NLC.Order.Model;
