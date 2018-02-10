@@ -9,7 +9,7 @@ export class Contact extends Component {
   componentDidMount() {
     this.props.queryStar().then(data => {
       if (data.payload.Status === 200 && data.payload.Result.length === 0) {
-        //swal('', '未有打扫人员！', 'success');
+        swal('', '未有打扫人员！', 'success');
       }
       else if (data.payload.Status === 500) {
         swal('错误:500！', '服务器异常！', 'error');
@@ -18,25 +18,25 @@ export class Contact extends Component {
   }
 
   render() {
-    let url = this.props.url;
     return (
       <div className="today-star banner">
-        <div className="box6">
-          <h2>
-            今日之星：
-          </h2>
-          {this.props.star.map((item, index) => {
-            return (
-              <h3 key={index}><b>{item.UserName}</b></h3>
-            );
-          })}
-          <div className="star-img"/>
-          <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
-          <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
-          <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
-          <p>不就是吃饭几十个人就刚好选到你了嘛！</p>
-          <div className="box6_corner_lf"/>
-          <div className="box6_corner_rt"/>
+        <div className="update update-user">
+          <div className="animate-box fadeInUp animated-fast">
+            <div className="fdw-pricing-table">
+              <div className="plan plan1 header-star">
+                <div className="header">
+                  <h1>今日之星</h1>
+                </div>
+                <div className="monthly">
+                  {this.props.star.map((item, index) => {
+                    return (
+                      <h2 key={index}><b>{item.UserName}</b></h2>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

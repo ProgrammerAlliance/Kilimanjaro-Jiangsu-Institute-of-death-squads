@@ -15,7 +15,8 @@ const createRequest = (method, endpoint, params = {}) => handler => {
       method: method,
       endpoint: `${endpoint}${query ? '?' + query : ''}`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Allow': 'GET,POST,DELETE,PUT'
       },
       body: body,
       types: [

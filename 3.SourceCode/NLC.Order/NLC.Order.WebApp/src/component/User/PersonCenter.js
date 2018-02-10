@@ -7,7 +7,7 @@ import {Link, withRouter} from 'react-router-dom';
 export class Menu extends Component {
   render() {
     return (
-      <div className="card-holder">
+      <div className="card-holder opacity">
         <div className="card-wrapper">
           <div className="card bg-01">
             <Link to="/user/menu/info" className="card-content">个人信息</Link>

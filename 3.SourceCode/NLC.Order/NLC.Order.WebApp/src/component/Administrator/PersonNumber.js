@@ -15,7 +15,6 @@ export class PersonNumber extends Component {
             <div className="header">
               <h1>统计人数</h1>
             </div>
-            {/*<div className="monthly">per month</div>*/}
             <ul>
               <li>
                 <h3>
@@ -28,7 +27,7 @@ export class PersonNumber extends Component {
                 </h3>
               </li>
               <li>
-                <a href="#" className="a-btn1"
+                <a href="#" className="btn btn-primary btn-lg"
                    onClick={
                      e => {
                        e.preventDefault();
@@ -36,30 +35,13 @@ export class PersonNumber extends Component {
                      }
                    }
                 >
-                  <span className="a-btn1-text">查看详情</span>
-                  <span className="a-btn1-slide-text">订餐人员</span>
-                  <span className="a-btn1-icon-right"><span/></span>
+                  查看详情
                 </a>
               </li>
               <li className={new Date().getHours() <= 24 &&
               new Date().getHours() >= 0 ?
                 '' : 'hide'}>
-                <a href="#" className="a-btn" onClick={() => {
-                  this.props.todayStar().then(data => {
-                    //console.log(data);
-                    if (data.payload.Status === 200) {
-                      swal('成功', '打扫人员产生成功！', 'success');
-                    }
-                    else if (data.payload.Status === 303) {
-                      swal('错误:303！', '无人订餐！', 'error');
-                    }
-                    else if (data.payload.Status === 404) {
-                      swal('错误:404！', '未到订餐截止时间！', 'error');
-                    }
-                    else if (data.payload.Status === 500) {
-                      swal('错误：500！', '服务器异常！', 'error');
-                    }
-                  });
+                <a href="#" className="btn btn-primary btn-lg" onClick={() => {
                   this.props.queryIsHaveStar().then(data => {
                     if (data.payload.Status === 200 && data.payload.Result) {
                       swal('错误！', '已有打扫人员！', 'error');
@@ -67,11 +49,26 @@ export class PersonNumber extends Component {
                     else if (data.payload.Status === 500) {
                       swal('错误:500！', '服务器异常！', 'error');
                     }
+                    else if (data.payload.Status === 200 && !data.payload.Result) {
+                      console.log('未有打扫人员！');
+                      this.props.todayStar().then(data => {
+                        if (data.payload.Status === 200) {
+                          swal('成功', '打扫人员产生成功！', 'success');
+                        }
+                        else if (data.payload.Status === 303) {
+                          swal('错误:303！', '无人订餐！', 'error');
+                        }
+                        else if (data.payload.Status === 404) {
+                          swal('错误:404！', '未到订餐截止时间！', 'error');
+                        }
+                        else if (data.payload.Status === 500) {
+                          swal('错误：500！', '服务器异常！', 'error');
+                        }
+                      });
+                    }
                   });
                 }}>
-                  <span/>
-                  <span>今日之星</span>
-                  <span>就是你了!</span>
+                  产生打扫人员
                 </a>
               </li>
             </ul>

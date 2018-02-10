@@ -45,20 +45,17 @@ export class Login extends Component {
     if (this.state.userId.trim() !== '' && this.state.Pwd.trim() !== '') {
       if (reg.test(this.state.userId)) {
         a.props.queryUser({
-          userId: a.state.userId,
-          Pwd: a.state.Pwd,
-          Type: a.props.userType === 'admin' ? 1 : 2
+          UserId: a.state.userId,
+          UserPwd: a.state.Pwd,
+          UserType: a.props.userType === 'admin' ? 1 : 2
         }).then(function(data) {
           if (data.payload.Status === 200) {
-            //console.log('登录成功');
             if (a.props.userType === 'admin') {
-              a.props.history.push('/admin');
-              //console.log('登录管理员');
+              a.props.history.push('/admin/number');
               a.props.changeUserType('admin-success');
             }
             else if (a.props.userType === 'user') {
-              a.props.history.push('/user');
-              //console.log('登录用户');
+              a.props.history.push('/user/order');
               a.props.changeUserType('user-success');
               a.props.saveUser(data.payload);
             }
@@ -102,7 +99,7 @@ export class Login extends Component {
               <div className="booking_room">
                 <div className="reservation">
                   <form className="nalong-register">
-                    <h2 className="register-title">登录界面</h2>
+                    <h1 className="register-title">登录界面</h1>
                     <ul>
                       <li className="span1_of_1">
                         <span>用户ID：</span>
@@ -116,14 +113,13 @@ export class Login extends Component {
                         <b className={this.state.tip2 === '' ? 'hide' : 'tip'}>用户ID只能为数字</b>
                       </li>
                       <li className="span1_of_1">
-                        <span>密码：</span>
+                        <span>密<s className="opacity">ID</s>码：</span>
                         <input type="password" className="textbox"
                                placeholder="请输入密码！"
                                onChange={e => {
                                  this.Pwd(e.target.value);
                                }}
                         />
-                        {/*<b>login:{this.props.login}</b>*/}
                         <b className={this.props.login === 200 || this.props.login === '' ? '' : 'hide'}>密码为3-6位数字！</b>
                         <b
                           className={this.props.login === 200 ||
@@ -155,13 +151,13 @@ export class Login extends Component {
                         <label htmlFor="admin" className="admin">管理员</label>
                       </li>
                       <li className="id-pwd">
-                        <b className={this.state.tip1 === '' ? 'hide' : 'tip'}>用户ID或密码不能为空</b>
+                        <b className={this.state.tip1 === '' ? 'opacity' : 'tip'}>用户ID或密码不能为空</b>
                       </li>
                       <li className="span1_of_3">
                         <div className="date_btn">
                           <input
                             type="submit"
-                            defaultValue="登陆"
+                            defaultValue="登录"
                             onClick={e => {
                               e.preventDefault();
                               this.login();

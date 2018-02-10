@@ -67,10 +67,9 @@ export class OrderDetail extends Component {
               <div className="header">
                 <h1>订餐详情</h1>
               </div>
-              {/*<div className="monthly">per month</div>*/}
-              <table id="table-5">
+              <table className="table table-striped table-order">
                 <thead>
-                <tr>
+                  <tr>
                   <th>编号</th>
                   <th>姓名</th>
                   <th><select name="dept"
@@ -91,7 +90,7 @@ export class OrderDetail extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {this.props.orderToday.orderPeople.map((item, index) => {
+                  {this.props.orderToday.orderPeople.map((item, index) => {
                   return (
                     <tr className="trow" key={index}>
                       <td>{index + 1 + (this.props.orderToday.currentPage - 1) * 10}</td>
@@ -126,7 +125,7 @@ export class OrderDetail extends Component {
                   </a>
                 </li>
               </ul>
-              <input type="button" value="退出" className="btn btn-primary"
+              <input type="button" value="退出" className="btn btn-lg btn-primary"
                      onClick={e => {
                        e.preventDefault();
                        this.props.showOrder('hide');

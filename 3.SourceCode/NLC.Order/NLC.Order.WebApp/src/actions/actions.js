@@ -1,6 +1,9 @@
 import request, {onSuccess} from '../lib/request';
 
-let http = 'http://192.168.2.230/api';
+let http = 'http://127.0.0.1:9999/api/';
+let httpUser = http + 'User/';
+let httpDept = http + 'Dept/';
+let httpOrder = http + 'Order/';
 
 export const actions = {
   CHANGE_USER_TYPE: 'CHANGE_USER_TYPE',
@@ -28,29 +31,29 @@ export const actions = {
 
 export const actionCreators = {
   queryUser: (params) =>
-    request.get(http + '/User/Login', params)(actions.QUERY_USER),
+    request.get(httpUser + 'GetLogin', params)(actions.QUERY_USER),
   orderConfirm: (params) =>
-    request.get(http + '/Order/AddOrder', params)(actions.ORDER_CONFIRM),
+    request.post(httpOrder + 'PostAddOrder', params)(actions.ORDER_CONFIRM),
   orderCancel: (params) =>
-    request.get(http + '/Order/CancelOrder', params)(actions.ORDER_CANCEL),
+    request.delete(httpOrder + 'DeleteOrder', params)(actions.ORDER_CANCEL),
   updatePwd: (params) =>
-    request.get(http + '/User/ModifyPassword', params)(actions.UPDATE_PWD),
+    request.put(httpUser + 'PutModifyPassword', params)(actions.UPDATE_PWD),
   queryAllUser: (params) =>
-    request.get(http + '/User/GetAllUser', params)(actions.QUERY_ALL_USERS),
+    request.get(httpUser + 'GetAllUser', params)(actions.QUERY_ALL_USERS),
   queryOrderToday: (params) =>
-    request.get(http + '/Order/GetOrderPeople', params)(actions.GET_ORDER_TODAY),
+    request.get(httpOrder + 'GetOrderPeople', params)(actions.GET_ORDER_TODAY),
   addUser: (params) =>
-    request.get(http + '/User/AddUser', params)(actions.ADD_USER),
+    request.post(httpUser + 'PostAddUser', params)(actions.ADD_USER),
   deleteUser: (params) =>
-    request.get(http + '/User/DelUser', params)(actions.DEL_USER),
+    request.delete(httpUser + 'DeleteUser', params)(actions.DEL_USER),
   todayStar: (params) =>
-    request.get(http + '/Order/ProduceSweep', params)(actions.TODAY_STAR),
+    request.put(httpOrder + 'PutProduceSweep', params)(actions.TODAY_STAR),
   queryStar: (params) =>
-    request.get(http + '/Order/GetCleanName', params)(actions.QUERY_STAR),
+    request.get(httpOrder + 'GetCleanName', params)(actions.QUERY_STAR),
   queryDept: (params) =>
-    request.get(http + '/Dept/GetAllDept', params)(actions.QUERY_DEPT),
+    request.get(httpDept + 'GetAllDept', params)(actions.QUERY_DEPT),
   queryIsHaveStar: (params) =>
-    request.get(http + '/Order/WetherProduce', params)(actions.QUERY_IS_HAVE_STAR),
+    request.get(httpOrder + 'GetWetherProduce', params)(actions.QUERY_IS_HAVE_STAR),
   changeUserType: (type) => ({type: actions.CHANGE_USER_TYPE, payload: type}),
   showUpdate: (type, id) => ({type: actions.SHOW_UPDATE, payload: type, id}),
   showDelete: (type) => ({type: actions.SHOW_DELETE, payload: type}),
@@ -64,11 +67,11 @@ export const actionCreators = {
 
 export const handlers = {
   [onSuccess(actions.QUERY_USER)]: (state, action) => {
-    //console.log(action.payload);
+    //console.log(action);
     return {...state, login: action.payload.Status};
   },
   [onSuccess(actions.ORDER_CONFIRM)]: (state, action) => {
-    //console.log(action.payload);
+    //console.log(action);
     return {...state};
   },
   [onSuccess(actions.ORDER_CANCEL)]: (state, action) => {
@@ -84,7 +87,7 @@ export const handlers = {
     return {...state};
   },
   [onSuccess(actions.QUERY_ALL_USERS)]: (state, action) => {
-    console.log(action.payload);
+    //console.log(action.payload);
     let n = [];
     for (let i = 1, len = action.payload.Result.TotalPage; i <= len; i++) {
       n.push(i);
@@ -112,7 +115,7 @@ export const handlers = {
     };
   },
   [onSuccess(actions.ADD_USER)]: (state, action) => {
-    //console.log(action.payload);
+    //console.log(action);
     return {...state};
   },
   [onSuccess(actions.DEL_USER)]: (state, action) => {

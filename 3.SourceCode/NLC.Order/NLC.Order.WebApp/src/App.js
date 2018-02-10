@@ -7,16 +7,10 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import {Link, withRouter, Switch} from 'react-router-dom';
 import Nav from './component/Nav/Nav';
 import TodayMenu from './component/TodayMenu';
-import Login from './component/Login/Login';
+import Login1 from './component/Login/Login1';
 import TodayStar from './component/TodayStar';
 import Admin from './component/Administrator';
 import User from './component/User';
-// import '../src/public/css/bootstrap.min.css';
-// import '../src/public/css/style.css';
-// import '../src/public/css/table.css';
-// import '../src/public/css/update.css';
-// import '../src/public/css/demo.css';
-// import '../src/public/css/btn.css';
 
 const history = createBrowserHistory();
 /**
@@ -24,7 +18,7 @@ const history = createBrowserHistory();
  */
 const routes = [
   {path: '/todaymenu', component: TodayMenu},
-  {path: '/login', component: Login},
+  {path: '/login', component: Login1},
   {path: '/contact', component: TodayStar},
   {path: '/admin', component: Admin},
   {path: '/user', component: User},
@@ -38,7 +32,7 @@ export default class App extends Component {
           <div>
             <Nav/>
             <Switch>
-              <Route path="/" component={Login} exact/>
+              <Route path="/" component={Login1} exact/>
               {
                 routes.map((route, index) =>
                   <Route key={index} path={route.path} component={route.component}/>)

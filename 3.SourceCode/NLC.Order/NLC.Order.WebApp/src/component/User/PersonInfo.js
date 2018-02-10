@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../actions/actions';
+import {Link} from 'react-router-dom';
 
 export class PersonInfo extends Component {
   render() {
@@ -12,13 +13,12 @@ export class PersonInfo extends Component {
             <div className="header">
               <h1>个人信息</h1>
             </div>
-            {/*<div className="monthly">per month</div>*/}
-            <ul>
+            <ul className="user-info">
               <li><b>姓名：</b> {this.props.user.UserName}</li>
               <li><b>卡号：</b> {this.props.user.UserId}</li>
               <li><b>部门：</b> {this.props.user.DeptName}</li>
+              <li><b>密码：</b> <Link to="/user/menu/pwd">修改</Link></li>
             </ul>
-            {/*<a className="signup">Sign up</a>*/}
           </div>
         </div>
       </div>

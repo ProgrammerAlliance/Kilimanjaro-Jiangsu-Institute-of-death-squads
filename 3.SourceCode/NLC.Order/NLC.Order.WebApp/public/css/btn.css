@@ -85,7 +85,7 @@
   left: 50%;
   top: 50%;
   margin: -20px 0px 0px -20px;
-  background: transparent url(../images/arrow_right.png) no-repeat 50% 55%;
+  background: transparent url(../../../dist/images/arrow_right.png) no-repeat 50% 55%;
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -171,7 +171,7 @@
 }
 
 .a-btn span:nth-child(1) {
-  background: transparent url(../images/star.png) no-repeat center center;
+  background: transparent url(../../../dist/images/star.png) no-repeat center center;
   opacity: 0.2;
 }
 
@@ -224,10 +224,28 @@
 
 .pbtn1 {
   border: solid 2px #dcdcdc;
-  padding:2px 5px;
+  padding: 2px 5px;
   color: #959595;
 }
 
 .pbtn1:hover {
   border: solid 2px #75CD02;
+}
+
+.add-btn {
+  margin: 0 0 1em;
+  font-size: 1.5em;
+}
+
+.add-btn + table {
+  font-size: 1.5em;
+}
+
+.btn-add {
+  margin: 0.5em 0.5em 0.5em;
+}
+
+a:focus, a:hover {
+  color: #5bc0de;
+  text-decoration: none !important;
 }

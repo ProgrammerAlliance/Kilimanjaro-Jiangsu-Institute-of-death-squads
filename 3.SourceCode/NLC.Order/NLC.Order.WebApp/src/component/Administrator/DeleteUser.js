@@ -35,12 +35,12 @@ export class DeleteUser extends Component {
       <div className={this.props.delete === 'hide' ? 'hide' : ''}>
         <div className="del-user">
           <h4>你确定要删除姓名为 "{this.props.userInfo.delUser.UserName}" 的用户吗？</h4>
-          <input type="button" value="确定" className="btn btn-primary"
+          <input type="button" value="确定" className="btn btn-lg btn-add btn-primary"
                  onClick={e => {
                    e.preventDefault();
                    this.deleteConfirm();
                  }}/>
-          <input type="button" value="取消" className="btn btn-primary"
+          <input type="button" value="取消" className="btn btn-lg btn-add btn-primary"
                  onClick={e => {
                    e.preventDefault();
                    this.props.showDelete('hide');

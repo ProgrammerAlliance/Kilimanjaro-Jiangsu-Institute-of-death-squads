@@ -9,7 +9,8 @@ export class TodayOrder extends Component {
     super();
     this.state = {
       elememt: '时间',
-      remark: ''
+      remark: '',
+      end: 16
     };
     this.ticking = this.ticking.bind(this);
     this.handleOrderConfirm = this.handleOrderConfirm.bind(this);
@@ -33,13 +34,20 @@ export class TodayOrder extends Component {
       UserId: this.props.user.UserId,
       Remark: this.state.remark
     };
-    this.props.orderConfirm({order: JSON.stringify(orderConfirm)})
+    this.props.orderConfirm(orderConfirm)
       .then((data) => {
-        // console.log('+1');
-        // console.log(data.payload.Status);
-        if (data.payload.Status === 200) {
+        if (data.payload.Status === 200 && data.payload.Result) {
           this.props.addOne(true);
           swal('成功', '订餐成功！', 'success');
+        }
+        else if (data.payload.Status === 200 && !data.payload.Result) {
+          swal('错误！', '订餐失败！', 'error');
+        }
+        else if (data.payload.Status === 404) {
+          swal('错误:404！', '已超过订餐时间！', 'error');
+        }
+        else if (data.payload.Status === 201) {
+          swal('错误:201！', '您今日已订餐！', 'error');
         }
         else if (data.payload.Status === 500) {
           swal('错误:500！', '服务器异常！', 'error');
@@ -49,12 +57,10 @@ export class TodayOrder extends Component {
 
   handleOrderCancel() {
     let orderCancel = {
-      userId: this.props.user.UserId
+      UserId: this.props.user.UserId
     };
     this.props.orderCancel(orderCancel)
       .then((data) => {
-        // console.log('-1');
-        // console.log(data.payload.Status);
         if (data.payload.Status === 200 && data.payload.Result) {
           this.props.addOne(false);
           swal('成功', '取消成功！', 'success');
@@ -87,11 +93,14 @@ export class TodayOrder extends Component {
               <h1>今日订餐</h1>
             </div>
             <div className="monthly">
-              <p>提醒：请在每天17:00之前确定加餐</p>
+              <h4>提醒：请在每天17:00之前确定加餐</h4>
             </div>
             <ul>
-              <li><b>状态：</b>{this.props.add === false ? '未加餐' : '已加餐'}</li>
-              <li className={new Date().getHours() <= 16
+              <li>
+                <b className="order-state">状态：</b>
+                <b className="order-state">{this.props.add === false ? '未加餐' : '已加餐'}</b>
+              </li>
+              <li className={new Date().getHours() <= this.state.end
               && this.props.add === false
                 ? '' : 'hide'}>
                 <h4>备注：</h4>
@@ -109,7 +118,7 @@ export class TodayOrder extends Component {
                   }}
                 />
               </li>
-              <li className={new Date().getHours() <= 16
+              <li className={new Date().getHours() <= this.state.end
               && this.props.add === false
                 ? 'label1' : 'hide'}>
                 {this.props.label1.map((item, index) => {
@@ -125,7 +134,7 @@ export class TodayOrder extends Component {
                   );
                 })}
               </li>
-              <li className={new Date().getHours() <= 16
+              <li className={new Date().getHours() <= this.state.end
               && this.props.add === false
                 ? 'label1' : 'hide'}>
                 {this.props.label2.map((item, index) => {
@@ -144,19 +153,15 @@ export class TodayOrder extends Component {
               <li className={new Date().getHours() > 16 ? '' : 'hide'}>
                 <b>未到或已过订取餐+1时间，无法订餐！</b>
               </li>
-              <li><a className={new Date().getHours() <= 16 ?
-                'signup' : 'hide'} href="" onClick={
+              <li><a className={new Date().getHours() <= 24 ?
+                'btn btn-lg btn-primary' : 'hide'} href="" onClick={
                 e => {
                   e.preventDefault();
-                  //console.log(this.state.remark);
                   if (this.props.add === false) {
                     this.handleOrderConfirm();
                   }
                   else if (this.props.add === true) {
                     this.handleOrderCancel();
-                    this.setState = {
-                      remark: ''
-                    };
                   }
                 }
               }>{this.props.add === false ? '确定加餐+1' : '取消加餐-1'}</a></li>

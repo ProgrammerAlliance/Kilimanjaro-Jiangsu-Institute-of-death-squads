@@ -26,7 +26,7 @@ http://www.freshdesignweb.com/free-beautiful-css3-table-style.html
   color: #333;
   padding: 20px;
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
   _display: inline; /* IE6 double margin fix */
   position: relative;
   -moz-box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .3);
@@ -91,7 +91,7 @@ http://www.freshdesignweb.com/free-beautiful-css3-table-style.html
 }
 
 .fdw-pricing-table .plan1 .header {
-  border-bottom-color: #B3E03F;
+  border-bottom-color: #31b6e7;
 }
 
 .fdw-pricing-table .plan2 .header {
@@ -201,14 +201,14 @@ http://www.freshdesignweb.com/free-beautiful-css3-table-style.html
   border-bottom: 1px solid transparent;
 }
 
-.trow:hover {
-  transition: all .5s;
-  box-shadow: 0 0 0 5px rgba(156, 186, 95, 0.5);
-  transform: scale(1.04) translateY(-5px);
-  background: #fff;
-  z-index: 1;
-  border-bottom: 0 none;
-}
+/*.trow:hover {*/
+/*transition: all .5s;*/
+/*box-shadow: 0 0 0 5px rgba(156, 186, 95, 0.5);*/
+/*transform: scale(1.04) translateY(-5px);*/
+/*background: #fff;*/
+/*z-index: 1;*/
+/*border-bottom: 0 none;*/
+/*}*/
 
 /* Table Head */
 #table-5 {
@@ -241,4 +241,12 @@ http://www.freshdesignweb.com/free-beautiful-css3-table-style.html
 #table-5 td, #table-5 th {
   padding: 5px 10px;
   font-weight: bold;
+}
+
+th {
+  text-align: center;
+}
+
+.header-star {
+  margin-top: 64px !important;
 }

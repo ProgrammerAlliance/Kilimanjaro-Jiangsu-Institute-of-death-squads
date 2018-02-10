@@ -60,16 +60,16 @@ export class AddUser extends Component {
   }
 
   add() {
-    this.props.addUser({
-      user: JSON.stringify({
-        UserId: this.state.UserId,
+    this.props.addUser(
+        {
+        UserId: parseInt(this.state.UserId),
         UserName: this.state.UserName,
         UserPwd: this.state.UserPwd,
         Deptno: this.state.Deptno,
         UserType: this.state.UserType,
         Gender: this.state.Gender
-      })
-    }).then(data => {
+      }
+    ).then(data => {
       if (data.payload.Status === 200 && data.payload.Result) {
         swal('成功！', '添加成功！', 'success');
         this.props.showAdd('hide');
@@ -130,7 +130,6 @@ export class AddUser extends Component {
       Gender: '男',
     });
     this.props.showAdd('hide');
-    //console.log(this.props);
   }
 
   render() {
@@ -144,9 +143,8 @@ export class AddUser extends Component {
                 <div className="header">
                   <h1>添加用户信息</h1>
                 </div>
-                {/*<div className="monthly">per month</div>*/}
                 <form action="#">
-                  <div className="form-group">
+                  <div className="form-group1">
                     <label htmlFor="add-name">姓名：</label>
                     <input type="text" id="add-name" className="form-control"
                            placeholder="请输入姓名"
@@ -155,7 +153,7 @@ export class AddUser extends Component {
                              this.addUserInfo(e.target.id, e.target.value);
                            }}/>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group1">
                     <label htmlFor="add-cardId">卡号：</label>
                     <input type="text" id="add-cardId" className="form-control"
                            placeholder="请输入卡号"
@@ -168,7 +166,7 @@ export class AddUser extends Component {
                     <b className={this.state.cardTip2 === 'hide'
                       ? 'hide' : 'card-tip tip'}>卡号只能为4位数字！</b>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group1">
                     <div className="group">
                       <label htmlFor="add-sex">性别：</label>
                       <label htmlFor="male" className="sex">男</label>
@@ -182,7 +180,7 @@ export class AddUser extends Component {
                       }}/>
                     </div>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group1">
                     <div className="group">
                       <label htmlFor="add-dept">部门：</label>
                       <select name="dept" id="add-dept"
@@ -201,19 +199,18 @@ export class AddUser extends Component {
                   <h5 className={this.state.tip === 'hide'
                     ? 'hide' : 'tip'}>请填写完整！</h5>
                   <div>
-                    <input type="submit" value="确认" className="btn btn-primary"
+                    <input type="submit" value="确认" className="btn btn-lg btn-primary btn-add"
                            onClick={e => {
                              e.preventDefault();
                              this.addConfirm();
                            }}/>
-                    <input type="button" value="退出" className="btn btn-primary"
+                    <input type="button" value="退出" className="btn btn-lg btn-primary btn-add"
                            onClick={e => {
                              e.preventDefault();
                              this.addCancel();
                            }}/>
                   </div>
                 </form>
-                {/*<a className="signup">Sign up</a>*/}
               </div>
             </div>
           </div>

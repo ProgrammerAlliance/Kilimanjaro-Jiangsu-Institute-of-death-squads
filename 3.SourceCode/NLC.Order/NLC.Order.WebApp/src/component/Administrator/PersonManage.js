@@ -16,7 +16,6 @@ export class PersonManage extends Component {
   componentDidMount() {
     this.props.queryAllUser({rows: 10, page: 1})
       .then(data => {
-        //console.log('status', data);
         if (data.payload.Status === 405) {
           swal('错误:405！', '数据库异常！', 'error');
         }
@@ -25,7 +24,6 @@ export class PersonManage extends Component {
         }
       });
     this.props.queryDept().then(data => {
-      //console.log('status', data);
       if (data.payload.Status === 200 && data.payload.Status.Result) {
         swal('错误！', '部门为空！', 'error');
       }
@@ -55,22 +53,22 @@ export class PersonManage extends Component {
             <div className="header">
               <h1>用户管理</h1>
             </div>
-            {/*<div className="monthly">per month</div>*/}
-            <a className="signup" href="#"
+            <a className="btn btn-primary add-btn" href="#"
                onClick={e => {
                  e.preventDefault();
                  this.props.showAdd('show');
                }}>添加新用户</a>
-            <table id="table-5">
+            <table
+              className="table table-striped">
               <thead>
-              <tr>
-                <th>编号</th>
-                <th>姓名</th>
-                <th>卡号</th>
-                <th>部门</th>
-                {/*<th>密码</th>*/}
-                <th>操作</th>
-              </tr>
+                <tr>
+                  <th>编号</th>
+                  <th>姓名</th>
+                  <th>卡号</th>
+                  <th>部门</th>
+                  {/*<th>密码</th>*/}
+                  <th>操作</th>
+                </tr>
               </thead>
               <tbody>
               {this.props.userInfo.list.map((item, index) => {
@@ -109,7 +107,6 @@ export class PersonManage extends Component {
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              {/*<li>{console.log(this.props.totalPage)}</li>*/}
               {this.props.userInfo.totalPage.map((item, index) => {
                 return (
                   <li key={index} className={this.props.userInfo.currentPage === index + 1 ? 'active' : ''}>

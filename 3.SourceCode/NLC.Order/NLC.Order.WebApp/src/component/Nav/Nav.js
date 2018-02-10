@@ -13,9 +13,6 @@ export class Nav extends Component {
         <div className="header">
           <div className="container">
             <div className="logo">
-              {/*<img*/}
-              {/*src={url + 'logo.png'}*/}
-              {/*className="img-responsive" alt=""/>*/}
               <b className="logo-title">纳龙科技</b>
               <span className={this.props.userType !== 'admin-success'
               && this.props.userType !== 'user-success' ? 'visible' : 'title'}>
@@ -33,7 +30,7 @@ export class Nav extends Component {
                 <ul>
                   <li className={this.props.userType === 'user-success' ? '' : 'visible'}>
                     <ul>
-                      <li><Link to="/user/menu">个人中心 </Link></li>
+                      <li><Link to="/user/menu/info">个人中心 </Link></li>
                       <li><Link to="/user/order">今日订餐 </Link></li>
                       <li><Link to="/contact">今日之星</Link></li>
                     </ul>
