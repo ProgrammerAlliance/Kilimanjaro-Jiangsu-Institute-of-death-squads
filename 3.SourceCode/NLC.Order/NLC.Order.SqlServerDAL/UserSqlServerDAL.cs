@@ -82,9 +82,9 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception)
             {
-                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+                LogHelper.WriteLogFile("执行插入用户SQL语句失败");
             }
-            return result > 0 ? true : false;
+            return result > 0;
         }
 
         /// <summary>

@@ -20,10 +20,9 @@ namespace NLC.Order.WebApi.Controllers
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult Login(int UserId, string pwd, int type)
+        public JsonResult GetLogin([FromUri]UserInfo user)
         {
-            return userBLL.Login(UserId, pwd, type);
+            return userBLL.Login(user.UserId,user.UserPwd,user.UserType);
         }
 
         /// <summary>
@@ -31,11 +30,9 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <param name="user">用户信息</param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult AddUser(string user)
+        public JsonResult PostAddUser([FromBody] UserInfo user)
         {
-            UserInfo u = JsonConvert.DeserializeObject<UserInfo>(user);
-            return userBLL.AddUser(u);
+            return userBLL.AddUser(user);
         }
 
         /// <summary>
@@ -43,32 +40,31 @@ namespace NLC.Order.WebApi.Controllers
         /// </summary>
         /// <param name="userId">员工编号</param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult DelUser(string userId)
+        public JsonResult DeleteUser(string userId)
         {
             return userBLL.DelUser(userId);
         }
 
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="userId">员工编号</param>
-        /// <param name="newPassword">新密码</param>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult ModifyPassword(string userId, string newPassword)
-        {
-            return userBLL.ModifyPassword(userId, newPassword);
-        }
+        ///// <summary>
+        ///// 修改密码
+        ///// </summary>
+        ///// <param name="userId">员工编号</param>
+        ///// <param name="newPassword">新密码</param>
+        ///// <returns></returns>
+        //[HttpGet]
+        //public JsonResult ModifyPassword(string userId, string newPassword)
+        //{
+        //    return userBLL.ModifyPassword(userId, newPassword);
+        //}
 
-        /// <summary>
-        /// 获取所有用户
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult GetAllUser(int rows, int page)
-        {
-            return userBLL.GetAllUser(rows, page);
-        }
+        ///// <summary>
+        ///// 获取所有用户
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //public JsonResult GetAllUser(int rows, int page)
+        //{
+        //    return userBLL.GetAllUser(rows, page);
+        //}
     }
 }
