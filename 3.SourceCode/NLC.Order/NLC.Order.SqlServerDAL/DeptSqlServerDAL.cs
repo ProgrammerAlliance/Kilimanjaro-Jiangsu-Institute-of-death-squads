@@ -24,9 +24,9 @@ namespace NLC.Order.SqlServerDAL
                 DataSet ds = DBHelper.Query(sql, null);
                 list = DBHelper.GetListbyDataSet<DeptInfo>(ds);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行获取所有的部门SQL语句失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return list;
         }

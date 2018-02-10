@@ -76,9 +76,9 @@ namespace NLC.Order.SqlServerDAL
                            FROM [Order].[dbo].[Restaurant]";
                 ds = DBHelper.Query(sql, null);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行删除用户SQL语句失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return DBHelper.GetListbyDataSet<RestaurInfo>(ds);
         }
@@ -102,9 +102,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 data = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据饭店查找所有菜单SQL语句失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return DBHelper.GetListbyDataSet<MenuInfo>(data);
         }
@@ -130,9 +130,9 @@ namespace NLC.Order.SqlServerDAL
                 };
                 data = DBHelper.Query(sql, parameters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                LogHelper.WriteLogFile("执行根据菜品名称和饭店查找菜品SQL语句失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return data.Tables[0].Rows.Count == 0;
         }

@@ -48,13 +48,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误" + e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("增加用户失败" + e.Message);
+                LogHelper.WriteLogFile( e.Message);
             }
             return jr;
         }
@@ -75,13 +75,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误" + e.Message);
+                LogHelper.WriteLogFile( e.Message);
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("删除用户失败" + e.Message);
+                LogHelper.WriteLogFile( e.Message);
             }
             return jr;
         }
@@ -109,13 +109,13 @@ namespace NLC.Order.BLL
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误");
+                LogHelper.WriteLogFile(e.Message);
             }
             catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "系统繁忙";
-                LogHelper.WriteLogFile("获取所有用户失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -156,17 +156,17 @@ namespace NLC.Order.BLL
                     jr.Result = Result[0];
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误");
+                LogHelper.WriteLogFile(e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "登录出错";
-                LogHelper.WriteLogFile("登录出错");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
@@ -190,19 +190,21 @@ namespace NLC.Order.BLL
                 jr.Result = userDAL.UpdateUser(userId, password);
                 jr.Status = 200;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 jr.Status = 405;
                 jr.Result = "数据库错误";
-                LogHelper.WriteLogFile("数据库错误");
+                LogHelper.WriteLogFile(e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jr.Status = 500;
                 jr.Result = "修改密码出错";
-                LogHelper.WriteLogFile("修改密码失败");
+                LogHelper.WriteLogFile(e.Message);
             }
             return jr;
         }
+
+       
     }
 }
