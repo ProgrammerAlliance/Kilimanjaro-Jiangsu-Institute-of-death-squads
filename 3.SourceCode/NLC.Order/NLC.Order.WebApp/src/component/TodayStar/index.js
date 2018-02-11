@@ -9,7 +9,7 @@ export class Contact extends Component {
   componentDidMount() {
     this.props.queryStar().then(data => {
       if (data.payload.Status === 200 && data.payload.Result.length === 0) {
-        swal('', '未有打扫人员！', 'success');
+        //swal('', '未有打扫人员！', 'success');
       }
       else if (data.payload.Status === 500) {
         swal('错误:500！', '服务器异常！', 'error');

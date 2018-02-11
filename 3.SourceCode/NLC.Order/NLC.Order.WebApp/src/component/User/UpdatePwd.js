@@ -111,7 +111,7 @@ export class UpdatePwd extends Component {
                 <b className={this.state.tip2 === false ? 'hide' : 'pwd-tip'}>两次密码不一致！</b>
                 <b className={this.state.tip3 === false ? 'hide' : 'pwd-tip'}>密码由3-6数字组成！</b>
                 <div>
-                  <input type="submit" value="确认"
+                  <input type="submit" value="确定"
                          className="btn btn-lg btn-add btn-primary"
                          onClick={e => {
                            e.preventDefault();
