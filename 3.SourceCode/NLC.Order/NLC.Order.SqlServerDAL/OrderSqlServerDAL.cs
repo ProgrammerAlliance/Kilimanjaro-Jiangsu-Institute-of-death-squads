@@ -30,7 +30,7 @@ namespace NLC.Order.SqlServerDAL
                 new SqlParameter("Clean",order.Clean),
                 new SqlParameter("Remark",order.Remark)
             };
-            return DBHelper.NonQuery(sql, parameters) > 0;
+            return DBHelper.NonQuery(sql, parameters) > 0 ? true : false;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return result > 0;
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return result > 0;
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return ds.Tables[0].Rows.Count <= 0;
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return ds.Tables[0].Rows.Count <= 0;
+            return ds.Tables[0].Rows.Count <= 0 ? false : true;
         }
     }
 }

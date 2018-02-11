@@ -27,7 +27,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile( e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             return ds.Tables[0].Rows.Count;
         }
@@ -51,9 +51,9 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile( e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
-            return result > 0;
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return result > 0;
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile( e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
             return DBHelper.GetListbyDataSet<UserInfo>(data);
         }
@@ -170,9 +170,9 @@ namespace NLC.Order.SqlServerDAL
             }
             catch (Exception e)
             {
-                LogHelper.WriteLogFile( e.Message);
+                LogHelper.WriteLogFile(e.Message);
             }
-            return result > 0;
+            return result > 0 ? true : false;
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace NLC.Order.SqlServerDAL
             {
                 LogHelper.WriteLogFile(e.Message);
             }
-            return data.Tables[0].Rows.Count == 0;
+            return data.Tables[0].Rows.Count == 0 ? false : true;
         }
     }
 }

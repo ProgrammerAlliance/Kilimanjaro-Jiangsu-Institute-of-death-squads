@@ -61,7 +61,7 @@ namespace NLC.Order.WebApi.Controllers
         /// <returns></returns>
         public JsonResult PutModifyPassword(UserInfo user)
         {
-            return userBLL.ModifyPassword(user.UserId, user.UserPwd,user.RepeatPassword);
+            return userBLL.ModifyPassword(user.UserId, user.UserPwd);
         }
     }
 }

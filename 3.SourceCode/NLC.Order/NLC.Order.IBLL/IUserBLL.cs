@@ -39,6 +39,6 @@ namespace NLC.Order.IBLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        JsonResult ModifyPassword(int userId, string password, string repeatPassword);
+        JsonResult ModifyPassword(int userId, string password);
     }
 }

@@ -177,14 +177,8 @@ namespace NLC.Order.BLL
         /// <param name="userId">员工编号</param>
         /// <param name="psassword">密码</param>
         /// <returns></returns>
-        public JsonResult ModifyPassword(int userId, string password, string repeatPassword)
+        public JsonResult ModifyPassword(int userId, string password)
         {
-            if (!password.Equals(repeatPassword))
-            {
-                jr.Result = "两次密码不一致";
-                jr.Status = 201;
-                return jr;
-            }
             try
             {
                 jr.Result = userDAL.UpdateUser(userId, password);
