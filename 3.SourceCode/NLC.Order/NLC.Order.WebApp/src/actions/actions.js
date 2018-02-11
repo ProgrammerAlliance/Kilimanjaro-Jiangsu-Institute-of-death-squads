@@ -1,6 +1,6 @@
 import request, {onSuccess} from '../lib/request';
 
-let http = 'http://127.0.0.1:9999/api/';
+let http = 'http://192.168.2.251:9999/api/';
 let httpUser = http + 'User/';
 let httpDept = http + 'Dept/';
 let httpOrder = http + 'Order/';

@@ -9,7 +9,7 @@ export class PersonNumber extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <div className="fdw-pricing-table">
           <div className="plan plan1">
             <div className="header">
@@ -73,8 +73,8 @@ export class PersonNumber extends Component {
               </li>
             </ul>
           </div>
+          <OrderDetail/>
         </div>
-        <OrderDetail/>
       </div>
     );
   }

@@ -56,7 +56,7 @@ export class Login1 extends Component {
               a.props.changeUserType('admin-success');
             }
             else if (a.props.userType === 'user') {
-              a.props.history.push('/user/order');
+              a.props.history.push('/contact');
               a.props.changeUserType('user-success');
               a.props.saveUser(data.payload);
             }
